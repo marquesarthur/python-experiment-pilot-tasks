@@ -16,13 +16,13 @@ class TestNYTimes(unittest.TestCase):
         web_scrapper = Solution()
         articles = web_scrapper.get_articles_from_front_page(url)
 
-        expected = Article("Angling for a Merry ‘Fishmas’ Despite Global Shipping Delays", author="By Ana Swanson")
+        expected = Article("Angling for a Merry ‘Fishmas’ Despite Global Shipping Delays")
         self.assertTrue(expected in articles)
 
-        expected = Article("Who Had Covid-19 Vaccine Breakthrough Cases?", author="By Aliza Aufrichtig and Amy Schoenfeld Walker")
+        expected = Article("Who Had Covid-19 Vaccine Breakthrough Cases?")
         self.assertTrue(expected in articles)
 
-        expected = Article("What if Everything You Learned About Human History Is Wrong?", author="By Jennifer Schuessler")
+        expected = Article("What if Everything You Learned About Human History Is Wrong?")
         self.assertTrue(expected in articles)
 
 
@@ -31,21 +31,11 @@ class TestNYTimes(unittest.TestCase):
         web_scrapper = Solution()
         articles = web_scrapper.get_articles_from_front_page(url)
 
-        expected = Article("Leader of Prestigious Yale Program Resigns, Citing Donor Pressure", author="By Jennifer Schuessler")
+        expected = Article("Leader of Prestigious Yale Program Resigns, Citing Donor Pressure")
         self.assertTrue(expected in articles)
 
-        expected = Article("After Hurricane Ida, Oil Infrastructure Springs Dozens of Leaks", author="By Blacki Migliozzi and Hiroko Tabuchi")
+        expected = Article("After Hurricane Ida, Oil Infrastructure Springs Dozens of Leaks")
         self.assertTrue(expected in articles)
-
-
-
-
-
-
-
-
-
-
 
 
 

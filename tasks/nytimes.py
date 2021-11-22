@@ -10,17 +10,18 @@ import requests
 # https://www.dataquest.io/blog/web-scraping-python-using-beautiful-soup/
 # https://docs.python-requests.org/en/latest/
 # https://docs.python-requests.org/en/latest/api/
+# https://realpython.com/beautiful-soup-web-scraper-python/
+# https://www.scrapingbee.com/blog/python-web-scraping-beautiful-soup/
 
 
 # You don't need to modify this class. Use it to instantiate the object that is returned
 class Article(object):
 
-    def __init__(self, headline, author=None):
+    def __init__(self, headline):
         self.headline = headline
-        self.author = author
 
     def __str__(self):
-        return f"{self.headline}\n\t{self.author}"
+        return self.headline
 
     def __eq__(self, other):
         return self.headline == other.headline
@@ -46,6 +47,6 @@ class Solution(object):
         #     result.append(Article(h2.getText(), author=div.getText()))
 
         for h2 in headlines:
-         result.append(Article(h2.getText()))
+            result.append(Article(h2.getText()))
 
         return result
