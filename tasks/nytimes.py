@@ -29,24 +29,14 @@ class Article(object):
 
 class Solution(object):
 
-    def get_articles_from_front_page(self, url):
+    def get_articles_from_front_page(self, url: str) -> list:
         """
         Retrieves all the headlines of a NYTimes web page
-        :param url:
+        :param url: url of the NYT daily articles (e.g., https://www.nytimes.com/issue/todayspaper/2021/10/01/todays-new-york-times)
         :return: list: a list of Article containing at least the headline of the NYTimes article
         """
-
-        req = requests.get(url)
-        html = req.content
-        bs = BeautifulSoup(html, "lxml")
-
         result = []
-        headlines = bs.find_all('h2', {"class": "css-ds6ff4"})
-        # authors = bs.find_all('div', {"class": "css-9t0aj2"})
-        # for h2, div in zip(headlines, authors):
-        #     result.append(Article(h2.getText(), author=div.getText()))
 
-        for h2 in headlines:
-            result.append(Article(h2.getText()))
+        # TODO: your solution
 
         return result

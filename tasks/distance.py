@@ -13,32 +13,19 @@ from geopy.geocoders import Nominatim
 import sys
 from geopy import distance
 
+
 class Solution(object):
 
-    def best_sightseeing_place(self, rendezvous_address, suggestions_lst, max_allowed=10):
-
-        geolocator = Nominatim(user_agent="SPL-task")
-
-        location_a = geolocator.geocode(rendezvous_address)
-
+    def best_sightseeing_place(self, rendezvous_address: str, suggestions_lst: list, max_allowed=10) -> str:
+        """
+        Given a starting place
+        :param rendezvous_address: str address with the starting location
+        :param suggestions_lst: list of addresses (str) with potential places to visit
+        :param max_allowed: max allowed walking distance (in kilometers) to a place
+        :return: str: value within suggestions_lst which is the closest place to visit
+        """
         closest = None
-        current_distance = sys.maxsize
-        for suggestion in sorted(suggestions_lst, key=str.lower):
-            location_b = geolocator.geocode(suggestion)
 
-            __dist = distance.distance(location_a.point, location_b.point).km
-
-            if __dist < current_distance and __dist < max_allowed:
-                current_distance = __dist
-                closest = suggestion
-
-
+        # TODO: your solution
 
         return closest
-
-
-
-rendezvous_address = "1958 Main Mall, Vancouver, BC V6T 1Z2"
-suggestions_lst = ["Spanish Banks West Concession"]
-
-print(Solution().best_sightseeing_place(rendezvous_address, suggestions_lst))

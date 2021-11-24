@@ -15,16 +15,14 @@ import re
 class Solution(object):
 
     def find_contact_information(self, resume_file_path):
-        pattern = re.compile("([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)")
-
-        with open(resume_file_path, 'r', encoding='utf-8') as input_file:
-            lines = input_file.readlines()
-
+        """
+        Finds all the emails in a text file
+        :param resume_file_path: path to the file containing the student's resume
+        :return: list: a list with all the emails found in the resume
+        """
         result = []
-        for line in lines:
-            has_email = re.search(pattern, line)
-            if has_email:
-                result.append(has_email.group())
+
+        # TODO: your solution
 
         return result
 
