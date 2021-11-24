@@ -7,9 +7,9 @@ An example of the articles is shown below
 ![image info](./rsz_nytimes.png)
 
 
-Given a `string` representing a url of a NY Times Today's,
+Given a `string` representing the url for NY Times Today's,
 
-you must write an algorithm using the `BeautifulSoup` and `requests` to scrap all the headlines of that page.
+you must write a python script using the `BeautifulSoup` and `requests` modules to scrap all the headlines of that page.
 
 ## Details
 
@@ -32,13 +32,13 @@ ___
 
 **Input:**
 
-```
+```python
 url = "https://www.nytimes.com/issue/todayspaper/2021/11/01/todays-new-york-times"
 ```
 
 **Output:**
 
-```
+```python
 result = [
     ...
     "Angling for a Merry ‘Fishmas’ Despite Global Shipping Delays",
@@ -59,13 +59,13 @@ ___
 
 **Input:**
 
-```
+```python
 url = "https://www.nytimes.com/issue/todayspaper/2021/10/01/todays-new-york-times"
 ```
 
 **Output:**
 
-```
+```python
 result = [
     ...
     "Leader of Prestigious Yale Program Resigns, Citing Donor Pressure",
