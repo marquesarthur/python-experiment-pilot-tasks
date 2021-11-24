@@ -24,7 +24,7 @@ class Solution(object):
         df = df.query('age >= 18 & age <= 30 & fare < 100')
         df = df[["age", "sex", "fare"]]
 
-        df = df.groupby(["age", "sex"], as_index=False).agg({'fare': 'mean'})
+        df = df.groupby(["age", "sex"], as_index=False).mean()
         df = df.sort_values(['age'], ascending=True)
 
         return sns.barplot(x="age", y="fare", hue="sex", data=df)
