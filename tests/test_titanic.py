@@ -23,7 +23,7 @@ class TestTitanic(unittest.TestCase):
         self.__combare_axis(x_values, expected_x_values, "x")
         self.__combare_axis(y_values, expected_y_values, "y")
 
-    def __combare_axis(self, plot_values, expected_values, axis):
+    def __compare_axis(self, plot_values, expected_values, axis):
         self.assertEqual(len(plot_values), len(expected_values), "The length of both arrays should be the same")
 
         for value, expected_value in zip(plot_values, expected_values):
