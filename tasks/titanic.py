@@ -11,7 +11,8 @@
 # https://stackoverflow.com/questions/51866908/difference-between-as-index-false-and-reset-index-in-pandas-groupby/51933722
 # https://stackoverflow.com/questions/32400867/pandas-read-csv-from-url
 
-
+import io
+import requests
 import pandas as pd
 import seaborn as sns
 import matplotlib as plt
