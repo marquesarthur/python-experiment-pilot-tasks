@@ -6,12 +6,16 @@ An example of the articles is shown below
 
 ![image info](./rsz_nytimes.png)
 
+___
+
+
+## Task
 
 Given a `string` representing the url for NY Times Today's,
 
 you must write a python script using the `BeautifulSoup` and `requests` modules to scrap all the headlines of that page.
 
-## Details
+**Details:**
 
 Web scrapping relies on the HTML elements of the page. You can find more information by:
 

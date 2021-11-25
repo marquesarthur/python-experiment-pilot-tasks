@@ -13,6 +13,10 @@ Some students are not happy with walking distances and the student association w
 
 Every week, students submit a picnic address and the system should find the place closest to the starting location.
 
+___
+
+
+## Task
 
 
 Given a `string` representing rendezvous address and a `list` of suggested picnic addresses

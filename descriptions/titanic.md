@@ -20,7 +20,15 @@ For this particular dataset, each row provides information in the following form
 |cabin |	Cabin number 	| |
 |embarked |	Port of Embarkation |	C = Cherbourg, Q = Queenstown, S = Southampton |
 
+
+A sample of the dataset is shown below:
+
 ![image info](./titanic-data.png)
+
+___
+
+
+## Task
 
 
 Given a `string` representing a url for the titanic dataset (in `csv` format),
@@ -31,13 +39,13 @@ you must write an algorithm using the `pandas` and `seaborn` modules to create a
 
 **Constraints**
 
-* Passengers age must `>= 18`
+* Passengers age must be `>= 18`
 
-* Passengers age must `<= 30`
+* Passengers age must be `<= 30`
 
 * Averages are affected by outliers, so you must ignore fares `>= 100`
 
-* The only variables of interest are sex, age, and fare
+* The only variables of interest are `sex`, `age`, and `fare`
 
 
 
