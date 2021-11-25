@@ -21,3 +21,9 @@ See if any of the elements within the following might assist you scrapping the h
 </li>
 ```
 
+**Follow-up**
+
+1. Right-click a page in your web browser
+1. Select `view page source`
+1. Search where some of the elements in the snippet above appear
+1. See if you can find a pattern
