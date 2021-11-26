@@ -92,7 +92,7 @@ Start by saving a copy of the colab to your local drive:
 
 ## Practice 
 
-Head to [pratice-colab](https://colab.research.google.com/drive/18XUYSK1lUynsK1Mn9nj7foxDzw7MKSSO?usp=sharing) and try the phone list task yourself. Use the three resources provided under [Resources](##-Resources)
+Head to [pratice-colab](https://colab.research.google.com/drive/18XUYSK1lUynsK1Mn9nj7foxDzw7MKSSO?usp=sharing) and try the phone list task yourself. Use the three resources provided under [Resources](#Resources)
 
 
 **IMPORTANT:** We are not measuring the quality of your code, just if your solution passes the test cases for each task.
