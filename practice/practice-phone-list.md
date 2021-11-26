@@ -74,23 +74,25 @@ Start by saving a copy of the colab to your local drive:
 ![image info](./colab-save-copy.png)
 
 
-2. Update the editor to the editor of your preference
+2. Update the editor key bindings to the one of your preference
 
     * Go to `Tools` > `settings`
 
     * ![image info](./colab-settings.png)
 
-    * Under editor check the options that best apply to you
+    * Under editor check the options that best apply to you (e.g., default, vim, etc)
 
 
 3. Near each cell, there is a run button. You can click it to run the code of that cell
+
+    * ![image info](./colab-empty.png)
 
     * `ctrl + enter` or `cmd + enter` also runs the content of a cell
 
 
 ## Practice 
 
-Head to [pratice-colab](https://colab.research.google.com/drive/18XUYSK1lUynsK1Mn9nj7foxDzw7MKSSO?usp=sharing) and try this practice task first.
+Head to [pratice-colab](https://colab.research.google.com/drive/18XUYSK1lUynsK1Mn9nj7foxDzw7MKSSO?usp=sharing) and try the phone list task yourself. Use the three resources provided under [Resources](##-Resources)
 
 
 **IMPORTANT:** We are not measuring the quality of your code, just if your solution passes the test cases for each task.
