@@ -1,6 +1,6 @@
 # New York Times web scrapper
 
-New York Times has an archive all its articles published at a given date: `https://www.nytimes.com/section/todayspaper?redirect_uri=https%3A%2F%2Fwww.nytimes.com%2F`
+New York Times has an archive with all its articles published articles at a given date: `https://www.nytimes.com/section/todayspaper?redirect_uri=https%3A%2F%2Fwww.nytimes.com%2F`
 
 An example of the articles is shown below
 
@@ -95,3 +95,8 @@ Please **use only** the following resources to find information that might assis
 * [How to extract HTTP response body from a Python requests call?](https://stackoverflow.com/questions/9029287/how-to-extract-http-response-body-from-a-python-requests-call)
 * [Beautiful Soup: Build a Web Scraper With Python](https://realpython.com/beautiful-soup-web-scraper-python/)
 * [Web Scraping with BeautifulSoup](https://www.scrapingbee.com/blog/python-web-scraping-beautiful-soup/)
+
+
+## Colab
+
+[coding environment](https://colab.research.google.com/drive/1KWPqd2sNsrIjUx2zYULb-cCxBOOrP65j?usp=sharing)

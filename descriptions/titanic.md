@@ -97,3 +97,9 @@ Please **use only** the following resources to find information that might assis
 * ['Could not interpret input' error with Seaborn when plotting groupbys](https://stackoverflow.com/questions/32908315/could-not-interpret-input-error-with-seaborn-when-plotting-groupbys)
 * [Difference between "as_index = False", and "reset_index()" in pandas groupby](https://stackoverflow.com/questions/51866908/difference-between-as-index-false-and-reset-index-in-pandas-groupby/51933722)
 * [Pandas read_csv from url](https://stackoverflow.com/questions/32400867/pandas-read-csv-from-url)
+
+
+
+## Colab
+
+[coding environment](https://colab.research.google.com/drive/16ZjmHuKWZUwagL6iLRjRn5GBo2b4hdP2?usp=sharing)
