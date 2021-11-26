@@ -1,12 +1,3 @@
-# https://geopy.readthedocs.io/en/stable/
-# https://github.com/geopy/geopy
-# https://holypython.com/locations-in-python-geocoding-w-geopy/
-# https://stackoverflow.com/questions/37608811/obtaining-latitude-and-longitude-of-multiple-locations-using-geopy
-# https://stackoverflow.com/questions/7371935/sort-a-string-in-lexicographic-order-python
-# https://stackoverflow.com/questions/13686001/python-module-for-getting-latitude-and-longitude-from-the-name-of-a-us-city
-# https://stackoverflow.com/questions/24427828/calculate-point-based-on-distance-and-direction
-# https://pythonsimplified.com/geocoding-in-python-using-geopy/
-# https://www.askpython.com/python/python-geopy-to-find-geocode-of-an-address
 
 
 from geopy.geocoders import Nominatim
