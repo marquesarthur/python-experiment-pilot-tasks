@@ -50,6 +50,8 @@ All data will be saved on the University of British Columbia cloud-based file sy
 
 A copy of the anonymized data will be publically available due to open access purposes. An excerpt of the data made public is presented below:
 
+![image info](./descriptions/erb-sample-data.png)
+
 **Where:**
 
 * `Start-time` indicates the date and exact time that you have started a task;
