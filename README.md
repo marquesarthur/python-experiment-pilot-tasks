@@ -1,6 +1,4 @@
-# Task-Relevant-Knowledge-Identification
-
-## Identifying Task-Relevant Knowledge in Natural Language Software Engineering Artifacts
+# Identifying Task-Relevant Knowledge in Natural Language Software Engineering Artifacts
 
 
 ### Principal Investigator: 
