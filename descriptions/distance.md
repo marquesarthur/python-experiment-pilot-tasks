@@ -32,7 +32,7 @@ you must write an algorithm using the `geopy` module to find the closest picnic 
 
 * There can be invalid addresses either in the meeting place or in the suggestion list
 
-* If two places have the same distance, your solution should return the address that appears first (in lexicographical order) in the list of suggestions 
+* If two places have the same distance, your solution should return the address that appears first in the list of suggestions 
 
 
 ## Example 1
