@@ -39,7 +39,8 @@ The web browser plugin does not track your web browsing activity and you have th
 
 We do not expect there to be any potential benefit from participating in this study. However, you may find it interesting to reflect on your information-seeking behavior and how you judge information as relevant. Direct benefits can arise if our findings lead to tools that can automatically identify relevant information so as to assist you in your daily information-seeking activities. 
 
-Data, Storage & Confidentiality:
+### Data, Storage & Confidentiality:
+
 We collect data related to the solution you wrote, text in an artifact that you have manually highlighted, and your ratings on the usefulness of the text automatically highlighted in a document. All data will be anonymized before and will not contain any identifying information. At no point in time will your course instructor have access to any identifying information. Participating, or not, in this study will have no repercussions on your course grade.
 
 You will be identified by number or pseudonyms in any internal or academic research publication or presentation. If we choose to use one of your submitted solutions or text highlighted data, they will be attributed to a participant number or pseudonym. 
