@@ -42,11 +42,12 @@ We do not expect there to be any potential benefit from participating in this st
 
 ### Payment:
 
-Provided that you have completed at least one of the two tasks in the study, you will have the opportunity to enter a raffle for one out of two 10.2-inch iPad Wi‑Fi 64GB.
+Provided that you have completed at least one of the two tasks in the study, you will have the opportunity to enter a raffle for one out of two 10.2-inch iPad Wi‑Fi 64GB. We define a complete solution as one that produces an output that matches known expected outputs. Expected outputs accompany each task in the form of “examples”, each with an input, output, and an explanation of why that is the expected output.
 
-Winners will be randomly selected on Feb 28th 2022, and will be announced on Mar 2nd, 2022 at approximately 10am (Pacific Time). Odds of winning depend on the number of entrants.
+Winners will be randomly selected on Feb 28th 2022, and will be announced on Mar 2nd, 2022 at approximately 10am (Pacific Time). The co-investigator will contact winners by email. Winners have up to three days to provide confirmation that they accept the prize. Failure to do so will result in the draw of a new winner following the same procedures. Odds of winning depend on the number of entrants.
 
 The data stored for the raffle will not compromise your confidentiality. If you revoke consent you are still entitled to the raffle. 
+
 
 ### Data, Storage & Confidentiality:
 
