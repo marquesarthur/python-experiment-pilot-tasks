@@ -101,7 +101,7 @@ You will be provided with a link to an electronic consent survey. By consenting 
 
 _______
 
-Version 1.3, December 2, 2021
+December 10, 2021
 
 Ethics ID: H19-04054
 
