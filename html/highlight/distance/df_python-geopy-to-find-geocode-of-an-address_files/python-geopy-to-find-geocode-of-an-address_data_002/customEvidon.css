@@ -1,0 +1,45 @@
+
+.bap2.bap-notice,
+.bap1.bap-notice
+{
+    position: absolute;
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+}
+
+.ivc-evidon-custom-container
+{
+    position: absolute;
+    pointer-events: auto;
+    cursor: pointer;
+    width: 77px !important;
+    height: 15px !important;
+}
+
+.ivc-evidon-custom-container.ivc-pos-tr
+{
+    top: 0;
+    right: 0;
+}
+.ivc-evidon-custom-container.ivc-pos-tl
+{
+    top: 0;
+    left: 0;
+}
+.bap-trigger
+{
+    position: absolute;
+    top: 0 !important;
+    z-index: 11;
+}
+.ivc-evidon-custom-container.ivc-pos-tr .bap-trigger
+{
+    right: 0 !important;
+    left: auto !important;
+}
+.ivc-evidon-custom-container.ivc-pos-tl .bap-trigger
+{
+    right: auto !important;
+    left: 0 !important;
+}

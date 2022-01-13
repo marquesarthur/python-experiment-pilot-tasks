@@ -1,0 +1,163 @@
+/**
+ * SyntaxHighlighter
+ * http://alexgorbatchev.com/SyntaxHighlighter
+ *
+ * SyntaxHighlighter is donationware. If you are using it, please donate.
+ * http://alexgorbatchev.com/SyntaxHighlighter/donate.html
+ *
+ * @version
+ * 3.0.83 (July 02 2010)
+ * 
+ * @copyright
+ * Copyright (C) 2004-2010 Alex Gorbatchev.
+ *
+ * @license
+ * Dual licensed under the MIT and GPL licenses.
+ */
+.syntaxhighlighter {
+  background-color: #f5f6f9 !important;
+}
+.syntaxhighlighter .line.alt1 {
+  background-color: #f5f6f9 !important;
+}
+.syntaxhighlighter .line.alt2 {
+  background-color: #f5f6f9 !important;
+}
+.syntaxhighlighter .line.highlighted.alt1,
+.syntaxhighlighter .line.highlighted.alt2 {
+  background-color: #e9ebf2 !important;
+}
+.syntaxhighlighter .line.highlighted.number {
+  color: #2a2a2a !important;
+}
+.syntaxhighlighter table caption {
+  color: #2a2a2a !important;
+}
+.syntaxhighlighter .gutter {
+  color: #afafaf !important;
+}
+.syntaxhighlighter .gutter .line {
+  border-right: 3px solid transparent !important;
+}
+.syntaxhighlighter .gutter .line.highlighted {
+  background-color: #e9ebf2 !important;
+  color: #afafaf !important;
+}
+.syntaxhighlighter.printing .line .content {
+  border: none !important;
+}
+.syntaxhighlighter.collapsed {
+  overflow: visible !important;
+}
+.syntaxhighlighter.collapsed .toolbar {
+  color: #3d5afe !important;
+  background: #f5f6f9 !important;
+  border: 1px solid #007400 !important;
+}
+.syntaxhighlighter.collapsed .toolbar a {
+  color: #3d5afe !important;
+}
+.syntaxhighlighter.collapsed .toolbar a:hover {
+  color: #da0079 !important;
+}
+.syntaxhighlighter .toolbar {
+  color: #f5f6f9 !important;
+  background: #007400 !important;
+  border: none !important;
+}
+.syntaxhighlighter .toolbar a {
+  color: #f5f6f9 !important;
+}
+.syntaxhighlighter .toolbar a:hover {
+  color: #2a2a2a !important;
+}
+.syntaxhighlighter .plain,
+.syntaxhighlighter .plain a {
+  color: #2a2a2a !important;
+}
+.syntaxhighlighter .comments,
+.syntaxhighlighter .comments a {
+  color: #467790 !important;
+}
+.syntaxhighlighter .string,
+.syntaxhighlighter .string a {
+  color: #3d5afe !important;
+}
+.syntaxhighlighter .keyword {
+  color: #651fff !important;
+}
+.syntaxhighlighter .preprocessor {
+  color: gray !important;
+}
+.syntaxhighlighter .variable {
+  color: #aa7700 !important;
+}
+.syntaxhighlighter .value {
+  color: #bf00b8 !important;
+}
+.syntaxhighlighter .functions {
+  color: #ff1493 !important;
+}
+.syntaxhighlighter .constants {
+  color: #0066cc !important;
+}
+.syntaxhighlighter .script {
+  font-weight: bold !important;
+  color: #651fff !important;
+  background-color: none !important;
+}
+.syntaxhighlighter .color1,
+.syntaxhighlighter .color1 a {
+  color: gray !important;
+}
+.syntaxhighlighter .color2,
+.syntaxhighlighter .color2 a {
+  color: #ff1493 !important;
+}
+.syntaxhighlighter .color3,
+.syntaxhighlighter .color3 a {
+  color: #da0079 !important;
+}
+
+.syntaxhighlighter .keyword {
+  font-weight: bold !important;
+}
+
+html[color-theme='dark'] .syntaxhighlighter {
+  background-color: #151f28 !important;
+}
+html[color-theme='dark'] .syntaxhighlighter .line.alt1 {
+  background-color: #151f28 !important;
+}
+html[color-theme='dark'] .syntaxhighlighter .line.alt2 {
+  background-color: #151f28 !important;
+}
+html[color-theme='dark'] .syntaxhighlighter .line.highlighted.alt1,
+html[color-theme='dark'] .syntaxhighlighter .line.highlighted.alt2 {
+  background-color: #e0e0e0 !important;
+}
+html[color-theme='dark'] .syntaxhighlighter .line.highlighted.number {
+  color: #fff !important;
+}
+html[color-theme='dark'] .syntaxhighlighter table caption {
+  color: #fff !important;
+}
+html[color-theme='dark'] .syntaxhighlighter .toolbar a:hover {
+  color: #fff !important;
+}
+html[color-theme='dark'] .syntaxhighlighter .plain,
+html[color-theme='dark'] .syntaxhighlighter .plain a {
+  color: #fff !important;
+}
+
+html[color-theme='dark'] .syntaxhighlighter .line.highlighted.alt1,
+html[color-theme='dark'] .syntaxhighlighter .line.highlighted.alt2 {
+  background-color: #182635 !important;
+}
+html[color-theme='dark'] .syntaxhighlighter .line.highlighted.number {
+  color: #2a2a2a !important;
+}
+html[color-theme='dark'] .syntaxhighlighter .gutter .line.highlighted {
+  background-color: #182635 !important;
+  color: #afafaf !important;
+}

@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/">
+
+  <title>Requests: HTTP for Humans™ — Requests 2.27.1 documentation</title>
+  <link rel="stylesheet" type="text/css" href="df_python-requests_files/pygments.css">
+  <link rel="stylesheet" type="text/css" href="df_python-requests_files/alabaster.css">
+  <link rel="stylesheet" type="text/css" href="df_python-requests_files/badge_only.css">
+  <script type="text/javascript" async="" src="df_python-requests_files/analytics.js"></script>
+  <script data-url_root="#" id="documentation_options" src="df_python-requests_files/documentation_options.js"></script>
+  <script src="df_python-requests_files/jquery.js"></script>
+  <script src="df_python-requests_files/underscore.js"></script>
+  <script src="df_python-requests_files/doctools.js"></script>
+  <script async="async" src="df_python-requests_files/readthedocs-doc-embed.js"></script>
+  <link rel="canonical" href="https://docs.python-requests.org/en/latest/index.html">
+  <link rel="index" title="Index" href="https://docs.python-requests.org/en/latest/genindex/">
+  <link rel="search" title="Search" href="https://docs.python-requests.org/en/latest/search/">
+  <link rel="next" title="Installation of Requests" href="https://docs.python-requests.org/en/latest/user/install/">
+
+  <link rel="stylesheet" href="df_python-requests_files/custom.css" type="text/css">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+
+  <!-- RTD Extra Head -->
+
+  <link rel="stylesheet" href="df_python-requests_files/readthedocs-doc-embed.css" type="text/css">
+
+  <script type="application/json"
+    id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.org", "build_date": "2022-01-13T15:43:43Z", "builder": "sphinx", "canonical_url": null, "commit": "fa1b0a36", "docroot": "/docs/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-1", "language": "en", "page": "index", "programming_language": "py", "project": "requests", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {"requests-docs-cn": "https://docs.python-requests.org/zh_CN/latest/", "requests-docs-de": "https://docs.python-requests.org/de/latest/", "requests-docs-es": "https://docs.python-requests.org/es/latest/", "requests-docs-it": "https://docs.python-requests.org/projects/it/it/latest/", "requests-docs-pl": "https://docs.python-requests.org/pl/latest/", "requests-docs-pt": "https://docs.python-requests.org/pt_BR/latest/", "requests-html": "https://docs.python-requests.org/projects/requests-html/en/latest/", "requests3": "https://docs.python-requests.org/projects/3/"}, "theme": "alabaster", "user_analytics_code": "", "version": "latest"}</script>
+
+  <!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+  <script type="text/javascript">
+    READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+  </script>
+
+  <script type="text/javascript" src="df_python-requests_files/readthedocs-analytics.js" async="async"></script>
+
+  <!-- end RTD <extrahead> -->
+  <script src="df_python-requests_files/js.js" type="text/javascript" async=""></script>
+  <div id="_bsa_srv-CK7D62JU_0"></div>
+  <script src="df_python-requests_files/ethicalads.js" type="text/javascript" async="" id="ethicaladsjs"></script>
+  <style>
+    [data-ea-publisher].loaded,
+    [data-ea-type].loaded {
+      font-size: 14px;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      font-weight: normal;
+      font-style: normal;
+      leter-spacing: 0px;
+      vertical-align: baseline;
+      line-height: 1.3em
+    }
+
+    [data-ea-publisher].loaded a,
+    [data-ea-type].loaded a {
+      text-decoration: none
+    }
+
+    [data-ea-publisher].loaded .ea-pixel,
+    [data-ea-type].loaded .ea-pixel {
+      display: none
+    }
+
+    [data-ea-publisher].loaded .ea-content,
+    [data-ea-type].loaded .ea-content {
+      margin: 1em 1em 0.5em 1em;
+      padding: 1em;
+      background: rgba(0, 0, 0, 0.03);
+      color: #505050
+    }
+
+    [data-ea-publisher].loaded .ea-content a:link,
+    [data-ea-type].loaded .ea-content a:link {
+      color: #505050
+    }
+
+    [data-ea-publisher].loaded .ea-content a:visited,
+    [data-ea-type].loaded .ea-content a:visited {
+      color: #505050
+    }
+
+    [data-ea-publisher].loaded .ea-content a:hover,
+    [data-ea-type].loaded .ea-content a:hover {
+      color: #373737
+    }
+
+    [data-ea-publisher].loaded .ea-content a:active,
+    [data-ea-type].loaded .ea-content a:active {
+      color: #373737
+    }
+
+    [data-ea-publisher].loaded .ea-content a strong,
+    [data-ea-publisher].loaded .ea-content a b,
+    [data-ea-type].loaded .ea-content a strong,
+    [data-ea-type].loaded .ea-content a b {
+      color: #088cdb
+    }
+
+    [data-ea-publisher].loaded .ea-callout a:link,
+    [data-ea-type].loaded .ea-callout a:link {
+      color: #6a6a6a
+    }
+
+    [data-ea-publisher].loaded .ea-callout a:visited,
+    [data-ea-type].loaded .ea-callout a:visited {
+      color: #6a6a6a
+    }
+
+    [data-ea-publisher].loaded .ea-callout a:hover,
+    [data-ea-type].loaded .ea-callout a:hover {
+      color: #505050
+    }
+
+    [data-ea-publisher].loaded .ea-callout a:active,
+    [data-ea-type].loaded .ea-callout a:active {
+      color: #505050
+    }
+
+    [data-ea-publisher].loaded .ea-callout a strong,
+    [data-ea-publisher].loaded .ea-callout a b,
+    [data-ea-type].loaded .ea-callout a strong,
+    [data-ea-type].loaded .ea-callout a b {
+      color: #088cdb
+    }
+
+    [data-ea-publisher].loaded .ea-callout a,
+    [data-ea-type].loaded .ea-callout a {
+      font-size: 0.8em
+    }
+
+    [data-ea-publisher].loaded.dark .ea-content,
+    [data-ea-type].loaded.dark .ea-content {
+      background: rgba(255, 255, 255, 0.05);
+      color: #dcdcdc
+    }
+
+    [data-ea-publisher].loaded.dark .ea-content a:link,
+    [data-ea-type].loaded.dark .ea-content a:link {
+      color: #dcdcdc
+    }
+
+    [data-ea-publisher].loaded.dark .ea-content a:visited,
+    [data-ea-type].loaded.dark .ea-content a:visited {
+      color: #dcdcdc
+    }
+
+    [data-ea-publisher].loaded.dark .ea-content a:hover,
+    [data-ea-type].loaded.dark .ea-content a:hover {
+      color: #f6f6f6
+    }
+
+    [data-ea-publisher].loaded.dark .ea-content a:active,
+    [data-ea-type].loaded.dark .ea-content a:active {
+      color: #f6f6f6
+    }
+
+    [data-ea-publisher].loaded.dark .ea-content a strong,
+    [data-ea-publisher].loaded.dark .ea-content a b,
+    [data-ea-type].loaded.dark .ea-content a strong,
+    [data-ea-type].loaded.dark .ea-content a b {
+      color: #50baf9
+    }
+
+    [data-ea-publisher].loaded.dark .ea-callout a:link,
+    [data-ea-type].loaded.dark .ea-callout a:link {
+      color: #c3c3c3
+    }
+
+    [data-ea-publisher].loaded.dark .ea-callout a:visited,
+    [data-ea-type].loaded.dark .ea-callout a:visited {
+      color: #c3c3c3
+    }
+
+    [data-ea-publisher].loaded.dark .ea-callout a:hover,
+    [data-ea-type].loaded.dark .ea-callout a:hover {
+      color: #dcdcdc
+    }
+
+    [data-ea-publisher].loaded.dark .ea-callout a:active,
+    [data-ea-type].loaded.dark .ea-callout a:active {
+      color: #dcdcdc
+    }
+
+    [data-ea-publisher].loaded.dark .ea-callout a strong,
+    [data-ea-publisher].loaded.dark .ea-callout a b,
+    [data-ea-type].loaded.dark .ea-callout a strong,
+    [data-ea-type].loaded.dark .ea-callout a b {
+      color: #50baf9
+    }
+
+    @media (prefers-color-scheme: dark) {
+
+      [data-ea-publisher].loaded.adaptive .ea-content,
+      [data-ea-type].loaded.adaptive .ea-content {
+        background: rgba(255, 255, 255, 0.05);
+        color: #dcdcdc
+      }
+
+      [data-ea-publisher].loaded.adaptive .ea-content a:link,
+      [data-ea-type].loaded.adaptive .ea-content a:link {
+        color: #dcdcdc
+      }
+
+      [data-ea-publisher].loaded.adaptive .ea-content a:visited,
+      [data-ea-type].loaded.adaptive .ea-content a:visited {
+        color: #dcdcdc
+      }
+
+      [data-ea-publisher].loaded.adaptive .ea-content a:hover,
+      [data-ea-type].loaded.adaptive .ea-content a:hover {
+        color: #f6f6f6
+      }
+
+      [data-ea-publisher].loaded.adaptive .ea-content a:active,
+      [data-ea-type].loaded.adaptive .ea-content a:active {
+        color: #f6f6f6
+      }
+
+      [data-ea-publisher].loaded.adaptive .ea-content a strong,
+      [data-ea-publisher].loaded.adaptive .ea-content a b,
+      [data-ea-type].loaded.adaptive .ea-content a strong,
+      [data-ea-type].loaded.adaptive .ea-content a b {
+        color: #50baf9
+      }
+
+      [data-ea-publisher].loaded.adaptive .ea-callout a:link,
+      [data-ea-type].loaded.adaptive .ea-callout a:link {
+        color: #c3c3c3
+      }
+
+      [data-ea-publisher].loaded.adaptive .ea-callout a:visited,
+      [data-ea-type].loaded.adaptive .ea-callout a:visited {
+        color: #c3c3c3
+      }
+
+      [data-ea-publisher].loaded.adaptive .ea-callout a:hover,
+      [data-ea-type].loaded.adaptive .ea-callout a:hover {
+        color: #dcdcdc
+      }
+
+      [data-ea-publisher].loaded.adaptive .ea-callout a:active,
+      [data-ea-type].loaded.adaptive .ea-callout a:active {
+        color: #dcdcdc
+      }
+
+      [data-ea-publisher].loaded.adaptive .ea-callout a strong,
+      [data-ea-publisher].loaded.adaptive .ea-callout a b,
+      [data-ea-type].loaded.adaptive .ea-callout a strong,
+      [data-ea-type].loaded.adaptive .ea-callout a b {
+        color: #50baf9
+      }
+    }
+
+    [data-ea-publisher].loaded .ea-content,
+    [data-ea-type].loaded .ea-content {
+      border: 0px;
+      border-radius: 3px;
+      box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15)
+    }
+
+    [data-ea-publisher].loaded.raised .ea-content,
+    [data-ea-type].loaded.raised .ea-content {
+      border: 0px;
+      border-radius: 3px;
+      box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15)
+    }
+
+    [data-ea-publisher].loaded.bordered .ea-content,
+    [data-ea-type].loaded.bordered .ea-content {
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      border-radius: 3px;
+      box-shadow: none
+    }
+
+    [data-ea-publisher].loaded.bordered.dark .ea-content,
+    [data-ea-type].loaded.bordered.dark .ea-content {
+      border: 1px solid rgba(255, 255, 255, 0.07)
+    }
+
+    @media (prefers-color-scheme: dark) {
+
+      [data-ea-publisher].loaded.bordered.adaptive .ea-content,
+      [data-ea-type].loaded.bordered.adaptive .ea-content {
+        border: 1px solid rgba(255, 255, 255, 0.07)
+      }
+    }
+
+    [data-ea-publisher].loaded.flat .ea-content,
+    [data-ea-type].loaded.flat .ea-content {
+      border: 0px;
+      border-radius: 3px;
+      box-shadow: none
+    }
+
+    [data-ea-type="image"].loaded,
+    [data-ea-publisher]:not([data-ea-type]).loaded,
+    .ea-type-image {
+      display: inline-block
+    }
+
+    [data-ea-type="image"].loaded .ea-content,
+    [data-ea-publisher]:not([data-ea-type]).loaded .ea-content,
+    .ea-type-image .ea-content {
+      max-width: 180px;
+      overflow: auto;
+      text-align: center
+    }
+
+    [data-ea-type="image"].loaded .ea-content>a>img,
+    [data-ea-publisher]:not([data-ea-type]).loaded .ea-content>a>img,
+    .ea-type-image .ea-content>a>img {
+      width: 120px;
+      height: 90px;
+      display: inline-block
+    }
+
+    [data-ea-type="image"].loaded .ea-content>.ea-text,
+    [data-ea-publisher]:not([data-ea-type]).loaded .ea-content>.ea-text,
+    .ea-type-image .ea-content>.ea-text {
+      margin-top: 1em;
+      font-size: 1em;
+      text-align: center
+    }
+
+    [data-ea-type="image"].loaded .ea-callout,
+    [data-ea-publisher]:not([data-ea-type]).loaded .ea-callout,
+    .ea-type-image .ea-callout {
+      max-width: 180px;
+      margin: 0em 1em 1em 1em;
+      padding-left: 1em;
+      padding-right: 1em;
+      font-style: italic;
+      text-align: right
+    }
+
+    [data-ea-type="image"].loaded.horizontal .ea-content,
+    [data-ea-publisher]:not([data-ea-type]).loaded.horizontal .ea-content,
+    .ea-type-image.horizontal .ea-content {
+      max-width: 320px
+    }
+
+    [data-ea-type="image"].loaded.horizontal .ea-content>a>img,
+    [data-ea-publisher]:not([data-ea-type]).loaded.horizontal .ea-content>a>img,
+    .ea-type-image.horizontal .ea-content>a>img {
+      float: left;
+      margin-right: 1em
+    }
+
+    [data-ea-type="image"].loaded.horizontal .ea-content .ea-text,
+    [data-ea-publisher]:not([data-ea-type]).loaded.horizontal .ea-content .ea-text,
+    .ea-type-image.horizontal .ea-content .ea-text {
+      margin-top: 0em;
+      text-align: left;
+      overflow: auto
+    }
+
+    [data-ea-type="image"].loaded.horizontal .ea-callout,
+    [data-ea-publisher]:not([data-ea-type]).loaded.horizontal .ea-callout,
+    .ea-type-image.horizontal .ea-callout {
+      max-width: 320px;
+      text-align: right
+    }
+
+    [data-ea-type="text"].loaded,
+    .ea-type-text {
+      font-size: 14px
+    }
+
+    [data-ea-type="text"].loaded .ea-content,
+    .ea-type-text .ea-content {
+      text-align: left
+    }
+
+    [data-ea-type="text"].loaded .ea-callout,
+    .ea-type-text .ea-callout {
+      margin: 0.5em 1em 1em 1em;
+      padding-left: 1em;
+      padding-right: 1em;
+      text-align: right;
+      font-style: italic
+    }
+
+    [data-ea-style="stickybox"].loaded .ea-type-image {
+      z-index: 1000;
+      position: fixed;
+      bottom: 20px;
+      right: 20px
+    }
+
+    [data-ea-style="stickybox"].loaded .ea-type-image .ea-stickybox-hide {
+      cursor: pointer;
+      position: absolute;
+      top: 0.75em;
+      right: 0.75em;
+      background-color: #fefefe;
+      border: 1px solid #088cdb;
+      border-radius: 50%;
+      color: #088cdb;
+      font-size: 1em;
+      text-align: center;
+      height: 1.5em;
+      width: 1.5em;
+      line-height: 1.5em
+    }
+
+    @media (max-width: 1300px) {
+      [data-ea-style="stickybox"].loaded .ea-type-image {
+        position: static;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        text-align: center
+      }
+
+      [data-ea-style="stickybox"].loaded .ea-type-image .ea-stickybox-hide {
+        display: none
+      }
+    }
+
+    @media (min-width: 1301px) {
+      [data-ea-style="stickybox"].loaded .ea-type-image .ea-content {
+        background: #dcdcdc
+      }
+
+      [data-ea-style="stickybox"].loaded.dark .ea-type-image .ea-content {
+        background: #505050
+      }
+    }
+
+    @media (min-width: 1301px) and (prefers-color-scheme: dark) {
+      [data-ea-style="stickybox"].loaded.adaptive .ea-type-image .ea-content {
+        background: #505050
+      }
+    }
+  </style>
+  <script src="df_python-requests_files/a.js" type="text/javascript" async=""></script>
+  <script id="_carbonads_projs" type="text/javascript" src="df_python-requests_files/CKYI5K3E.js"></script>
+</head>
+
+<body>
+
+
+  <div class="document">
+    <div class="documentwrapper">
+      <div class="bodywrapper">
+
+
+        <div class="body" role="main">
+
+          <section id="requests-http-for-humans">
+            <h1>Requests: HTTP for Humans™<a class="headerlink" href="#requests-http-for-humans"
+                title="Permalink to this headline">¶</a></h1>
+            <p>Release v2.27.1. (<a class="reference internal"
+                href="https://docs.python-requests.org/en/latest/user/install/#install"><span
+                  class="std std-ref">Installation</span></a>)</p>
+            <a class="reference external image-reference" href="https://pepy.tech/project/requests"><img
+                alt="Requests Downloads Per Month Badge" src="df_python-requests_files/month.svg"></a>
+            <a class="reference external image-reference" href="https://pypi.org/project/requests/"><img
+                alt="License Badge" src="df_python-requests_files/requests.svg"></a>
+            <a class="reference external image-reference" href="https://pypi.org/project/requests/"><img
+                alt="Wheel Support Badge" src="df_python-requests_files/requests_002.svg"></a>
+            <a class="reference external image-reference" href="https://pypi.org/project/requests/"><img
+                alt="Python Version Support Badge" src="df_python-requests_files/requests_003.svg"></a>
+            <p><strong>Requests</strong> is an elegant and simple HTTP library for Python, built for human beings.</p>
+            <hr class="docutils">
+            <p><strong>Behold, the power of Requests</strong>:</p>
+            <div class="highlight-default notranslate">
+              <div class="highlight">
+                <pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'https://api.github.com/user'</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s1">'user'</span><span class="p">,</span> <span class="s1">'pass'</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
+<span class="go">200</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">'content-type'</span><span class="p">]</span>
+<span class="go">'application/json; charset=utf8'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">encoding</span>
+<span class="go">'utf-8'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">text</span>
+<span class="go">'{"type":"User"...'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="go">{'private_gists': 419, 'total_private_repos': 77, ...}</span>
+</pre>
+              </div>
+            </div>
+            <p>See <a class="reference external" href="https://gist.github.com/973705">similar code, sans Requests</a>.
+            </p>
+            <p><strong>Requests</strong> allows you to send HTTP/1.1 requests extremely easily.
+              There’s no need to manually add query strings to your
+              URLs, or to form-encode your POST data. Keep-alive and HTTP connection pooling
+              are 100% automatic, thanks to <a class="reference external"
+                href="https://github.com/urllib3/urllib3">urllib3</a>.</p>
+            <section id="beloved-features">
+              <h2>Beloved Features<a class="headerlink" href="#beloved-features"
+                  title="Permalink to this headline">¶</a></h2>
+              <p>Requests is ready for today’s web.</p>
+              <ul class="simple">
+                <li>
+                  <p>Keep-Alive &amp; Connection Pooling</p>
+                </li>
+                <li>
+                  <p>International Domains and URLs</p>
+                </li>
+                <li>
+                  <p>Sessions with Cookie Persistence</p>
+                </li>
+                <li>
+                  <p>Browser-style SSL Verification</p>
+                </li>
+                <li>
+                  <p>Automatic Content Decoding</p>
+                </li>
+                <li>
+                  <p>Basic/Digest Authentication</p>
+                </li>
+                <li>
+                  <p>Elegant Key/Value Cookies</p>
+                </li>
+                <li>
+                  <p>Automatic Decompression</p>
+                </li>
+                <li>
+                  <p>Unicode Response Bodies</p>
+                </li>
+                <li>
+                  <p>HTTP(S) Proxy Support</p>
+                </li>
+                <li>
+                  <p>Multipart File Uploads</p>
+                </li>
+                <li>
+                  <p>Streaming Downloads</p>
+                </li>
+                <li>
+                  <p>Connection Timeouts</p>
+                </li>
+                <li>
+                  <p>Chunked Requests</p>
+                </li>
+                <li>
+                  <p><code class="docutils literal notranslate"><span class="pre">.netrc</span></code> Support</p>
+                </li>
+              </ul>
+              <p>Requests officially supports Python 2.7 &amp; 3.6+, and runs great on PyPy.</p>
+            </section>
+            <section id="the-user-guide">
+              <h2>The User Guide<a class="headerlink" href="#the-user-guide" title="Permalink to this headline">¶</a>
+              </h2>
+              <p>This part of the documentation, which is mostly prose, begins with some
+                background information about Requests, then focuses on step-by-step
+                instructions for getting the most out of Requests.</p>
+              <div class="toctree-wrapper compound">
+                <ul>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/user/install/">Installation of Requests</a>
+                    <ul>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/install/#python-m-pip-install-requests">$
+                          python -m pip install requests</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/install/#get-the-source-code">Get the
+                          Source Code</a></li>
+                    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/user/quickstart/">Quickstart</a>
+                    <ul>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#make-a-request">Make a
+                          Request</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#passing-parameters-in-urls">Passing
+                          Parameters In URLs</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#response-content">Response
+                          Content</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#binary-response-content">Binary
+                          Response Content</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#json-response-content">JSON
+                          Response Content</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#raw-response-content">Raw
+                          Response Content</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#custom-headers">Custom
+                          Headers</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#more-complicated-post-requests">More
+                          complicated POST requests</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#post-a-multipart-encoded-file">POST
+                          a Multipart-Encoded File</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#response-status-codes">Response
+                          Status Codes</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#response-headers">Response
+                          Headers</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#cookies">Cookies</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#redirection-and-history">Redirection
+                          and History</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#timeouts">Timeouts</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/quickstart/#errors-and-exceptions">Errors
+                          and Exceptions</a></li>
+                    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/user/advanced/">Advanced Usage</a>
+                    <ul>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#session-objects">Session
+                          Objects</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#request-and-response-objects">Request
+                          and Response Objects</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#prepared-requests">Prepared
+                          Requests</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#ssl-cert-verification">SSL
+                          Cert Verification</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#client-side-certificates">Client
+                          Side Certificates</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#ca-certificates">CA
+                          Certificates</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#body-content-workflow">Body
+                          Content Workflow</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#keep-alive">Keep-Alive</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#streaming-uploads">Streaming
+                          Uploads</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#chunk-encoded-requests">Chunk-Encoded
+                          Requests</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#post-multiple-multipart-encoded-files">POST
+                          Multiple Multipart-Encoded Files</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#event-hooks">Event Hooks</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#custom-authentication">Custom
+                          Authentication</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#streaming-requests">Streaming
+                          Requests</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#proxies">Proxies</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#compliance">Compliance</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#http-verbs">HTTP Verbs</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#custom-verbs">Custom Verbs</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#link-headers">Link Headers</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#transport-adapters">Transport
+                          Adapters</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#blocking-or-non-blocking">Blocking
+                          Or Non-Blocking?</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#header-ordering">Header
+                          Ordering</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/advanced/#timeouts">Timeouts</a></li>
+                    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/user/authentication/">Authentication</a>
+                    <ul>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/authentication/#basic-authentication">Basic
+                          Authentication</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/authentication/#digest-authentication">Digest
+                          Authentication</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/authentication/#oauth-1-authentication">OAuth
+                          1 Authentication</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/authentication/#oauth-2-and-openid-connect-authentication">OAuth
+                          2 and OpenID Connect Authentication</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/authentication/#other-authentication">Other
+                          Authentication</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/user/authentication/#new-forms-of-authentication">New
+                          Forms of Authentication</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <section id="the-community-guide">
+              <h2>The Community Guide<a class="headerlink" href="#the-community-guide"
+                  title="Permalink to this headline">¶</a></h2>
+              <p>This part of the documentation, which is mostly prose, details the
+                Requests ecosystem and community.</p>
+              <div class="toctree-wrapper compound">
+                <ul>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/community/recommended/">Recommended Packages and
+                      Extensions</a>
+                    <ul>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/recommended/#certifi-ca-bundle">Certifi
+                          CA Bundle</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/recommended/#cachecontrol">CacheControl</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/recommended/#requests-toolbelt">Requests-Toolbelt</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/recommended/#requests-threads">Requests-Threads</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/recommended/#requests-oauthlib">Requests-OAuthlib</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/recommended/#betamax">Betamax</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/community/faq/">Frequently Asked Questions</a>
+                    <ul>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/faq/#encoded-data">Encoded
+                          Data?</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/faq/#custom-user-agents">Custom
+                          User-Agents?</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/faq/#why-not-httplib2">Why not
+                          Httplib2?</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/faq/#python-3-support">Python 3
+                          Support?</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/faq/#python-2-support">Python 2
+                          Support?</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/faq/#what-are-hostname-doesn-t-match-errors">What
+                          are “hostname doesn’t match” errors?</a></li>
+                    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/community/out-there/">Integrations</a>
+                    <ul>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/out-there/#python-for-ios">Python
+                          for iOS</a></li>
+                    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/community/out-there/#articles-talks">Articles
+                      &amp; Talks</a></li>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/community/support/">Support</a>
+                    <ul>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/support/#stack-overflow">Stack
+                          Overflow</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/support/#file-an-issue">File an
+                          Issue</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/support/#send-a-tweet">Send a
+                          Tweet</a></li>
+                    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/community/vulnerabilities/">Vulnerability
+                      Disclosure</a>
+                    <ul>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/vulnerabilities/#process">Process</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/vulnerabilities/#previous-cves">Previous
+                          CVEs</a></li>
+                    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/community/release-process/">Release Process and
+                      Rules</a>
+                    <ul>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/release-process/#major-releases">Major
+                          Releases</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/release-process/#minor-releases">Minor
+                          Releases</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/release-process/#hotfix-releases">Hotfix
+                          Releases</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/community/release-process/#reasoning">Reasoning</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="toctree-wrapper compound">
+                <ul>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/community/updates/">Community Updates</a></li>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/community/updates/#release-history">Release
+                      History</a></li>
+                </ul>
+              </div>
+            </section>
+            <section id="the-api-documentation-guide">
+              <h2>The API Documentation / Guide<a class="headerlink" href="#the-api-documentation-guide"
+                  title="Permalink to this headline">¶</a></h2>
+              <p>If you are looking for information on a specific function, class, or method,
+                this part of the documentation is for you.</p>
+              <div class="toctree-wrapper compound">
+                <ul>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/api/">Developer Interface</a>
+                    <ul>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/api/#main-interface">Main Interface</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/api/#exceptions">Exceptions</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/api/#request-sessions">Request Sessions</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/api/#lower-level-classes">Lower-Level
+                          Classes</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/api/#lower-lower-level-classes">Lower-Lower-Level
+                          Classes</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/api/#authentication">Authentication</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/api/#encodings">Encodings</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/api/#cookies">Cookies</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/api/#status-code-lookup">Status Code
+                          Lookup</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/api/#migrating-to-1-x">Migrating to 1.x</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/api/#migrating-to-2-x">Migrating to 2.x</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <section id="the-contributor-guide">
+              <h2>The Contributor Guide<a class="headerlink" href="#the-contributor-guide"
+                  title="Permalink to this headline">¶</a></h2>
+              <p>If you want to contribute to the project, this part of the documentation is for
+                you.</p>
+              <div class="toctree-wrapper compound">
+                <ul>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/dev/contributing/">Contributor’s Guide</a>
+                    <ul>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/dev/contributing/#be-cordial">Be Cordial</a>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/dev/contributing/#get-early-feedback">Get
+                          Early Feedback</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/dev/contributing/#contribution-suitability">Contribution
+                          Suitability</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/dev/contributing/#code-contributions">Code
+                          Contributions</a>
+                        <ul>
+                          <li class="toctree-l3"><a class="reference internal"
+                              href="https://docs.python-requests.org/en/latest/dev/contributing/#steps-for-submitting-code">Steps
+                              for Submitting Code</a></li>
+                          <li class="toctree-l3"><a class="reference internal"
+                              href="https://docs.python-requests.org/en/latest/dev/contributing/#code-review">Code
+                              Review</a></li>
+                          <li class="toctree-l3"><a class="reference internal"
+                              href="https://docs.python-requests.org/en/latest/dev/contributing/#new-contributors">New
+                              Contributors</a></li>
+                          <li class="toctree-l3"><a class="reference internal"
+                              href="https://docs.python-requests.org/en/latest/dev/contributing/#kenneth-reitz-s-code-style">Kenneth
+                              Reitz’s Code Style™</a></li>
+                        </ul>
+                      </li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/dev/contributing/#documentation-contributions">Documentation
+                          Contributions</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/dev/contributing/#bug-reports">Bug
+                          Reports</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/dev/contributing/#feature-requests">Feature
+                          Requests</a></li>
+                    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal"
+                      href="https://docs.python-requests.org/en/latest/dev/authors/">Authors</a>
+                    <ul>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/dev/authors/#keepers-of-the-crystals">Keepers
+                          of the Crystals</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/dev/authors/#previous-keepers-of-crystals">Previous
+                          Keepers of Crystals</a></li>
+                      <li class="toctree-l2"><a class="reference internal"
+                          href="https://docs.python-requests.org/en/latest/dev/authors/#patches-and-suggestions">Patches
+                          and Suggestions</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <p>There are no more guides. You are now guideless.
+                Good luck.</p>
+            </section>
+          </section>
+
+
+        </div>
+
+      </div>
+    </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+
+    </div>
+    <div class="clearer"></div>
+  </div>
+  <div class="footer">
+    ©MMXVIX. A <a href="https://kenreitz.org/projects">Kenneth Reitz</a> Project.
+
+  </div>
+
+
+  <a href="https://github.com/requests/requests" class="github">
+    <img style="position: absolute; top: 0; right: 0; border: 0;"
+      src="df_python-requests_files/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" class="github">
+  </a>
+
+
+
+
+  <!-- Inserted RTD Footer -->
+
+  <div class="injected">
+
+
+    <div class="rst-versions rst-badge" data-toggle="rst-versions">
+      <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book">&nbsp;</span>
+        v: latest
+        <span class="fa fa-caret-down"></span>
+      </span>
+
+    </div>
+
+
+  </div>
+</body>
+
+</html>
