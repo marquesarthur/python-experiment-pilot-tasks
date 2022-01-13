@@ -1,7 +1,7 @@
 import unittest
 import math
 import matplotlib.pyplot as plt
-from tasks.titanic import Solution
+from code.titanic import Solution
 
 
 class TestTitanic(unittest.TestCase):

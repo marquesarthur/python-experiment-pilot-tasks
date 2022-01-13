@@ -1,5 +1,5 @@
 import unittest
-from tasks.distance import Solution
+from code.distance import Solution
 
 
 class TestDistance(unittest.TestCase):

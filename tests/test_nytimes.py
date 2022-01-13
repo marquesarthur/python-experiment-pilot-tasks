@@ -1,5 +1,5 @@
 import unittest
-from tasks.nytimes import Solution
+from code.nytimes import Solution
 
 
 class TestNYTimes(unittest.TestCase):
