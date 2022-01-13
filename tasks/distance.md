@@ -93,11 +93,9 @@ Please **use only** the following resources to find information that might assis
 
 
 * [GeoPy’s documentation](https://geopy.readthedocs.io/en/stable/)
-* [geopy](https://github.com/geopy/geopy)
+<!-- * [geopy](https://github.com/geopy/geopy) -->
 * [Locations in Python (Geocoding w/Geopy)](https://holypython.com/locations-in-python-geocoding-w-geopy/)
 * [Obtaining latitude and longitude of multiple locations using Geopy](https://stackoverflow.com/questions/37608811/obtaining-latitude-and-longitude-of-multiple-locations-using-geopy)
-* [Sorting HOW TO](https://docs.python.org/3/howto/sorting.html)
-* [Sort a string in lexicographic order python](https://stackoverflow.com/questions/7371935/sort-a-string-in-lexicographic-order-python)
 * [Python module for getting latitude and longitude from the name of a US city](https://stackoverflow.com/questions/13686001/python-module-for-getting-latitude-and-longitude-from-the-name-of-a-us-city)
 * [Calculate point based on distance and direction](https://stackoverflow.com/questions/24427828/calculate-point-based-on-distance-and-direction)
 * [Geocoding in Python Using Geopy](https://pythonsimplified.com/geocoding-in-python-using-geopy/)

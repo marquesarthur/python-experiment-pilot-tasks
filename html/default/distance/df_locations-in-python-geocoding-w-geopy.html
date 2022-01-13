@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html class="gecko firefox firefox95 linux x32 js svg no-retina landscape wf-merriweathersans-n6-active wf-merriweather-i6-active wf-merriweather-i7-active wf-merriweathersans-n4-active wf-merriweathersans-n5-active wf-merriweathersans-n1-active wf-merriweathersans-n2-active wf-merriweathersans-n3-active wf-merriweathersans-i1-active wf-merriweathersans-i2-active wf-merriweathersans-i3-active wf-merriweathersans-n7-active wf-merriweathersans-i6-active wf-merriweathersans-i5-active wf-merriweathersans-n8-active wf-merriweathersans-n9-active wf-merriweathersans-i8-active wf-merriweathersans-i9-active wf-merriweather-n6-active wf-merriweather-n7-active wf-merriweathersans-i4-active wf-merriweather-i8-active wf-merriweather-i9-active wf-merriweather-i1-active wf-merriweather-i2-active wf-merriweather-i3-active wf-merriweather-n8-active wf-merriweather-n9-active wf-merriweather-n4-active wf-merriweather-n5-active wf-merriweathersans-i7-active wf-merriweather-i4-active wf-merriweather-i5-active wf-merriweather-n1-active wf-merriweather-n2-active wf-merriweather-n3-active wf-active" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script src="df_locations-in-python-geocoding-w-geopy_files/cookie.js"></script><script src="df_locations-in-python-geocoding-w-geopy_files/show_ads_impl_fy2019.js" id="google_shimpl"></script><script type="text/javascript" async="" src="df_locations-in-python-geocoding-w-geopy_files/analytics.js"></script><script type="text/javascript" async="" src="df_locations-in-python-geocoding-w-geopy_files/js_002.js"></script><script type="text/javascript" async="" src="df_locations-in-python-geocoding-w-geopy_files/js_004.js"></script><script type="text/javascript" async="" src="df_locations-in-python-geocoding-w-geopy_files/conversion_async.js"></script><script data-ad-client="ca-pub-6449282107061094" async="" src="df_locations-in-python-geocoding-w-geopy_files/adsbygoogle.js" data-checked-head="true"></script>
+
+<!-- Global site tag (gtag.js) - Google Ads: 1052225333 -->
+<script async="" src="df_locations-in-python-geocoding-w-geopy_files/js.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-1052225333');
+</script>	<meta charset="UTF-8"><style data-tippy-stylesheet="">.tippy-box[data-animation=fade][data-state=hidden]{opacity:0}[data-tippy-root]{max-width:calc(100vw - 10px)}.tippy-box{position:relative;background-color:#333;color:#fff;border-radius:4px;font-size:14px;line-height:1.4;outline:0;transition-property:transform,visibility,opacity}.tippy-box[data-placement^=top]>.tippy-arrow{bottom:0}.tippy-box[data-placement^=top]>.tippy-arrow:before{bottom:-7px;left:0;border-width:8px 8px 0;border-top-color:initial;transform-origin:center top}.tippy-box[data-placement^=bottom]>.tippy-arrow{top:0}.tippy-box[data-placement^=bottom]>.tippy-arrow:before{top:-7px;left:0;border-width:0 8px 8px;border-bottom-color:initial;transform-origin:center bottom}.tippy-box[data-placement^=left]>.tippy-arrow{right:0}.tippy-box[data-placement^=left]>.tippy-arrow:before{border-width:8px 0 8px 8px;border-left-color:initial;right:-7px;transform-origin:center left}.tippy-box[data-placement^=right]>.tippy-arrow{left:0}.tippy-box[data-placement^=right]>.tippy-arrow:before{left:-7px;border-width:8px 8px 8px 0;border-right-color:initial;transform-origin:center right}.tippy-box[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.54,1.5,.38,1.11)}.tippy-arrow{width:16px;height:16px;color:#333}.tippy-arrow:before{content:"";position:absolute;border-color:transparent;border-style:solid}.tippy-content{position:relative;padding:5px 9px;z-index:1}</style><link data-optimized="2" rel="stylesheet" href="df_locations-in-python-geocoding-w-geopy_files/2c4b73193859866bb5e3cd8f0f686a57.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v17.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Locations in Python (Geocoding w/Geopy) - HolyPython.com</title>
+	<link rel="canonical" href="https://holypython.com/locations-in-python-geocoding-w-geopy/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Locations in Python (Geocoding w/Geopy) - HolyPython.com">
+	<meta property="og:description" content="Estimated Time 10 mins Skill Level Intermediate Exercises na Content Sections Geopy Installation Geocoders Geopy Usage + Examples Course Provider Provided by HolyPython.com Geocoding is the application when you type 5th Ave. New York, NY, 10010 and you get coordinates like this: (40.740200, -73.990586). Geocoding process maps open addresses to coordinates consisted of longitude and […]">
+	<meta property="og:url" content="https://holypython.com/locations-in-python-geocoding-w-geopy/">
+	<meta property="og:site_name" content="HolyPython.com">
+	<meta property="article:published_time" content="2020-07-02T00:32:15+00:00">
+	<meta property="article:modified_time" content="2021-03-30T21:21:25+00:00">
+	<meta property="og:image" content="https://holypython.com/wp-content/uploads/2020/07/977e9d6085a1-Custom.jpg">
+	<meta property="og:image:width" content="975">
+	<meta property="og:image:height" content="650">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://holypython.com/#organization","name":"Holy Python","url":"https://holypython.com/","sameAs":[],"logo":{"@type":"ImageObject","@id":"https://holypython.com/#logo","inLanguage":"en-US","url":"https://holypython.com/wp-content/uploads/2019/10/default-5.png","contentUrl":"https://holypython.com/wp-content/uploads/2019/10/default-5.png","width":759,"height":199,"caption":"Holy Python"},"image":{"@id":"https://holypython.com/#logo"}},{"@type":"WebSite","@id":"https://holypython.com/#website","url":"https://holypython.com/","name":"HolyPython.com","description":"The path to python holiness","publisher":{"@id":"https://holypython.com/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://holypython.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://holypython.com/locations-in-python-geocoding-w-geopy/#primaryimage","inLanguage":"en-US","url":"https://holypython.com/wp-content/uploads/2020/07/977e9d6085a1-Custom.jpg","contentUrl":"https://holypython.com/wp-content/uploads/2020/07/977e9d6085a1-Custom.jpg","width":975,"height":650},{"@type":"WebPage","@id":"https://holypython.com/locations-in-python-geocoding-w-geopy/#webpage","url":"https://holypython.com/locations-in-python-geocoding-w-geopy/","name":"Locations in Python (Geocoding w/Geopy) - HolyPython.com","isPartOf":{"@id":"https://holypython.com/#website"},"primaryImageOfPage":{"@id":"https://holypython.com/locations-in-python-geocoding-w-geopy/#primaryimage"},"datePublished":"2020-07-02T00:32:15+00:00","dateModified":"2021-03-30T21:21:25+00:00","breadcrumb":{"@id":"https://holypython.com/locations-in-python-geocoding-w-geopy/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://holypython.com/locations-in-python-geocoding-w-geopy/"]}]},{"@type":"BreadcrumbList","@id":"https://holypython.com/locations-in-python-geocoding-w-geopy/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://holypython.com/"},{"@type":"ListItem","position":2,"name":"Locations in Python (Geocoding w/Geopy)"}]},{"@type":"Article","@id":"https://holypython.com/locations-in-python-geocoding-w-geopy/#article","isPartOf":{"@id":"https://holypython.com/locations-in-python-geocoding-w-geopy/#webpage"},"author":{"@id":"https://holypython.com/#/schema/person/89155485c0b25ca126e850371aa80417"},"headline":"Locations in Python (Geocoding w/Geopy)","datePublished":"2020-07-02T00:32:15+00:00","dateModified":"2021-03-30T21:21:25+00:00","mainEntityOfPage":{"@id":"https://holypython.com/locations-in-python-geocoding-w-geopy/#webpage"},"wordCount":816,"commentCount":1,"publisher":{"@id":"https://holypython.com/#organization"},"image":{"@id":"https://holypython.com/locations-in-python-geocoding-w-geopy/#primaryimage"},"thumbnailUrl":"https://holypython.com/wp-content/uploads/2020/07/977e9d6085a1-Custom.jpg","articleSection":["Intermediate","Python Tutorials"],"inLanguage":"en-US","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["https://holypython.com/locations-in-python-geocoding-w-geopy/#respond"]}]},{"@type":"Person","@id":"https://holypython.com/#/schema/person/89155485c0b25ca126e850371aa80417","name":"Usag1r","image":{"@type":"ImageObject","@id":"https://holypython.com/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/a7f3b180dfaa74a2cc4471169822ca48?s=96&d=blank&r=g","contentUrl":"https://secure.gravatar.com/avatar/a7f3b180dfaa74a2cc4471169822ca48?s=96&d=blank&r=g","caption":"Usag1r"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="https://www.googletagmanager.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="HolyPython.com » Feed" href="https://holypython.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="HolyPython.com » Comments Feed" href="https://holypython.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="HolyPython.com » Locations in Python (Geocoding w/Geopy) Comments Feed" href="https://holypython.com/locations-in-python-geocoding-w-geopy/feed/">
+		
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+<style id="wp-block-library-theme-inline-css" type="text/css">
+#start-resizable-editor-section{display:none}.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-code{font-family:Menlo,Consolas,monaco,monospace;color:#1e1e1e;padding:.8em 1em;border:1px solid #ddd;border-radius:4px}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-pullquote{border-top:4px solid;border-bottom:4px solid;margin-bottom:1.75em;color:currentColor}.wp-block-pullquote__citation,.wp-block-pullquote cite,.wp-block-pullquote footer{color:currentColor;text-transform:uppercase;font-size:.8125em;font-style:normal}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;position:relative;font-style:normal}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-group.has-background{padding:1.25em 2.375em;margin-top:0;margin-bottom:0}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto;opacity:.4}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table thead{border-bottom:3px solid}.wp-block-table tfoot{border-top:3px solid}.wp-block-table td,.wp-block-table th{padding:.5em;border:1px solid;word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-template-part.has-background{padding:1.25em 2.375em;margin-top:0;margin-bottom:0}#end-resizable-editor-section{display:none}
+</style>
+
+
+
+
+
+
+
+
+
+<style id="elementor-frontend-inline-css" type="text/css">
+@font-face{font-family:eicons;src:url(https://holypython.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.10.0);src:url(https://holypython.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.eot?5.10.0#iefix) format("embedded-opentype"),url(https://holypython.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff2?5.10.0) format("woff2"),url(https://holypython.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.woff?5.10.0) format("woff"),url(https://holypython.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.ttf?5.10.0) format("truetype"),url(https://holypython.com/wp-content/plugins/elementor/assets/lib/eicons/fonts/eicons.svg?5.10.0#eicon) format("svg");font-weight:400;font-style:normal}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="df_locations-in-python-geocoding-w-geopy_files/js_003.js" async="async" id="jupiterx-gtag-script-js"></script>
+<script type="text/javascript" id="jupiterx-gtag-script-js-after">
+	
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+					gtag('config', 'UA-149922548-1', { 'anonymize_ip': true });
+			
+	
+</script><script src="df_locations-in-python-geocoding-w-geopy_files/a"></script>
+
+
+<script type="text/javascript" src="df_locations-in-python-geocoding-w-geopy_files/jquery.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="df_locations-in-python-geocoding-w-geopy_files/jquery-migrate.js" id="jquery-migrate-js"></script>
+
+<link rel="https://api.w.org/" href="https://holypython.com/wp-json/"><link rel="alternate" type="application/json" href="https://holypython.com/wp-json/wp/v2/posts/11011"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://holypython.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://holypython.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.8.3">
+<link rel="shortlink" href="https://holypython.com/?p=11011">
+<link rel="alternate" type="application/json+oembed" href="https://holypython.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fholypython.com%2Flocations-in-python-geocoding-w-geopy%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://holypython.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fholypython.com%2Flocations-in-python-geocoding-w-geopy%2F&amp;format=xml">
+		<link rel="pingback" href="https://holypython.com/xmlrpc.php">
+		<link rel="preload" as="style" href="df_locations-in-python-geocoding-w-geopy_files/prettify.css"><link rel="icon" href="https://holypython.com/wp-content/uploads/2020/10/cropped-HolyPython_favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="https://holypython.com/wp-content/uploads/2020/10/cropped-HolyPython_favicon-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://holypython.com/wp-content/uploads/2020/10/cropped-HolyPython_favicon-180x180.png">
+<meta name="msapplication-TileImage" content="https://holypython.com/wp-content/uploads/2020/10/cropped-HolyPython_favicon-270x270.png">
+		<style type="text/css" id="wp-custom-css">
+			code { 
+    
+    background: linear-gradient(90deg,#fce3ec,#ffe8cc);
+    font-size: 90%;
+    padding: 3.5px;
+    line-height: 35px;
+    border-radius: .2rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    
+}
+
+
+pre[rel]{padding-top:0px}
+pre[rel]:before{font-family:default;
+font-weight:700;
+background-color: #1D1D1D1A;
+font-size:11px;
+content:attr(rel);
+color:#fff;
+position:absolute;
+top:.0rem;
+left:0rem;
+right:0rem;
+width:100%;
+padding:4px}
+pre[rel=SQL]:before,
+pre[rel=CODE]:before{color:#F56600}
+pre[rel=R]:before{color:#22CB29}
+pre[rel=JAVA]:before,
+pre[rel=PYTHON]:before,
+pre[rel=GO]:before{color:#15B6FF}
+pre code{font-size:16px;
+line-height:1.75;
+background:0 0;
+padding:30px;
+white-space:pre;
+-webkit-overflow-scrolling:touch;display:block;overflow-x:scroll;
+background-color: lightgray;
+background: linear-gradient(90deg,#FFCDCC,#F6FCE3);
+max-width:100%;
+min-width:100px;}
+
+
+pre code::-webkit-scrollbar{width:.5em;height:.5em}
+pre code::-webkit-scrollbar-thumb{background:#593242;
+border-radius:.6em;
+box-shadow:inset 2px 2px 2px hsla(0,0%,100%,.25),inset -2px -2px 2px rgba(0,0,0,.25)}
+
+blockquote {
+padding: .5rem 3rem;
+font-size: 20px;
+border-left:.25rem solid #eeeedf;
+}
+
+		</style>
+		<link rel="stylesheet" href="df_locations-in-python-geocoding-w-geopy_files/css.css" media="all"><script src="df_locations-in-python-geocoding-w-geopy_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script><link rel="stylesheet" type="text/css" href="df_locations-in-python-geocoding-w-geopy_files/prettify.css"><meta http-equiv="origin-trial" content="AxujKG9INjsZ8/gUq8+dTruNvk7RjZQ1oFhhgQbcTJKDnZfbzSTE81wvC2Hzaf3TW4avA76LTZEMdiedF1vIbA4AAABueyJvcmlnaW4iOiJodHRwczovL2ltYXNkay5nb29nbGVhcGlzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="Azuce85ORtSnWe1MZDTv68qpaW3iHyfL9YbLRy0cwcCZwVnePnOmkUJlG8HGikmOwhZU22dElCcfrfX2HhrBPAkAAAB7eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A16nvcdeoOAqrJcmjLRpl1I6f3McDD8EfofAYTt/P/H4/AWwB99nxiPp6kA0fXoiZav908Z8etuL16laFPUdfQsAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AxBHdr0J44vFBQtZUqX9sjiqf5yWZ/OcHRcRMN3H9TH+t90V/j3ENW6C8+igBZFXMJ7G3Pr8Dd13632aLng42wgAAACBeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiVHJ1c3RUb2tlbnMiLCJleHBpcnkiOjE2NTI3NzQ0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A88BWHFjcawUfKU3lIejLoryXoyjooBXLgWmGh+hNcqMK44cugvsI5YZbNarYvi3roc1fYbHA1AVbhAtuHZflgEAAAB2eyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IlRydXN0VG9rZW5zIiwiZXhwaXJ5IjoxNjUyNzc0NDAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="A8FHS1NmdCwGqD9DwOicnHHY+y27kdWfxKa0YHSGDfv0CSpDKRHTQdQmZVPDUdaFWUsxdgVxlwAd6o+dhJykPA0AAACWeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A8zdXi6dr1hwXEUjQrYiyYQGlU3557y5QWDnN0Lwgj9ePt66XMEvNkVWOEOWPd7TP9sBQ25X0Q15Lr1Nn4oGFQkAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><meta http-equiv="origin-trial" content="A4/Htern2udN9w3yJK9QgWQxQFruxOXsXL7cW60DyCl0EZFGCSme/J33Q/WzF7bBkVvhEWDlcBiUyZaim5CpFQwAAACceyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQ29udmVyc2lvbk1lYXN1cmVtZW50IiwiZXhwaXJ5IjoxNjQzMTU1MTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlLCJ1c2FnZSI6InN1YnNldCJ9"><link rel="preload" href="df_locations-in-python-geocoding-w-geopy_files/integrator.js" as="script"><script type="text/javascript" src="df_locations-in-python-geocoding-w-geopy_files/integrator.js"></script><link rel="preload" href="df_locations-in-python-geocoding-w-geopy_files/integrator_002.js" as="script"><script type="text/javascript" src="df_locations-in-python-geocoding-w-geopy_files/integrator_002.js"></script></head><body class="post-template-default single single-post postid-11011 single-format-standard js elementor-default elementor-kit-7928 elementor-page elementor-page-11011 jupiterx-post-template-2 e--ua-firefox cookies-not-set" itemscope="itemscope" itemtype="http://schema.org/WebPage" data-elementor-device-mode="desktop"><a class="jupiterx-a11y jupiterx-a11y-skip-navigation-link" href="#jupiterx-main">Skip to content</a><div class="jupiterx-site"><header class="jupiterx-header jupiterx-header-custom" data-jupiterx-settings="{&quot;breakpoint&quot;:&quot;767.98&quot;,&quot;template&quot;:&quot;17042&quot;}" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">		<div data-elementor-type="header" data-elementor-id="17042" class="elementor elementor-17042" data-elementor-settings="[]">
+						<div class="elementor-inner">
+							<div class="elementor-section-wrap">
+							<header class="elementor-section elementor-top-section elementor-element elementor-element-7a3e9dc elementor-section-content-middle elementor-section-full_width elementor-section-stretched elementor-section-height-min-height elementor-hidden-phone elementor-section-height-default elementor-section-items-middle" data-id="7a3e9dc" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 3785px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-fe36cae" data-id="fe36cae" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-fc081ef elementor-widget elementor-widget-raven-flex-spacer" data-id="fc081ef" data-element_type="widget" data-widget_type="raven-flex-spacer.default">
+				<div class="elementor-widget-container">
+						<div class="raven-spacer">&nbsp;</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-c9a4c19" data-id="c9a4c19" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-28b8e23 elementor-widget elementor-widget-heading" data-id="28b8e23" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default"><a href="https://holypython.com/">Holy Python</a></h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-fc9af63" data-id="fc9af63" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-1219a98 elementor-widget-mobile__width-inherit raven-nav-menu-stretch raven-breakpoint-mobile raven-nav-menu-align-left raven-mobile-nav-menu-align-left elementor-widget elementor-widget-raven-nav-menu" data-id="1219a98" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;mobile_layout&quot;:&quot;dropdown&quot;,&quot;submenu_space_between&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;submenu_opening_position&quot;:&quot;bottom&quot;}" data-widget_type="raven-nav-menu.default">
+				<div class="elementor-widget-container">
+					<nav class="raven-nav-menu-main raven-nav-menu-horizontal raven-nav-menu-tablet-horizontal raven-nav-menu-mobile-horizontal raven-nav-icons-hidden-tablet raven-nav-icons-hidden-mobile">
+			<ul id="menu-1219a98" class="raven-nav-menu" data-smartmenus-id="16420979854731409"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16323"><a href="https://holypython.com/blog/" class="raven-menu-item raven-link-item ">Blog</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16325"><a href="https://holypython.com/support/" class="raven-menu-item raven-link-item ">Support</a></li>
+</ul>		</nav>
+
+		<div class="raven-nav-menu-toggle">
+
+						<div class="raven-nav-menu-toggle-button ">
+								<span class="fa fa-bars"></span>
+								</div>
+
+		</div>
+		<nav class="raven-nav-icons-hidden-tablet raven-nav-icons-hidden-mobile raven-nav-menu-mobile raven-nav-menu-dropdown">
+									<div class="raven-container">
+				<ul id="menu-mobile-1219a98" class="raven-nav-menu" data-smartmenus-id="1642097985475087"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16323"><a href="https://holypython.com/blog/" class="raven-menu-item raven-link-item ">Blog</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16325"><a href="https://holypython.com/support/" class="raven-menu-item raven-link-item ">Support</a></li>
+</ul>			</div>
+		</nav>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</header>
+				<header class="elementor-section elementor-top-section elementor-element elementor-element-f074f55 elementor-section-content-middle elementor-section-full_width elementor-section-stretched elementor-section-height-min-height elementor-hidden-phone elementor-section-height-default elementor-section-items-middle" data-id="f074f55" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 3785px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-8bdf461" data-id="8bdf461" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-9e5a27c elementor-widget elementor-widget-raven-flex-spacer" data-id="9e5a27c" data-element_type="widget" data-widget_type="raven-flex-spacer.default">
+				<div class="elementor-widget-container">
+						<div class="raven-spacer">&nbsp;</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-e908e5f" data-id="e908e5f" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-1f5daad elementor-widget-mobile__width-inherit raven-nav-menu-stretch raven-breakpoint-mobile raven-nav-menu-align-left raven-mobile-nav-menu-align-left elementor-widget elementor-widget-raven-nav-menu" data-id="1f5daad" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;mobile_layout&quot;:&quot;dropdown&quot;,&quot;submenu_space_between&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;submenu_opening_position&quot;:&quot;bottom&quot;}" data-widget_type="raven-nav-menu.default">
+				<div class="elementor-widget-container">
+					<nav class="raven-nav-menu-main raven-nav-menu-horizontal raven-nav-menu-tablet-horizontal raven-nav-menu-mobile-horizontal raven-nav-icons-hidden-tablet raven-nav-icons-hidden-mobile">
+			<ul id="menu-1f5daad" class="raven-nav-menu" data-smartmenus-id="16420979854868364"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16041"><a href="https://holypython.com/ml/" class="raven-menu-item raven-link-item ">Machine Learning:</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16042"><a href="https://holypython.com/lin-reg/" class="raven-menu-item raven-link-item ">lin-reg</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16043"><a href="https://holypython.com/log-reg/" class="raven-menu-item raven-link-item ">log-reg</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16044"><a href="https://holypython.com/knn/" class="raven-menu-item raven-link-item ">knn</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16045"><a href="https://holypython.com/nbc/" class="raven-menu-item raven-link-item ">naive bayes</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16046"><a href="https://holypython.com/dt/" class="raven-menu-item raven-link-item ">trees</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16047"><a href="https://holypython.com/rf/" class="raven-menu-item raven-link-item ">random forest</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16048"><a href="https://holypython.com/svm/" class="raven-menu-item raven-link-item ">svm</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25759"><a href="https://holypython.com/k-means/" class="raven-menu-item raven-link-item ">k-means</a></li>
+</ul>		</nav>
+
+		<div class="raven-nav-menu-toggle">
+
+						<div class="raven-nav-menu-toggle-button ">
+								<span class="fa fa-bars"></span>
+								</div>
+
+		</div>
+		<nav class="raven-nav-icons-hidden-tablet raven-nav-icons-hidden-mobile raven-nav-menu-mobile raven-nav-menu-dropdown">
+									<div class="raven-container">
+				<ul id="menu-mobile-1f5daad" class="raven-nav-menu" data-smartmenus-id="16420979854866716"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16041"><a href="https://holypython.com/ml/" class="raven-menu-item raven-link-item ">Machine Learning:</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16042"><a href="https://holypython.com/lin-reg/" class="raven-menu-item raven-link-item ">lin-reg</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16043"><a href="https://holypython.com/log-reg/" class="raven-menu-item raven-link-item ">log-reg</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16044"><a href="https://holypython.com/knn/" class="raven-menu-item raven-link-item ">knn</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16045"><a href="https://holypython.com/nbc/" class="raven-menu-item raven-link-item ">naive bayes</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16046"><a href="https://holypython.com/dt/" class="raven-menu-item raven-link-item ">trees</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16047"><a href="https://holypython.com/rf/" class="raven-menu-item raven-link-item ">random forest</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16048"><a href="https://holypython.com/svm/" class="raven-menu-item raven-link-item ">svm</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25759"><a href="https://holypython.com/k-means/" class="raven-menu-item raven-link-item ">k-means</a></li>
+</ul>			</div>
+		</nav>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-0c6eddf elementor-widget-mobile__width-inherit raven-nav-menu-stretch raven-breakpoint-mobile raven-nav-menu-align-left raven-mobile-nav-menu-align-left elementor-widget elementor-widget-raven-nav-menu" data-id="0c6eddf" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;mobile_layout&quot;:&quot;dropdown&quot;,&quot;submenu_space_between&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;submenu_opening_position&quot;:&quot;bottom&quot;}" data-widget_type="raven-nav-menu.default">
+				<div class="elementor-widget-container">
+					<nav class="raven-nav-menu-main raven-nav-menu-horizontal raven-nav-menu-tablet-horizontal raven-nav-menu-mobile-horizontal raven-nav-icons-hidden-tablet raven-nav-icons-hidden-mobile">
+			<ul id="menu-0c6eddf" class="raven-nav-menu" data-smartmenus-id="16420979854903774"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-16051"><a href="https://holypython.com/" class="raven-menu-item raven-link-item ">Learn Python:</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16035"><a href="https://holypython.com/beginner-python-lessons/" class="raven-menu-item raven-link-item ">Lessons</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16036"><a href="https://holypython.com/beginner-python-exercises/" class="raven-menu-item raven-link-item ">Exercises</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16321"><a href="https://holypython.com/python-visualization-tutorial/" class="raven-menu-item raven-link-item ">Visualization</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16318"><a href="https://holypython.com/python-gui-tutorial/" class="raven-menu-item raven-link-item ">Gui</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16317"><a href="https://holypython.com/python-api-tutorial/" class="raven-menu-item raven-link-item ">Api</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16319"><a href="https://holypython.com/python-pil-tutorial/" class="raven-menu-item raven-link-item ">PIL</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16498"><a href="https://holypython.com/python-turtle-tutorial/" class="raven-menu-item raven-link-item ">Turtle</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16320"><a href="https://holypython.com/python-scripting-tutorial/" class="raven-menu-item raven-link-item ">Scripting</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22229"><a href="https://holypython.com/python-sqlite-tutorial/" class="raven-menu-item raven-link-item ">Sqlite</a></li>
+</ul>		</nav>
+
+		<div class="raven-nav-menu-toggle">
+
+						<div class="raven-nav-menu-toggle-button ">
+								<span class="fa fa-bars"></span>
+								</div>
+
+		</div>
+		<nav class="raven-nav-icons-hidden-tablet raven-nav-icons-hidden-mobile raven-nav-menu-mobile raven-nav-menu-dropdown">
+									<div class="raven-container">
+				<ul id="menu-mobile-0c6eddf" class="raven-nav-menu" data-smartmenus-id="16420979854902349"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-16051"><a href="https://holypython.com/" class="raven-menu-item raven-link-item ">Learn Python:</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16035"><a href="https://holypython.com/beginner-python-lessons/" class="raven-menu-item raven-link-item ">Lessons</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16036"><a href="https://holypython.com/beginner-python-exercises/" class="raven-menu-item raven-link-item ">Exercises</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16321"><a href="https://holypython.com/python-visualization-tutorial/" class="raven-menu-item raven-link-item ">Visualization</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16318"><a href="https://holypython.com/python-gui-tutorial/" class="raven-menu-item raven-link-item ">Gui</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16317"><a href="https://holypython.com/python-api-tutorial/" class="raven-menu-item raven-link-item ">Api</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16319"><a href="https://holypython.com/python-pil-tutorial/" class="raven-menu-item raven-link-item ">PIL</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16498"><a href="https://holypython.com/python-turtle-tutorial/" class="raven-menu-item raven-link-item ">Turtle</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16320"><a href="https://holypython.com/python-scripting-tutorial/" class="raven-menu-item raven-link-item ">Scripting</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22229"><a href="https://holypython.com/python-sqlite-tutorial/" class="raven-menu-item raven-link-item ">Sqlite</a></li>
+</ul>			</div>
+		</nav>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</header>
+				<header class="elementor-section elementor-top-section elementor-element elementor-element-beb7e75 elementor-section-content-middle elementor-section-height-min-height elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="beb7e75" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-fb2fbbc raven-column-flex-start elementor-hidden-desktop elementor-hidden-tablet raven-column-flex-horizontal" data-id="fb2fbbc" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-8385e38 elementor-widget elementor-widget-raven-site-logo" data-id="8385e38" data-element_type="widget" data-widget_type="raven-site-logo.default">
+				<div class="elementor-widget-container">
+					<div class="raven-widget-wrapper">
+			<div class="raven-site-logo">
+									<a class="raven-site-logo-link" href="https://holypython.com/">
+								<img src="df_locations-in-python-geocoding-w-geopy_files/default-4.webp" alt="HolyPython.com" class="raven-site-logo-desktop raven-site-logo-tablet raven-site-logo-mobile" data-no-lazy="1">									</a>
+							</div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-54fd6a5 raven-column-flex-start raven-column-flex-horizontal" data-id="54fd6a5" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-3698c3c raven-nav-menu-align-center elementor-widget-mobile__width-inherit raven-nav-menu-stretch raven-breakpoint-mobile raven-mobile-nav-menu-align-left elementor-widget elementor-widget-raven-nav-menu" data-id="3698c3c" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;mobile_layout&quot;:&quot;dropdown&quot;,&quot;submenu_space_between&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;submenu_opening_position&quot;:&quot;bottom&quot;}" data-widget_type="raven-nav-menu.default">
+				<div class="elementor-widget-container">
+					<nav class="raven-nav-menu-main raven-nav-menu-horizontal raven-nav-menu-tablet-horizontal raven-nav-menu-mobile-horizontal raven-nav-menu-has-logo raven-nav-icons-hidden-tablet raven-nav-icons-hidden-mobile">
+			<ul id="menu-3698c3c" class="raven-nav-menu" data-smartmenus-id="16420979854966953"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17024"><a href="https://holypython.com/beginner-python-lessons/" class="raven-menu-item raven-link-item ">Lessons</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17025"><a href="https://holypython.com/beginner-python-exercises/" class="raven-menu-item raven-link-item ">Exercises</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-17048"><a href="https://holypython.com/" class="raven-menu-item raven-link-item has-submenu" id="sm-16420979854966953-1" aria-haspopup="true" aria-controls="sm-16420979854966953-2" aria-expanded="false">Tutorials<span class="sub-arrow"></span></a>
+<ul class="0 sub-menu raven-submenu" id="sm-16420979854966953-2" role="group" aria-hidden="true" aria-labelledby="sm-16420979854966953-1" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17026"><a href="https://holypython.com/python-visualization-tutorial/" class="raven-submenu-item raven-link-item ">Visualization</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17027"><a href="https://holypython.com/python-gui-tutorial/" class="raven-submenu-item raven-link-item ">Gui</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17028"><a href="https://holypython.com/python-api-tutorial/" class="raven-submenu-item raven-link-item ">Api</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17029"><a href="https://holypython.com/python-pil-tutorial/" class="raven-submenu-item raven-link-item ">PIL</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17030"><a href="https://holypython.com/python-turtle-tutorial/" class="raven-submenu-item raven-link-item ">Turtle</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17031"><a href="https://holypython.com/python-scripting-tutorial/" class="raven-submenu-item raven-link-item ">Scripting</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22228"><a href="https://holypython.com/python-sqlite-tutorial/" class="raven-submenu-item raven-link-item ">Sqlite</a></li>
+</ul>
+</li>
+		<li class="raven-nav-menu-logo">
+							<a class="raven-nav-menu-logo-link" href="https://holypython.com/">
+										<img data-lazyloaded="1" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://holypython.com/wp-content/uploads/2019/10/default-4.png.webp" alt="HolyPython.com" class="raven-nav-menu-center-logo-desktop raven-nav-menu-center-logo-tablet"><noscript><img src="https://holypython.com/wp-content/uploads/2019/10/default-4.png.webp" alt="HolyPython.com" class="raven-nav-menu-center-logo-desktop raven-nav-menu-center-logo-tablet" /></noscript>
+										</a>
+					</li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-17032"><a href="https://holypython.com/ml/" class="raven-menu-item raven-link-item has-submenu" id="sm-16420979854966953-3" aria-haspopup="true" aria-controls="sm-16420979854966953-4" aria-expanded="false">Machine Learning<span class="sub-arrow"></span></a>
+<ul class="0 sub-menu raven-submenu" id="sm-16420979854966953-4" role="group" aria-hidden="true" aria-labelledby="sm-16420979854966953-3" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17033"><a href="https://holypython.com/lin-reg/" class="raven-submenu-item raven-link-item ">lin-reg</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17034"><a href="https://holypython.com/log-reg/" class="raven-submenu-item raven-link-item ">log-reg</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17035"><a href="https://holypython.com/knn/" class="raven-submenu-item raven-link-item ">knn</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17036"><a href="https://holypython.com/nbc/" class="raven-submenu-item raven-link-item ">naive bayes</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17037"><a href="https://holypython.com/dt/" class="raven-submenu-item raven-link-item ">trees</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17038"><a href="https://holypython.com/rf/" class="raven-submenu-item raven-link-item ">random forest</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17039"><a href="https://holypython.com/svm/" class="raven-submenu-item raven-link-item ">svm</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25758"><a href="https://holypython.com/k-means/" class="raven-submenu-item raven-link-item ">k-means</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17040"><a href="https://holypython.com/blog/" class="raven-menu-item raven-link-item ">Blog</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17041"><a href="https://holypython.com/support/" class="raven-menu-item raven-link-item ">Support</a></li>
+</ul>		</nav>
+
+		<div class="raven-nav-menu-toggle">
+
+						<div class="raven-nav-menu-toggle-button ">
+								<span class="fa fa-bars"></span>
+								</div>
+
+		</div>
+		<nav class="raven-nav-icons-hidden-tablet raven-nav-icons-hidden-mobile raven-nav-menu-mobile raven-nav-menu-dropdown">
+									<div class="raven-container">
+				<ul id="menu-mobile-3698c3c" class="raven-nav-menu" data-smartmenus-id="1642097985498709"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17024"><a href="https://holypython.com/beginner-python-lessons/" class="raven-menu-item raven-link-item ">Lessons</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17025"><a href="https://holypython.com/beginner-python-exercises/" class="raven-menu-item raven-link-item ">Exercises</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-17048"><a href="https://holypython.com/" class="raven-menu-item raven-link-item has-submenu" id="sm-1642097985498709-1" aria-haspopup="true" aria-controls="sm-1642097985498709-2" aria-expanded="false">Tutorials<span class="sub-arrow"></span></a>
+<ul class="0 sub-menu raven-submenu" id="sm-1642097985498709-2" role="group" aria-hidden="true" aria-labelledby="sm-1642097985498709-1" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17026"><a href="https://holypython.com/python-visualization-tutorial/" class="raven-submenu-item raven-link-item ">Visualization</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17027"><a href="https://holypython.com/python-gui-tutorial/" class="raven-submenu-item raven-link-item ">Gui</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17028"><a href="https://holypython.com/python-api-tutorial/" class="raven-submenu-item raven-link-item ">Api</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17029"><a href="https://holypython.com/python-pil-tutorial/" class="raven-submenu-item raven-link-item ">PIL</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17030"><a href="https://holypython.com/python-turtle-tutorial/" class="raven-submenu-item raven-link-item ">Turtle</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17031"><a href="https://holypython.com/python-scripting-tutorial/" class="raven-submenu-item raven-link-item ">Scripting</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22228"><a href="https://holypython.com/python-sqlite-tutorial/" class="raven-submenu-item raven-link-item ">Sqlite</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-17032"><a href="https://holypython.com/ml/" class="raven-menu-item raven-link-item has-submenu" id="sm-1642097985498709-3" aria-haspopup="true" aria-controls="sm-1642097985498709-4" aria-expanded="false">Machine Learning<span class="sub-arrow"></span></a>
+<ul class="0 sub-menu raven-submenu" id="sm-1642097985498709-4" role="group" aria-hidden="true" aria-labelledby="sm-1642097985498709-3" aria-expanded="false">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17033"><a href="https://holypython.com/lin-reg/" class="raven-submenu-item raven-link-item ">lin-reg</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17034"><a href="https://holypython.com/log-reg/" class="raven-submenu-item raven-link-item ">log-reg</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17035"><a href="https://holypython.com/knn/" class="raven-submenu-item raven-link-item ">knn</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17036"><a href="https://holypython.com/nbc/" class="raven-submenu-item raven-link-item ">naive bayes</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17037"><a href="https://holypython.com/dt/" class="raven-submenu-item raven-link-item ">trees</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17038"><a href="https://holypython.com/rf/" class="raven-submenu-item raven-link-item ">random forest</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17039"><a href="https://holypython.com/svm/" class="raven-submenu-item raven-link-item ">svm</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25758"><a href="https://holypython.com/k-means/" class="raven-submenu-item raven-link-item ">k-means</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17040"><a href="https://holypython.com/blog/" class="raven-menu-item raven-link-item ">Blog</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17041"><a href="https://holypython.com/support/" class="raven-menu-item raven-link-item ">Support</a></li>
+</ul>			</div>
+		</nav>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</header>
+						</div>
+						</div>
+					</div>
+		</header><main id="jupiterx-main" class="jupiterx-main"><div class="jupiterx-main-content jupiterx-post-image-full-width"><header class="jupiterx-post-header"><div class="jupiterx-post-image"><picture><source media="(max-width: 480px)" srcset="df_locations-in-python-geocoding-w-geopy_files/977e9d6085a1-Custom-8caa364.jpg 1x"><source media="(max-width: 800px)" srcset="df_locations-in-python-geocoding-w-geopy_files/977e9d6085a1-Custom-04546b0.jpg 1x"><img data-lazyloaded="1" data-placeholder-resp="975x650" src="df_locations-in-python-geocoding-w-geopy_files/977e9d6085a1-Custom.webp" data-src="https://holypython.com/wp-content/uploads/2020/07/977e9d6085a1-Custom.jpg.webp" alt="" itemprop="image" class="litespeed-loaded" data-was-processed="true" width="975" height="650"><noscript><img width="975" height="650" src="https://holypython.com/wp-content/uploads/2020/07/977e9d6085a1-Custom.jpg.webp" alt="" itemprop="image"/></noscript></picture></div><div class="jupiterx-post-image-overlay"></div><div class="container"><h1 class="jupiterx-post-title" itemprop="headline">Locations in Python (Geocoding w/Geopy)</h1><ul class="jupiterx-post-meta list-inline"><li class="jupiterx-post-meta-categories list-inline-item"><span>In </span><a href="https://holypython.com/category/tutorials/intermediate/" rel="category">Intermediate</a>, <a href="https://holypython.com/category/tutorials/" rel="category">Python Tutorials</a></li></ul></div></header><div class="container"><div class="row"><div id="jupiterx-primary" class="jupiterx-primary col-lg-12"><div class="jupiterx-content" role="main" itemprop="mainEntityOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog"><article id="11011" class="jupiterx-post post-11011 post type-post status-publish format-standard has-post-thumbnail hentry category-intermediate category-tutorials" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost"><div class="jupiterx-post-body" itemprop="articleBody"><div class="jupiterx-post-content clearfix" itemprop="text">		<div data-elementor-type="wp-post" data-elementor-id="11011" class="elementor elementor-11011" data-elementor-settings="[]">
+						<div class="elementor-inner">
+							<div class="elementor-section-wrap">
+							<section class="elementor-section elementor-top-section elementor-element elementor-element-494a5f78 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="494a5f78" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-268a62aa" data-id="268a62aa" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-7b4a8994 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7b4a8994" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-1b6d2e09" data-id="1b6d2e09" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-74c3697e elementor-widget elementor-widget-menu-anchor" data-id="74c3697e" data-element_type="widget" data-widget_type="menu-anchor.default">
+				<div class="elementor-widget-container">
+					<div id="intro" class="elementor-menu-anchor"></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-78633aa2 elementor-widget elementor-widget-image" data-id="78633aa2" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+												<img data-lazyloaded="1" data-placeholder-resp="683x831" src="df_locations-in-python-geocoding-w-geopy_files/43f70d20e48a-CC.webp" data-src="https://holypython.com/wp-content/uploads/2020/07/43f70d20e48a-CC.jpg.webp" class="attachment-large size-large litespeed-loaded" alt="" loading="lazy" data-srcset="https://holypython.com/wp-content/uploads/2020/07/43f70d20e48a-CC.jpg.webp 683w, https://holypython.com/wp-content/uploads/2020/07/43f70d20e48a-CC-247x300.jpg.webp 247w" data-sizes="(max-width: 683px) 100vw, 683px" sizes="(max-width: 683px) 100vw, 683px" srcset="df_locations-in-python-geocoding-w-geopy_files/43f70d20e48a-CC.webp 683w, df_locations-in-python-geocoding-w-geopy_files/43f70d20e48a-CC-247x300.webp 247w" data-was-processed="true" width="683" height="831"><noscript><img width="683" height="831" src="https://holypython.com/wp-content/uploads/2020/07/43f70d20e48a-CC.jpg.webp" class="attachment-large size-large" alt="" loading="lazy" srcset="https://holypython.com/wp-content/uploads/2020/07/43f70d20e48a-CC.jpg.webp 683w, https://holypython.com/wp-content/uploads/2020/07/43f70d20e48a-CC-247x300.jpg.webp 247w" sizes="(max-width: 683px) 100vw, 683px" /></noscript>														</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5a14331a" data-id="5a14331a" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-6e06347c elementor-position-left elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="6e06347c" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i aria-hidden="true" class="far fa-clock"></i>				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h4 class="elementor-icon-box-title">
+					<span>
+						Estimated Time					</span>
+				</h4>
+									<p class="elementor-icon-box-description">
+						10 mins					</p>
+							</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-40a1ff4c elementor-widget elementor-widget-raven-divider" data-id="40a1ff4c" data-element_type="widget" data-widget_type="raven-divider.default">
+				<div class="elementor-widget-container">
+					<div class="raven-widget-wrapper">
+			<div class="raven-divider">
+				<span class="raven-divider-line raven-divider-solid"></span>
+			</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-77932d5e elementor-position-left elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="77932d5e" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i aria-hidden="true" class="far fa-thumbs-up"></i>				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h4 class="elementor-icon-box-title">
+					<span>
+						Skill Level					</span>
+				</h4>
+									<p class="elementor-icon-box-description">
+						Intermediate					</p>
+							</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-18877162 elementor-widget elementor-widget-raven-divider" data-id="18877162" data-element_type="widget" data-widget_type="raven-divider.default">
+				<div class="elementor-widget-container">
+					<div class="raven-widget-wrapper">
+			<div class="raven-divider">
+				<span class="raven-divider-line raven-divider-solid"></span>
+			</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-1c0485e4 elementor-position-left elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="1c0485e4" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i aria-hidden="true" class="far fa-bookmark"></i>				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h4 class="elementor-icon-box-title">
+					<span>
+						Exercises					</span>
+				</h4>
+									<p class="elementor-icon-box-description">
+						na					</p>
+							</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-5552f07a elementor-widget elementor-widget-raven-divider" data-id="5552f07a" data-element_type="widget" data-widget_type="raven-divider.default">
+				<div class="elementor-widget-container">
+					<div class="raven-widget-wrapper">
+			<div class="raven-divider">
+				<span class="raven-divider-line raven-divider-solid"></span>
+			</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-7ab1a24a elementor-position-left elementor-vertical-align-middle elementor-view-default elementor-widget elementor-widget-icon-box" data-id="7ab1a24a" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-icon">
+				<span class="elementor-icon elementor-animation-">
+				<i aria-hidden="true" class="fas fa-book"></i>				</span>
+			</div>
+						<div class="elementor-icon-box-content">
+				<h4 class="elementor-icon-box-title">
+					<span>
+						Content Sections					</span>
+				</h4>
+							</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-6f55083 elementor-vertical-align-middle elementor-view-default elementor-widget elementor-widget-icon-box" data-id="6f55083" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-content">
+				<h4 class="elementor-icon-box-title">
+					<a href="#install">
+						Geopy Installation					</a>
+				</h4>
+							</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-1504b6e elementor-vertical-align-middle elementor-view-default elementor-widget elementor-widget-icon-box" data-id="1504b6e" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-content">
+				<h4 class="elementor-icon-box-title">
+					<a href="#geocoders">
+						Geocoders					</a>
+				</h4>
+							</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-e537e9d elementor-vertical-align-middle elementor-view-default elementor-widget elementor-widget-icon-box" data-id="e537e9d" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-content">
+				<h4 class="elementor-icon-box-title">
+					<a href="#using">
+						Geopy Usage + Examples					</a>
+				</h4>
+							</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-7726bbed elementor-widget elementor-widget-raven-divider" data-id="7726bbed" data-element_type="widget" data-widget_type="raven-divider.default">
+				<div class="elementor-widget-container">
+					<div class="raven-widget-wrapper">
+			<div class="raven-divider">
+				<span class="raven-divider-line raven-divider-solid"></span>
+			</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-5a91e720 elementor-widget elementor-widget-heading" data-id="5a91e720" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h4 class="elementor-heading-title elementor-size-default">Course Provider</h4>		</div>
+				</div>
+				<div class="elementor-element elementor-element-b99dd66 elementor-widget elementor-widget-text-editor" data-id="b99dd66" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>Provided by HolyPython.com</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-eb1019d elementor-widget elementor-widget-image" data-id="eb1019d" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+												<img data-lazyloaded="1" data-placeholder-resp="398x344" src="df_locations-in-python-geocoding-w-geopy_files/holypython_side_logo_img.webp" data-src="https://holypython.com/wp-content/uploads/2020/10/holypython_side_logo_img.jpg.webp" class="attachment-full size-full litespeed-loaded" alt="" loading="lazy" data-srcset="https://holypython.com/wp-content/uploads/2020/10/holypython_side_logo_img.jpg.webp 398w, https://holypython.com/wp-content/uploads/2020/10/holypython_side_logo_img-300x259.jpg.webp 300w" data-sizes="(max-width: 398px) 100vw, 398px" sizes="(max-width: 398px) 100vw, 398px" srcset="df_locations-in-python-geocoding-w-geopy_files/holypython_side_logo_img.webp 398w, df_locations-in-python-geocoding-w-geopy_files/holypython_side_logo_img-300x259.webp 300w" data-was-processed="true" width="398" height="344"><noscript><img width="398" height="344" src="https://holypython.com/wp-content/uploads/2020/10/holypython_side_logo_img.jpg.webp" class="attachment-full size-full" alt="" loading="lazy" srcset="https://holypython.com/wp-content/uploads/2020/10/holypython_side_logo_img.jpg.webp 398w, https://holypython.com/wp-content/uploads/2020/10/holypython_side_logo_img-300x259.jpg.webp 300w" sizes="(max-width: 398px) 100vw, 398px" /></noscript>														</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-d987d0f elementor-widget elementor-widget-text-editor" data-id="d987d0f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>Geocoding is the application when you type 5th Ave. New York, NY,
+ 10010 and you get coordinates like this: (40.740200, -73.990586).</p><p>Geocoding process maps open addresses to coordinates consisted of longitude and latitude and vice versa.</p><p>Since
+ the new millenia started and especially after the first Iphone 2g came 
+out, gps applications have exponentially surged. Today it’s crazy to 
+think that people used to carry big printed foldable maps in the glow 
+compartments of their cars and routinely stop to look up roads and 
+cities and figure out where they are headed.</p><p>Today, there are so 
+many applications for geocoding and it’s making people’s lives better 
+every single day. We are also witnessing different technologies being 
+blended for an even better optimized service such as Voice Input 
+technology in Google maps.</p><p>As a developer you might have a 
+specific task at hand or you might just want to learn geo-coding basics 
+thinking you’ll probably need it sometime anyway.</p><p>Let’s take a look at how this technology can be implemented in Python.</p><p>&nbsp;</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-1a0322e8 elementor-widget elementor-widget-heading" data-id="1a0322e8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Used Where?</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-ab78f74 elementor-widget elementor-widget-text-editor" data-id="ab78f74" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<ul><li>Maps</li><li>Location apps</li><li>Activity tracking</li><li>Emergency tracking</li><li>Food delivery</li><li>e-commerce</li><li>Games</li><li>Social Media</li><li>Photo geo-tagging</li></ul>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-2f2cd2a elementor-widget elementor-widget-menu-anchor" data-id="2f2cd2a" data-element_type="widget" data-widget_type="menu-anchor.default">
+				<div class="elementor-widget-container">
+					<div id="install" class="elementor-menu-anchor"></div>
+				</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-10a765f4 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="10a765f4" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-241e5313" data-id="241e5313" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-320a681b elementor-view-default elementor-widget elementor-widget-icon" data-id="320a681b" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<i aria-hidden="true" class="fas fa-code"></i>			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-101eb5c2" data-id="101eb5c2" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-56e26575 elementor-widget elementor-widget-heading" data-id="56e26575" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">How to install geopy</h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-bd168ed elementor-widget elementor-widget-text-editor" data-id="bd168ed" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>Geopy is a Python library that makes geocoding operations very 
+accessible and practical. You can check if you have geopy in your 
+libraries by using this code in <em><strong>Python</strong></em>:</p><p><code class=" prettyprinted" style=""><span class="pln">help</span><span class="pun">(</span><span class="str">"modules"</span><span class="pun">)</span></code></p><p>If you can’t see geopy in your library selection, it might be time to have it installed. You can do so simply by opening the <em><strong>Anaconda Command Prompt</strong></em> and typing the command below:</p><p><code class=" prettyprinted" style=""><span class="pln">pip install geopy</span></code></p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-8248d78 elementor-widget elementor-widget-image" data-id="8248d78" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+									<figure class="wp-caption">
+										<img data-lazyloaded="1" data-placeholder-resp="978x507" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22978%22%20height%3D%22507%22%20viewBox%3D%220%200%20978%20507%22%3E%3Cfilter%20id%3D%22b%22%3E%3CfeGaussianBlur%20stdDeviation%3D%2212%22%20%2F%3E%3C%2Ffilter%3E%3Cpath%20fill%3D%22%23191919%22%20d%3D%22M0%200h978v504H0z%22%2F%3E%3Cg%20filter%3D%22url(%23b)%22%20transform%3D%22translate(2%202)%20scale(3.82031)%22%20fill-opacity%3D%22.5%22%3E%3Cellipse%20fill%3D%22%23696969%22%20cx%3D%22168%22%20cy%3D%227%22%20rx%3D%22255%22%20ry%3D%2219%22%2F%3E%3Cellipse%20cx%3D%2284%22%20cy%3D%22100%22%20rx%3D%22127%22%20ry%3D%2248%22%2F%3E%3Cellipse%20fill%3D%22%23616161%22%20cx%3D%22255%22%20cy%3D%2220%22%20rx%3D%2235%22%20ry%3D%2235%22%2F%3E%3Cellipse%20rx%3D%221%22%20ry%3D%221%22%20transform%3D%22matrix(6.84766%2044.96627%20-109.82307%2016.72433%2094.2%20101.7)%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-src="https://holypython.com/wp-content/uploads/2020/07/geopy-pip-install.jpg.webp" class="attachment-large size-large" alt="" loading="lazy" data-srcset="https://holypython.com/wp-content/uploads/2020/07/geopy-pip-install.jpg.webp 978w, https://holypython.com/wp-content/uploads/2020/07/geopy-pip-install-300x156.jpg.webp 300w, https://holypython.com/wp-content/uploads/2020/07/geopy-pip-install-768x398.jpg.webp 768w" data-sizes="(max-width: 978px) 100vw, 978px" width="978" height="507"><noscript><img width="978" height="507" src="https://holypython.com/wp-content/uploads/2020/07/geopy-pip-install.jpg.webp" class="attachment-large size-large" alt="" loading="lazy" srcset="https://holypython.com/wp-content/uploads/2020/07/geopy-pip-install.jpg.webp 978w, https://holypython.com/wp-content/uploads/2020/07/geopy-pip-install-300x156.jpg.webp 300w, https://holypython.com/wp-content/uploads/2020/07/geopy-pip-install-768x398.jpg.webp 768w" sizes="(max-width: 978px) 100vw, 978px" /></noscript>											<figcaption class="widget-image-caption wp-caption-text">Geopy installation using pip (already installed)</figcaption>
+										</figure>
+								</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-106aa50 elementor-widget elementor-widget-menu-anchor" data-id="106aa50" data-element_type="widget" data-widget_type="menu-anchor.default">
+				<div class="elementor-widget-container">
+					<div id="geocoders" class="elementor-menu-anchor"></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-4e85796 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="4e85796" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Supported Geocoders (<i>Full list</i>)</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-722fa70 elementor-widget elementor-widget-text-editor" data-id="722fa70" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>Geopy supports majority of the major geocoders straight out of the box.&nbsp;</p><p>Geocoders
+ are a bit like APIs but for coding and they offer more services than a 
+simple API. But you can make database calls using their APIs to retrieve
+ data for your app, website, commercial or individual use. They usually 
+differ in pricing, accuracy, coverage, technology, daily limits and 
+compatibility.</p><p><i>Here is the full list of supported geocoders:</i></p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-56de8e3 elementor-widget elementor-widget-text-editor" data-id="56de8e3" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>Specifying Parameters Once<br>Geopy Is Not a Service<br>Async Mode<br>Accessing Geocoders<br>Default Options Object<br>Usage with Pandas<br>AlgoliaPlaces<br>ArcGIS<br>AzureMaps<br>Baidu<br>BaiduV3<br>BANFrance<br>Bing<br>DataBC<br>GeocodeEarth<br>GeocodeFarm<br>Geolake</p><p>GeoNames<br>GoogleV3<br>HERE<br>IGNFrance<br>MapBox<br>MapQuest<br>MapTiler<br>OpenCage<br>OpenMapQuest<br>Nominatim<br>Pelias<br>Photon<br>PickPoint<br>LiveAddress<br>TomTom<br>What3Words<br>Yandex</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-684a48f elementor-widget elementor-widget-menu-anchor" data-id="684a48f" data-element_type="widget" data-widget_type="menu-anchor.default">
+				<div class="elementor-widget-container">
+					<div id="using" class="elementor-menu-anchor"></div>
+				</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-18e7d04 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="18e7d04" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-d353c1a" data-id="d353c1a" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-c64e481 elementor-view-default elementor-widget elementor-widget-icon" data-id="c64e481" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<i aria-hidden="true" class="fas fa-code"></i>			</div>
+		</div>
+				</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8cd6fd3" data-id="8cd6fd3" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-4acb9c0 elementor-widget elementor-widget-heading" data-id="4acb9c0" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Using geopy</h2>		</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-729f4c4 elementor-widget elementor-widget-text-editor" data-id="729f4c4" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>Geocoders usually use a technique called <strong>address interpolation.&nbsp;</strong>This
+ technique allows matching street, avenue, door number (street 
+geographic information) type of parameters with geographic coordinate 
+space that’s included in the map.</p><p>GPS is another obviously common geocoding process technique and there might be other specialized methods as well.</p><p>OpenStreetMap
+ (OSM) is a collaborative project that offers a great geodata and map 
+of&nbsp; Earth while Nominatim is a cool geocoder that makes use of OSM 
+geodata and it can do both <i>geocoding </i>and <i>reverse geocoding.&nbsp;</i>Now we will explore Nominatim with Python’s geopy library.</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-f50c365 elementor-widget elementor-widget-html" data-id="f50c365" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<pre rel="Python" class=" prettyprinted" style=""><code class=" prettyprinted" style=""><span class="kwd"><span class="kwd">from</span></span><span class="pln"><span class="pln"> geopy</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocoders </span></span><span class="kwd"><span class="kwd">import</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">Nominatim</span></span></code></pre>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d9488bc elementor-widget elementor-widget-text-editor" data-id="d9488bc" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>Normally, geocoders accept a properly written address with street
+ name and zip code. But, let’s test Nominatim and OpenStreetMap a 
+little.</p><p>Ben &amp; Jerry’s is a very successful ice cream brand in 
+the Northeastern United States. What would happen if we just pass “Ben 
+&amp; Jerry’s” as the address to Nominatim using geopy?</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-82ee342 elementor-widget elementor-widget-html" data-id="82ee342" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<pre rel="Python" class=" prettyprinted" style=""><code class=" prettyprinted" style=""><span class="kwd"><span class="kwd">from</span></span><span class="pln"><span class="pln"> geopy</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocoders </span></span><span class="kwd"><span class="kwd">import</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">Nominatim</span></span><span class="pln"><span class="pln">
+geolocator </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">Nominatim</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">user_agent</span></span><span class="pun"><span class="pun">=</span></span><span class="str"><span class="str">"name"</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+address </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"Ben &amp; Jerry's, VT"</span></span><span class="pln"><span class="pln">
+location </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> geolocator</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocode</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">address</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+
+</span></span><span class="kwd"><span class="kwd">print</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">location</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">address</span></span><span class="pun"><span class="pun">)</span></span><span class="pln">
+</span></code></pre>		</div>
+				</div>
+				<div class="elementor-element elementor-element-f50e20a elementor-widget elementor-widget-text-editor" data-id="f50e20a" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<pre class=" prettyprinted" style=""><span class="typ">Ben</span><span class="pln"> </span><span class="pun">&amp;</span><span class="pln"> </span><span class="typ">Jerry</span><span class="str">'s, Newbury Street, Back Bay, Boston, Suffolk County, Massachusetts, 02116, United States of America</span></pre>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-9d478d7 elementor-widget elementor-widget-image" data-id="9d478d7" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-image">
+									<figure class="wp-caption">
+										<img data-lazyloaded="1" data-placeholder-resp="375x500" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22375%22%20height%3D%22500%22%20viewBox%3D%220%200%20375%20500%22%3E%3Cfilter%20id%3D%22b%22%3E%3CfeGaussianBlur%20stdDeviation%3D%2212%22%20%2F%3E%3C%2Ffilter%3E%3Cpath%20fill%3D%22%238c6958%22%20d%3D%22M0%200h375v500H0z%22%2F%3E%3Cg%20filter%3D%22url(%23b)%22%20transform%3D%22translate(1%201)%20scale(1.95313)%22%20fill-opacity%3D%22.5%22%3E%3Cellipse%20fill%3D%22%23cf8e63%22%20cx%3D%22101%22%20cy%3D%22136%22%20rx%3D%2270%22%20ry%3D%2270%22%2F%3E%3Cellipse%20fill%3D%22%23134%22%20rx%3D%221%22%20ry%3D%221%22%20transform%3D%22matrix(7.81645%2065.0521%20-46.71361%205.61295%2014.5%2016.9)%22%2F%3E%3Cpath%20fill%3D%22%23929cbc%22%20d%3D%22M-16%2077l155%20136-74%201z%22%2F%3E%3Cellipse%20fill%3D%22%238b3d08%22%20cx%3D%2285%22%20cy%3D%22238%22%20rx%3D%22191%22%20ry%3D%2222%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-src="https://holypython.com/wp-content/uploads/2020/07/photo-1572974201645-64d84597e4b3-Custom.jpg.webp" class="attachment-large size-large" alt="" loading="lazy" data-srcset="https://holypython.com/wp-content/uploads/2020/07/photo-1572974201645-64d84597e4b3-Custom.jpg.webp 375w, https://holypython.com/wp-content/uploads/2020/07/photo-1572974201645-64d84597e4b3-Custom-225x300.jpg.webp 225w" data-sizes="(max-width: 375px) 100vw, 375px" width="375" height="500"><noscript><img width="375" height="500" src="https://holypython.com/wp-content/uploads/2020/07/photo-1572974201645-64d84597e4b3-Custom.jpg.webp" class="attachment-large size-large" alt="" loading="lazy" srcset="https://holypython.com/wp-content/uploads/2020/07/photo-1572974201645-64d84597e4b3-Custom.jpg.webp 375w, https://holypython.com/wp-content/uploads/2020/07/photo-1572974201645-64d84597e4b3-Custom-225x300.jpg.webp 225w" sizes="(max-width: 375px) 100vw, 375px" /></noscript>											<figcaption class="widget-image-caption wp-caption-text">Ice cream at Cafe with strawberry, mint and sorbet</figcaption>
+										</figure>
+								</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-3e9962c elementor-widget elementor-widget-text-editor" data-id="3e9962c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>Interestingly it returns a Ben &amp; Jerry’s franchise in Boston,
+ MA. Let’s try “Ben &amp; Jerry’s. VT” and “Ben &amp; Jerry’s NY” 
+consecutively.</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-56238ad elementor-widget elementor-widget-html" data-id="56238ad" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<pre rel="Python" class=" prettyprinted" style=""><code class=" prettyprinted" style=""><span class="kwd"><span class="kwd">from</span></span><span class="pln"><span class="pln"> geopy</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocoders </span></span><span class="kwd"><span class="kwd">import</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">Nominatim</span></span><span class="pln"><span class="pln">
+geolocator </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">Nominatim</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">user_agent</span></span><span class="pun"><span class="pun">=</span></span><span class="str"><span class="str">"name"</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+address1 </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"Ben &amp; Jerry's, VT"</span></span><span class="pln"><span class="pln">
+address2 </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"Ben &amp; Jerry's, NY"</span></span><span class="pln"><span class="pln">
+
+location </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> geolocator</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocode</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">address1</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+</span></span><span class="kwd"><span class="kwd">print</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">location</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">address</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+
+location </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> geolocator</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocode</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">address2</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+</span></span><span class="kwd"><span class="kwd">print</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">location</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">address</span></span><span class="pun"><span class="pun">)</span></span></code></pre>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d7c8408 elementor-widget elementor-widget-text-editor" data-id="d7c8408" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<pre class=" prettyprinted" style=""><span class="typ">Ben</span><span class="pln"> </span><span class="pun">&amp;</span><span class="pln"> </span><span class="typ">Jerry</span><span class="str">'s, Cherry Street, Church Street Marketplace, Burlington, Chittenden County, Vermont, 05401, United States of America</span><br><span class="str">Ben &amp; Jerry'</span><span class="pln">s</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Lomb</span><span class="pln"> </span><span class="typ">Memorial</span><span class="pln"> </span><span class="typ">Drive</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Genesee</span><span class="pln"> </span><span class="typ">Junction</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Henrietta</span><span class="pln"> </span><span class="typ">Town</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Monroe</span><span class="pln"> </span><span class="typ">County</span><span class="pun">,</span><span class="pln"> </span><span class="typ">New</span><span class="pln"> </span><span class="typ">York</span><span class="pun">,</span><span class="pln"> </span><span class="lit">14624</span><span class="pun">-</span><span class="lit">4721</span><span class="pun">,</span><span class="pln"> </span><span class="typ">United</span><span class="pln"> </span><span class="typ">States</span><span class="pln"> </span><span class="kwd">of</span><span class="pln"> </span><span class="typ">America</span></pre>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-704ea12 elementor-widget elementor-widget-text-editor" data-id="704ea12" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>We get 2 seemingly random stores again. The one in Burlington seems pretty cool on Google Maps.</p><p>So,
+ this is good enough on Nominatim’s part. Without even completing the 
+address we are getting accurate results. Let’s try some other places 
+from the world and see if non-US data is as accurate:</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-ff5b02b elementor-widget elementor-widget-html" data-id="ff5b02b" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<pre rel="Python" class=" prettyprinted" style=""><code class=" prettyprinted" style=""><span class="kwd"><span class="kwd">from</span></span><span class="pln"><span class="pln"> geopy</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocoders </span></span><span class="kwd"><span class="kwd">import</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">Nominatim</span></span><span class="pln"><span class="pln">
+geolocator </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">Nominatim</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">user_agent</span></span><span class="pun"><span class="pun">=</span></span><span class="str"><span class="str">"name"</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+address1 </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"Moulin Rouge"</span></span><span class="pln"><span class="pln">
+address2 </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"Noma"</span></span><span class="pln"><span class="pln">
+
+location </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> geolocator</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocode</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">address1</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+</span></span><span class="kwd"><span class="kwd">print</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">location</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">address</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+
+location </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> geolocator</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocode</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">address2</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+</span></span><span class="kwd"><span class="kwd">print</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">location</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">address</span></span><span class="pun"><span class="pun">)</span></span></code></pre>		</div>
+				</div>
+				<div class="elementor-element elementor-element-3f22ebf elementor-widget elementor-widget-text-editor" data-id="3f22ebf" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<pre class=" prettyprinted" style=""><span class="typ">Le</span><span class="pln"> </span><span class="typ">Moulin</span><span class="pln"> </span><span class="typ">Rouge</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Boulevard</span><span class="pln"> de </span><span class="typ">Clichy</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Quartier</span><span class="pln"> des </span><span class="typ">Grandes</span><span class="pun">-</span><span class="typ">Carri</span><span class="pun">è</span><span class="pln">res</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Paris</span><span class="pun">,</span><span class="pln"> </span><span class="pun">Î</span><span class="pln">le</span><span class="pun">-</span><span class="pln">de</span><span class="pun">-</span><span class="typ">France</span><span class="pun">,</span><span class="pln"> </span><span class="typ">France</span><span class="pln"> m</span><span class="pun">é</span><span class="pln">tropolitaine</span><span class="pun">,</span><span class="pln"> </span><span class="lit">75018</span><span class="pun">,</span><span class="pln"> </span><span class="typ">France</span><br><span class="typ">Noma</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Refshalevej</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Margretheholm</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Christianshavn</span><span class="pun">,</span><span class="pln"> K</span><span class="pun">ø</span><span class="pln">benhavn</span><span class="pun">,</span><span class="pln"> K</span><span class="pun">ø</span><span class="pln">benhavns </span><span class="typ">Kommune</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Region</span><span class="pln"> </span><span class="typ">Hovedstaden</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1440</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Danmark</span></pre>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-569d0ac elementor-widget elementor-widget-text-editor" data-id="569d0ac" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>Okay, pretty impressive. It even recognizes Denmark’s award 
+winning Michelin Restaurant and shows up the address for only typing <em><strong>Noma. Let’s try to run “latitude”, “longitude” and “raw” properties for Noma as well.</strong></em></p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-80f3114 elementor-widget elementor-widget-html" data-id="80f3114" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<pre rel="Python" class=" prettyprinted" style=""><code class=" prettyprinted" style=""><span class="kwd"><span class="kwd">from</span></span><span class="pln"><span class="pln"> geopy</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocoders </span></span><span class="kwd"><span class="kwd">import</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">Nominatim</span></span><span class="pln"><span class="pln">
+geolocator </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">Nominatim</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">user_agent</span></span><span class="pun"><span class="pun">=</span></span><span class="str"><span class="str">"name"</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+address </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> </span></span><span class="str"><span class="str">"Noma"</span></span><span class="pln"><span class="pln">
+location </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> geolocator</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocode</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">address</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+
+</span></span><span class="kwd"><span class="kwd">print</span></span><span class="pun"><span class="pun">((</span></span><span class="pln"><span class="pln">location</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">latitude</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> location</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">longitude</span></span><span class="pun"><span class="pun">))</span></span><span class="pln">
+</span></code></pre>		</div>
+				</div>
+				<div class="elementor-element elementor-element-b1ee1a9 elementor-widget elementor-widget-text-editor" data-id="b1ee1a9" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<pre class=" prettyprinted" style=""><span class="pun">(</span><span class="lit">55.6829314</span><span class="pun">,</span><span class="pln"> </span><span class="lit">12.6104818</span><span class="pun">)</span></pre>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-7aa0e17 elementor-widget elementor-widget-html" data-id="7aa0e17" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<pre rel="Python" class=" prettyprinted" style=""><code class=" prettyprinted" style=""><span class="kwd"><span class="kwd">print</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">location</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">raw</span></span><span class="pun"><span class="pun">)</span></span></code></pre>		</div>
+				</div>
+				<div class="elementor-element elementor-element-6690b70 elementor-widget elementor-widget-text-editor" data-id="6690b70" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<pre class=" prettyprinted" style=""><span class="pun">{</span><span class="str">'place_id'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">62456056</span><span class="pun">,</span><span class="pln"> </span><span class="str">'licence'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'osm_type'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'node'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'osm_id'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5416925514</span><span class="pun">,</span><span class="pln"> </span><span class="str">'boundingbox'</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'55.6828814'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'55.6829814'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'12.6104318'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'12.6105318'</span><span class="pun">],</span><span class="pln"> </span><span class="str">'lat'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'55.6829314'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'lon'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'12.6104818'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'display_name'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Noma, Refshalevej, Margretheholm, Christianshavn, København, Københavns Kommune, Region Hovedstaden, 1440, Danmark'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'class'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'amenity'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'type'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'restaurant'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'importance'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0.46778439681543516</span><span class="pun">,</span><span class="pln"> </span><span class="str">'icon'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'https://nominatim.openstreetmap.org/images/mapicons/food_restaurant.p.20.png'</span><span class="pun">}</span></pre>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-9e237b0 elementor-widget elementor-widget-text-editor" data-id="9e237b0" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>It makes more sense to print this one with Python’s <b>pretty print library:</b></p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-d212a2f elementor-widget elementor-widget-html" data-id="d212a2f" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<pre rel="Python" class=" prettyprinted" style=""><code class=" prettyprinted" style=""><span class="kwd"><span class="kwd">import</span></span><span class="pln"><span class="pln"> pprint
+pprint</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">pprint</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">location</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">raw</span></span><span class="pun"><span class="pun">)</span></span></code></pre>		</div>
+				</div>
+				<div class="elementor-element elementor-element-e023671 elementor-widget elementor-widget-text-editor" data-id="e023671" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<pre class=" prettyprinted" style=""><span class="pun">{</span><span class="str">'boundingbox'</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'55.6828814'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'55.6829814'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'12.6104318'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'12.6105318'</span><span class="pun">],</span><br><span class="pln"> </span><span class="str">'class'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'amenity'</span><span class="pun">,</span><br><span class="pln"> </span><span class="str">'display_name'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Noma, Refshalevej, Margretheholm, Christianshavn, København, '</span><br><span class="pln">                 </span><span class="str">'Københavns Kommune, Region Hovedstaden, 1440, Danmark'</span><span class="pun">,</span><br><span class="pln"> </span><span class="str">'icon'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'https://nominatim.openstreetmap.org/images/mapicons/food_restaurant.p.20.png'</span><span class="pun">,</span><br><span class="pln"> </span><span class="str">'importance'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0.46778439681543516</span><span class="pun">,</span><br><span class="pln"> </span><span class="str">'lat'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'55.6829314'</span><span class="pun">,</span><br><span class="pln"> </span><span class="str">'licence'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Data © OpenStreetMap contributors, ODbL 1.0. '</span><br><span class="pln">            </span><span class="str">'https://osm.org/copyright'</span><span class="pun">,</span><br><span class="pln"> </span><span class="str">'lon'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'12.6104818'</span><span class="pun">,</span><br><span class="pln"> </span><span class="str">'osm_id'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5416925514</span><span class="pun">,</span><br><span class="pln"> </span><span class="str">'osm_type'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'node'</span><span class="pun">,</span><br><span class="pln"> </span><span class="str">'place_id'</span><span class="pun">:</span><span class="pln"> </span><span class="lit">62456056</span><span class="pun">,</span><br><span class="pln"> </span><span class="str">'type'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'restaurant'</span><span class="pun">}</span></pre>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-50ff5c9 elementor-widget elementor-widget-text-editor" data-id="50ff5c9" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>In raw data from geopy we can see bunch of useful information 
+such as type (shown as restaurant here), latitude, longitude, class 
+(shown as amenity) and importance.</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-9a6f7e8 elementor-widget__width-auto elementor-widget elementor-widget-heading" data-id="9a6f7e8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h3 class="elementor-heading-title elementor-size-default">Distance calculations with Geopy</h3>		</div>
+				</div>
+				<div class="elementor-element elementor-element-1157632 elementor-widget elementor-widget-text-editor" data-id="1157632" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>You can also calculate the distance between two locations or points using <b>geopy.distance </b>module.</p><p>Let’s
+ see the distance between a Department Store with Tesla Supercharger 
+near Orly Airport and Paris’ finest ice-cream shop Berthillon. Geopy has
+ been very successful at reverse geocoding place names to coordinates, 
+let’s see if it can identify exact locations with little information 
+again such as name.</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-5a5391e elementor-widget elementor-widget-html" data-id="5a5391e" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<pre rel="Python" class=" prettyprinted" style=""><code class=" prettyprinted" style=""><span class="kwd"><span class="kwd">from</span></span><span class="pln"><span class="pln"> geopy </span></span><span class="kwd"><span class="kwd">import</span></span><span class="pln"><span class="pln"> distance
+</span></span><span class="kwd"><span class="kwd">import</span></span><span class="pln"><span class="pln"> geopy
+
+location1 </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> geolocator</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocode</span></span><span class="pun"><span class="pun">(</span></span><span class="str"><span class="str">"Belle Épine, Thiais"</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+location2 </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> geolocator</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocode</span></span><span class="pun"><span class="pun">(</span></span><span class="str"><span class="str">"Berthillon"</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+a</span></span><span class="pun"><span class="pun">=(</span></span><span class="pln"><span class="pln">location1</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">latitude</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> location1</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">longitude</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+b</span></span><span class="pun"><span class="pun">=(</span></span><span class="pln"><span class="pln">location2</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">latitude</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> location2</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">longitude</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+
+</span></span><span class="kwd"><span class="kwd">print</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">distance</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">distance</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">a</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> b</span></span><span class="pun"><span class="pun">).</span></span><span class="pln"><span class="pln">miles</span></span><span class="pun"><span class="pun">)</span></span></code></pre>		</div>
+				</div>
+				<div class="elementor-element elementor-element-7120e09 elementor-widget elementor-widget-text-editor" data-id="7120e09" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>“Belle Epine” wasn’t being picked up by Geopy by itself so adding
+ the district’s name was a good idea. It’s probably always a good idea 
+to be as explicit as possible with addresses anyways.&nbsp;</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-843e599 elementor-widget elementor-widget-text-editor" data-id="843e599" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<pre class=" prettyprinted" style=""><span class="lit">6.630156139356959</span></pre>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-d700c85 elementor-widget elementor-widget-text-editor" data-id="d700c85" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>The distance can be expressed in many differeny measurement units other than miles. Let’s take a look at what <strong>help()</strong> function returns on <b>geopy.distance.distance</b>:</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-22929de elementor-widget elementor-widget-html" data-id="22929de" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<pre rel="Python" class=" prettyprinted" style=""><code class=" prettyprinted" style=""><span class="pln"><span class="pln">help</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">geopy</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">distance</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">distance</span></span><span class="pun"><span class="pun">)</span></span></code></pre>		</div>
+				</div>
+				<div class="elementor-element elementor-element-9537025 elementor-widget elementor-widget-text-editor" data-id="9537025" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<pre class=" prettyprinted" style=""><span class="pln"> </span><span class="pun">|</span><span class="pln">  feet</span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  </span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  ft</span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  </span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  kilometers</span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  </span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  km</span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  </span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  m</span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  </span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  meters</span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  </span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  mi</span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  </span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  miles</span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  </span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  nautical</span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  </span><br><span class="pln"> </span><span class="pun">|</span><span class="pln">  nm</span></pre>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-d562fd9 elementor-widget elementor-widget-text-editor" data-id="d562fd9" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>Great, there are tons of options! Let’s try <b>km</b>, since <b>miles</b> won’t make a lot of sense in France.</p><p>&nbsp;</p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-baa2c68 elementor-widget elementor-widget-html" data-id="baa2c68" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<pre rel="Python" class=" prettyprinted" style=""><code class=" prettyprinted" style=""><span class="kwd"><span class="kwd">from</span></span><span class="pln"><span class="pln"> geopy </span></span><span class="kwd"><span class="kwd">import</span></span><span class="pln"><span class="pln"> distance
+</span></span><span class="kwd"><span class="kwd">import</span></span><span class="pln"><span class="pln"> geopy
+
+location1 </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> geolocator</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocode</span></span><span class="pun"><span class="pun">(</span></span><span class="str"><span class="str">"Belle Épine, Thiais"</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+location2 </span></span><span class="pun"><span class="pun">=</span></span><span class="pln"><span class="pln"> geolocator</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">geocode</span></span><span class="pun"><span class="pun">(</span></span><span class="str"><span class="str">"Berthillon"</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+a</span></span><span class="pun"><span class="pun">=(</span></span><span class="pln"><span class="pln">location1</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">latitude</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> location1</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">longitude</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+b</span></span><span class="pun"><span class="pun">=(</span></span><span class="pln"><span class="pln">location2</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">latitude</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> location2</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">longitude</span></span><span class="pun"><span class="pun">)</span></span><span class="pln"><span class="pln">
+
+</span></span><span class="kwd"><span class="kwd">print</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">distance</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">distance</span></span><span class="pun"><span class="pun">(</span></span><span class="pln"><span class="pln">a</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln"> b</span></span><span class="pun"><span class="pun">).</span></span><span class="pln"><span class="pln">km</span></span><span class="pun"><span class="pun">)</span></span></code></pre>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d54ba6c elementor-widget elementor-widget-text-editor" data-id="d54ba6c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<pre class=" prettyprinted" style=""><span class="lit">10.670202001937287</span></pre>					</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+						</div>
+					</div>
+		<!--<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="https://holypython.com/locations-in-python-geocoding-w-geopy/"
+    dc:identifier="https://holypython.com/locations-in-python-geocoding-w-geopy/"
+    dc:title="Locations in Python (Geocoding w/Geopy)"
+    trackback:ping="https://holypython.com/locations-in-python-geocoding-w-geopy/trackback/" />
+</rdf:RDF>-->
+</div><div class="jupiterx-social-share jupiterx-social-share-post"><div class="jupiterx-social-share-inner"><a class="jupiterx-social-share-link btn jupiterx-social-share-facebook" href="https://facebook.com/sharer/sharer.php?u=https://holypython.com/locations-in-python-geocoding-w-geopy/" target="_blank" aria-label="Share on Facebook"><span class="jupiterx-icon jupiterx-icon-facebook-f"></span></a><a class="jupiterx-social-share-link btn jupiterx-social-share-twitter" href="https://twitter.com/intent/tweet/?text=Locations%20in%20Python%20(Geocoding%20w/Geopy)&amp;url=https://holypython.com/locations-in-python-geocoding-w-geopy/" target="_blank" aria-label="Share on Twitter"><span class="jupiterx-icon jupiterx-icon-twitter"></span></a><a class="jupiterx-social-share-link btn jupiterx-social-share-pinterest" href="https://pinterest.com/pin/create/button/?url=https://holypython.com/locations-in-python-geocoding-w-geopy/&amp;media=https://holypython.com/locations-in-python-geocoding-w-geopy/&amp;description=Locations%20in%20Python%20(Geocoding%20w/Geopy)" target="_blank" aria-label="Share on Pinterest"><span class="jupiterx-icon jupiterx-icon-pinterest-p"></span></a><a class="jupiterx-social-share-link btn jupiterx-social-share-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://holypython.com/locations-in-python-geocoding-w-geopy/&amp;title=Locations%20in%20Python%20(Geocoding%20w/Geopy)&amp;summary=Locations%20in%20Python%20(Geocoding%20w/Geopy)&amp;source=https://holypython.com/locations-in-python-geocoding-w-geopy/" target="_blank" aria-label="Share on LinkedIn"><span class="jupiterx-icon jupiterx-icon-linkedin-in"></span></a><a class="jupiterx-social-share-link btn jupiterx-social-share-reddit" href="https://reddit.com/submit/?url=https://holypython.com/locations-in-python-geocoding-w-geopy/" target="_blank" aria-label="Share on Reddit"><span class="jupiterx-icon jupiterx-icon-reddit-alien"></span></a><a class="jupiterx-social-share-link btn jupiterx-social-share-email" href="mailto:?subject=Locations%20in%20Python%20(Geocoding%20w/Geopy)&amp;body=https://holypython.com/locations-in-python-geocoding-w-geopy/" target="_self" aria-label="Share on Email"><span class="jupiterx-icon jupiterx-icon-share-email"></span></a></div></div></div></article><div class="jupiterx-post-related"><h2 class="jupiterx-post-related-label">Recommended Posts</h2><div class="row"><div class="col-md-6 col-lg-3"><a class="card" href="https://holypython.com/python-packaging-hosting-code-at-github/"><img data-lazyloaded="1" data-placeholder-resp="300x200" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2ViZjNmZiIvPjwvc3ZnPg==" data-src="https://holypython.com/wp-content/uploads/2020/09/ZDwh_sxsX2_Custom-300x200.jpg.webp" class="attachment-medium size-medium wp-post-image" alt="" loading="lazy" data-object-fit="cover" data-srcset="https://holypython.com/wp-content/uploads/2020/09/ZDwh_sxsX2_Custom-300x200.jpg.webp 300w, https://holypython.com/wp-content/uploads/2020/09/ZDwh_sxsX2_Custom-768x512.jpg.webp 768w, https://holypython.com/wp-content/uploads/2020/09/ZDwh_sxsX2_Custom.jpg.webp 960w" data-sizes="(max-width: 300px) 100vw, 300px" width="300" height="200"><noscript><img width="300" height="200" src="https://holypython.com/wp-content/uploads/2020/09/ZDwh_sxsX2_Custom-300x200.jpg.webp" class="attachment-medium size-medium wp-post-image" alt="" loading="lazy" data-object-fit="cover" srcset="https://holypython.com/wp-content/uploads/2020/09/ZDwh_sxsX2_Custom-300x200.jpg.webp 300w, https://holypython.com/wp-content/uploads/2020/09/ZDwh_sxsX2_Custom-768x512.jpg.webp 768w, https://holypython.com/wp-content/uploads/2020/09/ZDwh_sxsX2_Custom.jpg.webp 960w" sizes="(max-width: 300px) 100vw, 300px" /></noscript><div class="card-body"><h6 class="card-title">Python Packaging: Hosting Code at Github</h6></div></a></div><div class="col-md-6 col-lg-3"><a class="card" href="https://holypython.com/watermarkd/"><img data-lazyloaded="1" data-placeholder-resp="300x225" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjI1IiB2aWV3Qm94PSIwIDAgMzAwIDIyNSI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2ViZjNmZiIvPjwvc3ZnPg==" data-src="https://holypython.com/wp-content/uploads/2020/10/xanfQpAObak-Custom-300x225.jpg.webp" class="attachment-medium size-medium wp-post-image" alt="" loading="lazy" data-object-fit="cover" data-srcset="https://holypython.com/wp-content/uploads/2020/10/xanfQpAObak-Custom-300x225.jpg.webp 300w, https://holypython.com/wp-content/uploads/2020/10/xanfQpAObak-Custom-768x576.jpg.webp 768w, https://holypython.com/wp-content/uploads/2020/10/xanfQpAObak-Custom.jpg.webp 1000w" data-sizes="(max-width: 300px) 100vw, 300px" width="300" height="225"><noscript><img width="300" height="225" src="https://holypython.com/wp-content/uploads/2020/10/xanfQpAObak-Custom-300x225.jpg.webp" class="attachment-medium size-medium wp-post-image" alt="" loading="lazy" data-object-fit="cover" srcset="https://holypython.com/wp-content/uploads/2020/10/xanfQpAObak-Custom-300x225.jpg.webp 300w, https://holypython.com/wp-content/uploads/2020/10/xanfQpAObak-Custom-768x576.jpg.webp 768w, https://holypython.com/wp-content/uploads/2020/10/xanfQpAObak-Custom.jpg.webp 1000w" sizes="(max-width: 300px) 100vw, 300px" /></noscript><div class="card-body"><h6 class="card-title">How to Use Watermarkd: A Batch Watermarking Library with GUI</h6></div></a></div><div class="col-md-6 col-lg-3"><a class="card" href="https://holypython.com/python-packaging-quick-tutorial-checklist/"><img data-lazyloaded="1" data-placeholder-resp="300x168" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTY4IiB2aWV3Qm94PSIwIDAgMzAwIDE2OCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2ViZjNmZiIvPjwvc3ZnPg==" data-src="https://holypython.com/wp-content/uploads/2020/09/VMw2NdUzHKQ-Custom-300x168.jpg.webp" class="attachment-medium size-medium wp-post-image" alt="" loading="lazy" data-object-fit="cover" data-srcset="https://holypython.com/wp-content/uploads/2020/09/VMw2NdUzHKQ-Custom-300x168.jpg.webp 300w, https://holypython.com/wp-content/uploads/2020/09/VMw2NdUzHKQ-Custom-1024x574.jpg.webp 1024w, https://holypython.com/wp-content/uploads/2020/09/VMw2NdUzHKQ-Custom-768x431.jpg.webp 768w, https://holypython.com/wp-content/uploads/2020/09/VMw2NdUzHKQ-Custom.jpg.webp 1152w" data-sizes="(max-width: 300px) 100vw, 300px" width="300" height="168"><noscript><img width="300" height="168" src="https://holypython.com/wp-content/uploads/2020/09/VMw2NdUzHKQ-Custom-300x168.jpg.webp" class="attachment-medium size-medium wp-post-image" alt="" loading="lazy" data-object-fit="cover" srcset="https://holypython.com/wp-content/uploads/2020/09/VMw2NdUzHKQ-Custom-300x168.jpg.webp 300w, https://holypython.com/wp-content/uploads/2020/09/VMw2NdUzHKQ-Custom-1024x574.jpg.webp 1024w, https://holypython.com/wp-content/uploads/2020/09/VMw2NdUzHKQ-Custom-768x431.jpg.webp 768w, https://holypython.com/wp-content/uploads/2020/09/VMw2NdUzHKQ-Custom.jpg.webp 1152w" sizes="(max-width: 300px) 100vw, 300px" /></noscript><div class="card-body"><h6 class="card-title">Python Packaging: Quick Tutorial &amp; Checklist</h6></div></a></div><div class="col-md-6 col-lg-3"><a class="card" href="https://holypython.com/python-packaging-necessary-files-setup-py-requirements-txt-readme-md-__init__-py/"><img data-lazyloaded="1" data-placeholder-resp="300x200" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2ViZjNmZiIvPjwvc3ZnPg==" data-src="https://holypython.com/wp-content/uploads/2020/09/vXwXZS5_HgY-Custom-300x200.jpg.webp" class="attachment-medium size-medium wp-post-image" alt="" loading="lazy" data-object-fit="cover" data-srcset="https://holypython.com/wp-content/uploads/2020/09/vXwXZS5_HgY-Custom-300x200.jpg.webp 300w, https://holypython.com/wp-content/uploads/2020/09/vXwXZS5_HgY-Custom-1024x683.jpg.webp 1024w, https://holypython.com/wp-content/uploads/2020/09/vXwXZS5_HgY-Custom-768x512.jpg.webp 768w, https://holypython.com/wp-content/uploads/2020/09/vXwXZS5_HgY-Custom.jpg.webp 1114w" data-sizes="(max-width: 300px) 100vw, 300px" width="300" height="200"><noscript><img width="300" height="200" src="https://holypython.com/wp-content/uploads/2020/09/vXwXZS5_HgY-Custom-300x200.jpg.webp" class="attachment-medium size-medium wp-post-image" alt="" loading="lazy" data-object-fit="cover" srcset="https://holypython.com/wp-content/uploads/2020/09/vXwXZS5_HgY-Custom-300x200.jpg.webp 300w, https://holypython.com/wp-content/uploads/2020/09/vXwXZS5_HgY-Custom-1024x683.jpg.webp 1024w, https://holypython.com/wp-content/uploads/2020/09/vXwXZS5_HgY-Custom-768x512.jpg.webp 768w, https://holypython.com/wp-content/uploads/2020/09/vXwXZS5_HgY-Custom.jpg.webp 1114w" sizes="(max-width: 300px) 100vw, 300px" /></noscript><div class="card-body"><h6 class="card-title">Python Packaging: Necessary Files (setup.py, requirements.txt, readme.md, __init__.py)</h6></div></a></div></div></div></div></div></div></div></div></main><footer class="jupiterx-footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">		<div data-elementor-type="footer" data-elementor-id="60" class="elementor elementor-60" data-elementor-settings="[]">
+						<div class="elementor-inner">
+							<div class="elementor-section-wrap">
+							<section class="elementor-section elementor-top-section elementor-element elementor-element-b123c41 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="b123c41" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" style="width: 3785px; left: 0px;">
+						<div class="elementor-container elementor-column-gap-default">
+							<div class="elementor-row">
+					<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-5658288" data-id="5658288" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-876d82c elementor-widget elementor-widget-text-editor" data-id="876d82c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p style="text-align: center;"><a href="https://holypython.com/about">About</a></p><p style="text-align: center;"><a href="https://holypython.com/privacy-policy">Privacy</a></p><p style="text-align: center;"><a href="https://holypython.com/contact">Contact</a></p>					</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-5583190" data-id="5583190" data-element_type="column">
+			<div class="elementor-column-wrap elementor-element-populated">
+							<div class="elementor-widget-wrap">
+						<div class="elementor-element elementor-element-7afcbd5 elementor-widget elementor-widget-text-editor" data-id="7afcbd5" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>Copyright © 2019-2021&nbsp; &nbsp;<a href="https://holypython.com/">HolyPython.com</a></p>					</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-07e90e5 elementor-widget elementor-widget-text-editor" data-id="07e90e5" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+								<div class="elementor-text-editor elementor-clearfix">
+				<p>@<a href="https://twitter.com/holypy_/" target="_blank" rel="noopener">Holypy_</a></p>					</div>
+						</div>
+				</div>
+						</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-328ebc9" data-id="328ebc9" data-element_type="column">
+			<div class="elementor-column-wrap">
+							<div class="elementor-widget-wrap">
+								</div>
+					</div>
+		</div>
+								</div>
+					</div>
+		</section>
+						</div>
+						</div>
+					</div>
+		</footer><div class="jupiterx-corner-buttons" data-jupiterx-scroll="{&quot;offset&quot;:1000}"><button class="jupiterx-scroll-top jupiterx-icon-angle-up" data-jupiterx-scroll-target="0"></button></div></div>
+<script type="text/javascript" src="df_locations-in-python-geocoding-w-geopy_files/comment-reply.js" id="comment-reply-js"></script>
+
+
+<script type="text/javascript" src="df_locations-in-python-geocoding-w-geopy_files/underscore.js" id="underscore-js"></script>
+
+
+
+
+<script type="text/javascript" src="df_locations-in-python-geocoding-w-geopy_files/wp-embed.js" id="wp-embed-js"></script>
+
+
+
+
+
+<script type="text/javascript" src="df_locations-in-python-geocoding-w-geopy_files/core.js" id="jquery-ui-core-js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="df_locations-in-python-geocoding-w-geopy_files/wp-util.js" id="wp-util-js"></script>
+
+
+
+
+	
+		<!-- Cookie Notice plugin v2.2.0 by Hu-manity.co https://hu-manity.co/ -->
+		<div id="cookie-notice" role="dialog" class="cookie-revoke-hidden cn-position-bottom cn-effect-fade cookie-notice-visible" aria-label="Cookie Notice" style="background-color: rgba(63,63,63,0.96);"><div class="cookie-notice-container" style="color: #fff;"><span id="cn-notice-text" class="cn-text-container"><p style="text-align: left">WE CARE ABOUT YOUR PRIVACY</p><br>
+<p>Thank you for visiting our website! We use essential cookies to help 
+us understand and enhance user experience. By clicking “Accept”, you 
+consent to the use of ALL the cookies.</p></span><span id="cn-notice-buttons" class="cn-buttons-container"><a href="#" id="cn-accept-cookie" data-cookie-set="accept" class="cn-set-cookie cn-button" aria-label="Accept" style="background-color: #00a99d">Accept</a><a href="https://holypython.com/privacy-policy/" target="_blank" id="cn-more-info" class="cn-more-info cn-button" aria-label="Privacy policy" style="background-color: #00a99d">Privacy policy</a></span><a href="javascript:void(0);" id="cn-close-notice" data-cookie-set="accept" class="cn-close-icon" aria-label="Accept"></a></div>
+			
+		</div>
+		<!-- / Cookie Notice plugin --><script data-optimized="1" src="df_locations-in-python-geocoding-w-geopy_files/7c2ec7af8bd2a3382a441c7c861a456e.js"></script><span id="elementor-device-mode" class="elementor-screen-only"></span>
+<ins class="adsbygoogle adsbygoogle-noablate" style="display: none !important;" data-adsbygoogle-status="done" data-ad-status="unfilled"><ins id="aswift_0_expand" style="border: medium none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-table;" tabindex="0" title="Advertisement" aria-label="Advertisement"><ins id="aswift_0_anchor" style="border: medium none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: block;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" src="df_locations-in-python-geocoding-w-geopy_files/ads.html" data-google-container-id="a!1" data-load-complete="true" frameborder="0"></iframe></ins></ins></ins><iframe style="display: none;" src="df_locations-in-python-geocoding-w-geopy_files/pixel.html"></iframe><iframe src="df_locations-in-python-geocoding-w-geopy_files/aframe.html" style="display: none;" width="0" height="0"></iframe></body><iframe id="google_esf" name="google_esf" src="df_locations-in-python-geocoding-w-geopy_files/zrt_lookup.html" style="display: none;"></iframe></html>
+<!-- Page generated by LiteSpeed Cache 4.4.5 on 2022-01-07 18:33:16 -->
