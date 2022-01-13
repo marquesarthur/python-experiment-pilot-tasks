@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link href="https://cdn.realpython.com/" rel="preconnect">
+<link href="https://files.realpython.com/" rel="preconnect">
+<title>Beautiful Soup: Build a Web Scraper With Python – Real Python</title>
+<meta name="author" content="Real Python">
+<meta name="description" content="In this tutorial, you'll walk through the main steps of the web scraping process. You'll learn how to write a script that uses Python's requests library to scrape data from a website. You'll also use Beautiful Soup to extract the specific pieces of information that you're interested in.">
+<meta name="keywords" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+<link rel="stylesheet" href="df_beautiful-soup-web-scraper-python_files/realpython.css">
+<link rel="stylesheet" href="df_beautiful-soup-web-scraper-python_files/font.css">
+<link rel="stylesheet" href="df_beautiful-soup-web-scraper-python_files/glightbox.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.realpython.com/static/glightbox.min.f69035b3cab2.css"></noscript>
+<link rel="stylesheet" href="df_beautiful-soup-web-scraper-python_files/noty.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://cdn.realpython.com/static/noty.22b505e925dc.css"></noscript>
+<link rel="canonical" href="df_beautiful-soup-web-scraper-python_files/a.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.realpython.com/media/Build-a-Web-Scraper-With-Requests-and-Beautiful-Soup_Watermarked.37918fb3906c.jpg">
+<meta property="og:image" content="https://files.realpython.com/media/Build-a-Web-Scraper-With-Requests-and-Beautiful-Soup_Watermarked.37918fb3906c.jpg">
+<meta name="twitter:creator" content="@realpython">
+<meta name="twitter:site" content="@realpython">
+<meta property="og:title" content="Beautiful Soup: Build a Web Scraper With Python – Real Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://realpython.com/beautiful-soup-web-scraper-python/">
+<meta property="og:description" content="In this tutorial, you'll walk through the main steps of the web scraping process. You'll learn how to write a script that uses Python's requests library to scrape data from a website. You'll also use Beautiful Soup to extract the specific pieces of information that you're interested in.">
+<link href="https://cdn.realpython.com/static/favicon.68cbf4197b0c.png" rel="icon">
+<link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+<link rel="manifest" href="https://realpython.com/manifest.json">
+<script type="text/javascript" src="df_beautiful-soup-web-scraper-python_files/main.js"></script><script type="text/javascript" src="df_beautiful-soup-web-scraper-python_files/vendor.js"></script><script type="text/javascript" async="" src="df_beautiful-soup-web-scraper-python_files/a.js"></script><script src="df_beautiful-soup-web-scraper-python_files/2220911568135371.js" async=""></script><script async="" src="df_beautiful-soup-web-scraper-python_files/fbevents.js"></script><script async="" src="df_beautiful-soup-web-scraper-python_files/analytics.js"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+
+  
+
+  
+
+  
+  
+  ga('set', {
+    dimension1: true,
+    dimension2: false
+  });
+  
+
+  ga('send', 'pageview');
+  
+</script>
+<script async="" src="df_beautiful-soup-web-scraper-python_files/api.js"></script><script src="df_beautiful-soup-web-scraper-python_files/count-data.js"></script><script src="df_beautiful-soup-web-scraper-python_files/OneSignalPageSDKES6.js" async=""></script><style hs-beacon="active" data-styled-version="5.1.1"></style><link rel="stylesheet" href="df_beautiful-soup-web-scraper-python_files/OneSignalSDKStyles.css"></head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column ">
+<div class="container flex-row">
+<a class="navbar-brand" href="https://realpython.com/">
+<img src="df_beautiful-soup-web-scraper-python_files/real-python-logo.svg" class="d-inline-block align-top" alt="Real Python" width="165" height="40">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse navbar-nav-scroll" id="navbarSupportedContent" role="navigation" aria-label="Main Navigation">
+<ul class="navbar-nav mr-2 flex-fill">
+<li class="nav-item">
+<a class="nav-link" href="https://realpython.com/start-here/">Start&nbsp;Here</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="fa fa-graduation-cap" aria-hidden="true"></span> Learn Python
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+<a class="dropdown-item" href="https://realpython.com/" style="color: #ff7e73; line-height: 110%;"><i class="fa fa-fw mr-1 fa-graduation-cap" aria-hidden="true"></i> Python Tutorials →<br><small class="text-secondary">In-depth articles and tutorials</small></a>
+<a class="dropdown-item" href="https://realpython.com/courses/" style="color: #abe5b1; line-height: 110%;"><i class="fa fa-fw mr-1 fa-film" aria-hidden="true"></i> Video Courses →<br><small class="text-secondary">Step-by-step video lessons</small></a>
+<a class="dropdown-item" href="https://realpython.com/quizzes/" style="color: #abe0e5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-trophy" aria-hidden="true"></i> Quizzes →<br><small class="text-secondary">Check your learning progress</small></a>
+<a class="dropdown-item" href="https://realpython.com/learning-paths/" style="color: #ffc873; line-height: 110%;"><i class="fa fa-fw mr-1 fa-map-o" aria-hidden="true"></i> Learning Paths →<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+<a class="dropdown-item" href="https://realpython.com/community/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-slack" aria-hidden="true"></i> Community →<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+<a class="dropdown-item pb-3" href="https://realpython.com/tutorials/all/" style="color: #b8abe5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-tags" aria-hidden="true"></i> Topics →<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+<a class="dropdown-item border-top" href="https://realpython.com/account/join/"><i class="fa fa-fw fa-star text-warning" aria-hidden="true"></i> Unlock All Content</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBooksCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Store
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownBooksCourses">
+<a class="dropdown-item" href="https://realpython.com/account/join/"><i class="fa fa-fw fa-star text-warning" aria-hidden="true"></i> RP Membership</a>
+<a class="dropdown-item" href="https://realpython.com/products/python-basics-book/">Python Basics Book</a>
+<a class="dropdown-item" href="https://realpython.com/products/python-tricks-book/">Python Tricks Book</a>
+<a class="dropdown-item" href="https://realpython.com/products/cpython-internals-book/">CPython Internals Book</a>
+<a class="dropdown-item" href="https://realpython.com/products/real-python-course/">The Real Python Course</a>
+<a class="dropdown-item" href="https://realpython.com/products/managing-python-dependencies/">Managing Python Dependencies</a>
+<a class="dropdown-item" href="https://realpython.com/products/sublime-python/">Sublime Text + Python Setup</a>
+<a class="dropdown-item" href="https://realpython.com/products/pythonic-wallpapers/">Pythonic Wallpapers Pack</a>
+<a class="dropdown-item" href="https://nerdlettering.com/" target="_blank">Python Mugs, T-Shirts, and More</a>
+<a class="dropdown-item" href="https://www.pythonistacafe.com/" target="_blank">Pythonista Cafe Community</a>
+<a class="dropdown-item border-top" href="https://realpython.com/products/">Browse All »</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+More
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+<a class="dropdown-item" href="https://realpython.com/newsletter/">Python Newsletter</a>
+<a class="dropdown-item" href="https://realpython.com/podcasts/rpp/">Python Podcast</a>
+<a class="dropdown-item" href="https://www.pythonjobshq.com/" target="_blank">Python Job Board</a>
+<a class="dropdown-item" href="https://realpython.com/team/">Meet the Team</a>
+<a class="dropdown-item" href="https://realpython.com/write-for-us/">Become a Tutorial Author</a>
+<a class="dropdown-item" href="https://realpython.com/become-an-instructor/">Become a Video Instructor</a>
+</div>
+</li>
+</ul>
+<div class="d-block d-xl-none">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="https://realpython.com/search" title="Search"><span class="d-block d-lg-none"><i class="fa fa-search" aria-hidden="true"></i> Search</span><span class="d-none d-lg-block"><i class="fa fa-search" aria-hidden="true"></i></span></a>
+</li>
+</ul>
+</div>
+<div class="d-none d-xl-flex align-items-center mr-2">
+<form class="form-inline" action="/search" method="GET">
+<a class="js-search-form-submit position-absolute" href="https://realpython.com/search" title="Search"><i class="fa fa-search fa-fw text-muted pl-2" aria-hidden="true"></i></a>
+<input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength="50" type="search" placeholder="Search" aria-label="Search" name="q">
+<input type="hidden" name="_from" value="nav">
+</form>
+</div>
+<ul class="navbar-nav">
+<li class="nav-item form-inline mr-2">
+<a class="btn btn-sm btn-primary px-3" href="https://realpython.com/account/join/">Join</a>
+</li>
+<li class="nav-item dropdown">
+<a class="ml-2 ml-lg-0 btn text-light p-0 my-2" href="#" id="navbarDropdownAccount" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="My Account">
+<div class="media">
+<img class="align-self-center rounded rounded-circle mr-1 flex-shrink-0" style="width: 45px; height: 45px;" src="df_beautiful-soup-web-scraper-python_files/600bc0ca7ce6fd6413579e52ef88c37d.png" alt="User avatar" width="500" height="500">
+<span id="NO_badge_cont" class="NO_visible"><span id="NO_badge" class="NO_visible"></span></span>
+<p class="align-self-center p-0 m-0 dropdown-toggle"></p>
+</div>
+</a>
+<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownAccount">
+<a class="dropdown-item" href="https://realpython.com/account/notifications/"><i class="fa fa-fw fa-bell" aria-hidden="true"></i> Notifications <span class="badge badge-pill badge-danger">9+</span></a>
+<a class="dropdown-item" href="https://realpython.com/account/"><i class="fa fa-fw fa-sliders" aria-hidden="true"></i> Manage Account</a>
+<a class="dropdown-item" href="https://realpython.com/account/join/"><i class="fa fa-fw fa-star text-warning" aria-hidden="true"></i> Get Full Access</a>
+<a class="dropdown-item" href="https://realpython.com/account/bookmarks/"><i class="fa fa-fw fa-bookmark" aria-hidden="true"></i> Bookmarks</a>
+<a class="dropdown-item" href="https://realpython.com/certificates/"><i class="fa fa-fw fa-trophy" aria-hidden="true"></i> Certificates</a>
+<a class="dropdown-item" href="https://realpython.com/account/purchases/"><i class="fa fa-fw fa-shopping-cart" aria-hidden="true"></i> Purchases</a>
+<a class="dropdown-item" href="https://realpython.com/account/logout/"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i> Sign Out</a>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container main-content">
+ <div class="row justify-content-center">
+<div class="col-md-11 col-lg-8 article with-headerlinks">
+<figure class="embed-responsive embed-responsive-16by9">
+<img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="Beautiful Soup: Build a Web Scraper With Python" src="df_beautiful-soup-web-scraper-python_files/Build-a-Web-Scraper-With-Requests-and-Beautiful-Soup_Waterm.webp" srcset="df_beautiful-soup-web-scraper-python_files/a_010.webp 480w, df_beautiful-soup-web-scraper-python_files/a_006.webp 960w, df_beautiful-soup-web-scraper-python_files/Build-a-Web-Scraper-With-Requests-and-Beautiful-Soup_Waterm.webp 1920w" sizes="75vw" width="1920" height="1080">
+</figure>
+<h1>Beautiful Soup: Build a Web Scraper With Python</h1>
+<div class="mb-0">
+<span class="text-muted">by <a class="text-muted" href="#author">Martin Breuss</a>
+<span class="ml-2 fa fa-clock-o"></span> Jun 30, 2021
+<span class="ml-2 mr-1 fa fa-comments"></span><a class="text-muted" href="#reader-comments"><span class="disqus-comment-count" data-disqus-identifier="https://realpython.com/beautiful-soup-web-scraper-python/">69 Comments</span></a>
+<span class="ml-2 fa fa-tags" aria-hidden="true"></span>
+<a href="https://realpython.com/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+<a href="https://realpython.com/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+<a href="https://realpython.com/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+<a href="https://realpython.com/tutorials/web-scraping/" class="badge badge-light text-muted">web-scraping</a>
+<div class="d-sm-flex flex-row justify-content-between my-3 text-center">
+<div class="jsCompletionStatusWidget btn-group mb-0">
+<button title="Click to mark as completed" class="jsBtnCompletion btn btn-secondary border-right" style="border-top-right-radius: 0; border-bottom-right-radius: 0;">Mark as Completed</button>
+<button title="Add bookmark" class="jsBtnBookmark btn btn-secondary border-left"><i class="fa fa-fw fa-bookmark-o"></i></button>
+</div>
+<div class="align-self-center my-2">
+<span>
+<a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet/?text=Check%20out%20this%20%23Python%20tutorial:%20Beautiful%20Soup%3A%20Build%20a%20Web%20Scraper%20With%20Python%20by%20@realpython&amp;url=https%3A//realpython.com/beautiful-soup-web-scraper-python/" class="mr-1 badge badge-twitter text-light mb-1"><i class="mr-1 fa fa-twitter text-light"></i>Tweet</a>
+<a target="_blank" rel="nofollow" href="https://facebook.com/sharer/sharer.php?u=https%3A//realpython.com/beautiful-soup-web-scraper-python/" class="mr-1 badge badge-facebook text-light mb-1"><i class="mr-1 fa fa-facebook text-light"></i>Share</a>
+<a target="_blank" rel="nofollow" href="mailto:?subject=Python article for you&amp;body=Check out this Python tutorial:%0A%0ABeautiful%20Soup%3A%20Build%20a%20Web%20Scraper%20With%20Python%0A%0Ahttps%3A//realpython.com/beautiful-soup-web-scraper-python/" class="badge badge-red text-light mb-1"><i class="mr-1 fa fa-envelope text-light"></i>Email</a>
+</span>
+</div>
+</div>
+</span></div>
+<div class="article-body">
+<div class="bg-light sidebar-module sidebar-module-inset" id="toc">
+<p class="h3 mb-2 text-muted">Table of Contents</p>
+<div class="toc">
+<ul>
+<li><a href="#what-is-web-scraping">What Is Web Scraping?</a><ul>
+<li><a href="#reasons-for-web-scraping">Reasons for Web Scraping</a></li>
+<li><a href="#challenges-of-web-scraping">Challenges of Web Scraping</a></li>
+<li><a href="#an-alternative-to-web-scraping-apis">An Alternative to Web Scraping: APIs</a></li>
+</ul>
+</li>
+<li><a href="#scrape-the-fake-python-job-site">Scrape the Fake Python Job Site</a></li>
+<li><a href="#step-1-inspect-your-data-source">Step 1: Inspect Your Data Source</a><ul>
+<li><a href="#explore-the-website">Explore the Website</a></li>
+<li><a href="#decipher-the-information-in-urls">Decipher the Information in URLs</a></li>
+<li><a href="#inspect-the-site-using-developer-tools">Inspect the Site Using Developer Tools</a></li>
+</ul>
+</li>
+<li><a href="#step-2-scrape-html-content-from-a-page">Step 2: Scrape HTML Content From a Page</a><ul>
+<li><a href="#static-websites">Static Websites</a></li>
+<li><a href="#hidden-websites">Hidden Websites</a></li>
+<li><a href="#dynamic-websites">Dynamic Websites</a></li>
+</ul>
+</li>
+<li><a href="#step-3-parse-html-code-with-beautiful-soup">Step 3: Parse HTML Code With Beautiful Soup</a><ul>
+<li><a href="#find-elements-by-id">Find Elements by ID</a></li>
+<li><a href="#find-elements-by-html-class-name">Find Elements by HTML Class Name</a></li>
+<li><a href="#extract-text-from-html-elements">Extract Text From HTML Elements</a></li>
+<li><a href="#find-elements-by-class-name-and-text-content">Find Elements by Class Name and Text Content</a></li>
+<li><a href="#pass-a-function-to-a-beautiful-soup-method">Pass a Function to a Beautiful Soup Method</a></li>
+<li><a href="#identify-error-conditions">Identify Error Conditions</a></li>
+<li><a href="#access-parent-elements">Access Parent Elements</a></li>
+<li><a href="#extract-attributes-from-html-elements">Extract Attributes From HTML Elements</a></li>
+</ul>
+</li>
+<li><a href="#keep-practicing">Keep Practicing</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+</div>
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:12.5%;"></div>
+<div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"><a href="https://srv.realpython.net/click/58257184031/?c=31941813441&amp;p=58946116052&amp;r=18108" rel="nofollow" target="_blank"><img style="max-width: 100%; max-height: 100%; width: 100%;" src="df_beautiful-soup-web-scraper-python_files/16bf1efe41b538fae54711c58c701f0e.webp"></a></div>
+</div>
+<a class="small text-muted" href="https://realpython.com/account/join/" rel="nofollow"> <i class="fa fa-info-circle" aria-hidden="true"> </i> Remove ads</a>
+</div>
+<div class="border rounded p-3 card mb-2">
+<p class="mb-0"><span class="badge badge-pill badge-success"><i class="fa fa-play-circle" aria-hidden="true"></i> Watch Now</span>
+ This tutorial has a related video course created by the Real Python 
+team. Watch it together with the written tutorial to deepen your 
+understanding: <a class="stretched-link text-success" href="https://realpython.com/courses/web-scraping-beautiful-soup/"><strong>Web Scraping With Beautiful Soup and Python</strong></a></p>
+</div>
+<p>The incredible amount of data on the Internet is a rich resource for 
+any field of research or personal interest. To effectively harvest that 
+data, you’ll need to become skilled at <a href="https://realpython.com/python-web-scraping-practical-introduction/"><strong>web scraping</strong></a>. The Python libraries <code>requests</code>
+ and Beautiful Soup are powerful tools for the job. If you like to learn
+ with hands-on examples and have a basic understanding of Python and 
+HTML, then this tutorial is for you.</p>
+<p><strong>In this tutorial, you’ll learn how to:</strong></p>
+<ul>
+<li>Inspect the <strong>HTML structure</strong> of your target site with your browser’s <strong>developer tools</strong></li>
+<li>Decipher data encoded in <strong>URLs</strong></li>
+<li>Use <code>requests</code> and Beautiful Soup for <strong>scraping and parsing data</strong> from the Web</li>
+<li>Step through a <strong>web scraping pipeline</strong> from start to finish</li>
+<li><strong>Build a script</strong> that fetches job offers from the Web and displays relevant information in your console</li>
+</ul>
+<p>Working through this project will give you the knowledge of the 
+process and tools you need to scrape any static website out there on the
+ World Wide Web. You can download the project source code by clicking on
+ the link below:</p>
+<div class="alert alert-warning" role="alert">
+<p><strong markdown="1">Get Sample Code:</strong> <a href="https://realpython.com/bonus/beautiful-soup/" class="alert-link" data-toggle="modal" data-target="#modal-beautiful-soup" data-focus="false" markdown="1">Click here to get the sample code you’ll use</a> for the project and examples in this tutorial.</p>
+</div>
+<p>Let’s get started!</p>
+<section class="section2" id="what-is-web-scraping"><h2>What Is Web Scraping?<a class="headerlink" href="#what-is-web-scraping" title="Permanent link"></a></h2>
+<p><strong>Web scraping</strong> is the process of gathering information
+ from the Internet. Even copying and pasting the lyrics of your favorite
+ song is a form of web scraping! However, the words “web scraping” 
+usually refer to a process that involves automation. <a href="https://realpython.com/podcasts/rpp/12/">Some websites don’t like it when automatic scrapers gather their data</a>, while others don’t mind.</p>
+<p>If you’re scraping a page respectfully for educational purposes, then
+ you’re unlikely to have any problems. Still, it’s a good idea to do 
+some research on your own and make sure that you’re not <a href="https://benbernardblog.com/web-scraping-and-crawling-are-perfectly-legal-right/">violating any Terms of Service</a> before you start a large-scale project.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"><a href="https://srv.realpython.net/click/6931855635/?c=50660871541&amp;p=58946116052&amp;r=43128" rel="nofollow" target="_blank"><img style="max-width: 100%; max-height: 100%; width: 100%;" src="df_beautiful-soup-web-scraper-python_files/1f0846795c8392a130000105121b5a3c.webp"></a></div></div><a class="small text-muted" href="https://realpython.com/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div><section class="section3" id="reasons-for-web-scraping"><h3>Reasons for Web Scraping<a class="headerlink" href="#reasons-for-web-scraping" title="Permanent link"></a></h3>
+<p>Say you’re a surfer, both online and in real life, and you’re looking for employment. However, you’re not looking for just <em>any</em> job. With a surfer’s mindset, you’re waiting for the perfect opportunity to roll your way!</p>
+<p>There’s a job site that offers precisely the kinds of jobs you want. 
+Unfortunately, a new position only pops up once in a blue moon, and the 
+site doesn’t provide an email notification service. You think about 
+checking up on it every day, but that doesn’t sound like the most fun 
+and productive way to spend your time.</p>
+<p>Thankfully, the world offers other ways to apply that surfer’s 
+mindset! Instead of looking at the job site every day, you can use 
+Python to help automate your job search’s repetitive parts. <strong>Automated web scraping</strong>
+ can be a solution to speed up the data collection process. You write 
+your code once, and it will get the information you want many times and 
+from many pages.</p>
+<p>In contrast, when you try to get the information you want manually, 
+you might spend a lot of time clicking, scrolling, and searching, 
+especially if you need large amounts of data from websites that are 
+regularly updated with new content. Manual web scraping can take a lot 
+of time and repetition.</p>
+<p>There’s so much information on the Web, and new information is 
+constantly added. You’ll probably be interested in at least some of that
+ data, and much of it is just out there for the taking. Whether you’re 
+actually on the job hunt or you want to download all the lyrics of your 
+favorite artist, automated web scraping can help you accomplish your 
+goals.</p>
+</section><section class="section3" id="challenges-of-web-scraping"><h3>Challenges of Web Scraping<a class="headerlink" href="#challenges-of-web-scraping" title="Permanent link"></a></h3>
+<p>The Web has grown organically out of many sources. It combines many 
+different technologies, styles, and personalities, and it continues to 
+grow to this day. In other words, the Web is a hot mess! Because of 
+this, you’ll run into some challenges when scraping the Web:</p>
+<ul>
+<li>
+<p><strong>Variety:</strong> Every website is different. While you’ll 
+encounter general structures that repeat themselves, each website is 
+unique and will need personal treatment if you want to extract the 
+relevant information.</p>
+</li>
+<li>
+<p><strong>Durability:</strong> Websites constantly change. Say you’ve 
+built a shiny new web scraper that automatically cherry-picks what you 
+want from your resource of interest. The first time you <a href="https://realpython.com/run-python-scripts/">run your script</a>,
+ it works flawlessly. But when you run the same script only a short 
+while later, you run into a discouraging and lengthy stack of <a href="https://realpython.com/python-traceback/">tracebacks</a>!</p>
+</li>
+</ul>
+<p>Unstable scripts are a realistic scenario, as many websites are in 
+active development. Once the site’s structure has changed, your scraper 
+might not be able to navigate the sitemap correctly or find the relevant
+ information. The good news is that many changes to websites are small 
+and incremental, so you’ll likely be able to update your scraper with 
+only minimal adjustments.</p>
+<p>However, keep in mind that because the Internet is dynamic, the 
+scrapers you’ll build will probably require constant maintenance. You 
+can set up <a href="https://realpython.com/python-continuous-integration/">continuous integration</a> to run scraping tests periodically to ensure that your main script doesn’t break without your knowledge.</p>
+</section><section class="section3" id="an-alternative-to-web-scraping-apis"><h3>An Alternative to Web Scraping: APIs<a class="headerlink" href="#an-alternative-to-web-scraping-apis" title="Permanent link"></a></h3>
+<p>Some website providers offer <a href="https://realpython.com/python-api/">application programming interfaces (APIs)</a>
+ that allow you to access their data in a predefined manner. With APIs, 
+you can avoid parsing HTML. Instead, you can access the data directly 
+using formats like <a href="https://realpython.com/python-json/">JSON</a> and XML. HTML is primarily a way to present content to users visually.</p>
+<p>When you use an API, the process is generally more stable than 
+gathering the data through web scraping. That’s because developers 
+create APIs to be consumed by programs rather than by human eyes.</p>
+<p>The front-end presentation of a site might change often, but such a 
+change in the website’s design doesn’t affect its API structure. The 
+structure of an API is usually more permanent, which means it’s a more 
+reliable source of the site’s data.</p>
+<p>However, APIs <em>can</em> change as well. The challenges of both 
+variety and durability apply to APIs just as they do to websites. 
+Additionally, it’s much harder to inspect the structure of an API by 
+yourself if the provided documentation lacks quality.</p>
+<p>The approach and tools you need to gather information using APIs are 
+outside the scope of this tutorial. To learn more about it, check out <a href="https://realpython.com/api-integration-in-python/">API Integration in Python</a>.</p>
+</section></section><section class="section2" id="scrape-the-fake-python-job-site"><h2>Scrape the Fake Python Job Site<a class="headerlink" href="#scrape-the-fake-python-job-site" title="Permanent link"></a></h2>
+<p>In this tutorial, you’ll build a web scraper that fetches Python software developer job listings from the <a href="https://realpython.github.io/fake-jobs/">Fake Python Jobs</a>
+ site. It’s an example site with fake job postings that you can freely 
+scrape to train your skills. Your web scraper will parse the HTML on the
+ site to pick out the relevant information and filter that content for 
+specific words.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> A previous version of this tutorial focused on scraping the <a href="https://www.monster.com/">Monster</a>
+ job board, which has since changed and doesn’t provide static HTML 
+content anymore. The updated version of this tutorial focuses on a 
+self-hosted static site that is guaranteed to stay the same and gives 
+you a reliable playground to practice the skills you need for web 
+scraping.</p>
+</div>
+<p>You can scrape any site on the Internet that you can look at, but the
+ difficulty of doing so depends on the site. This tutorial offers you an
+ introduction to web scraping to help you understand the overall 
+process. Then, you can apply this same process for every website you’ll 
+want to scrape.</p>
+<p>Throughout the tutorial, you’ll also encounter a few <strong>exercise blocks</strong>. You can click to expand them and challenge yourself by completing the tasks described there.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"><a href="https://srv.realpython.net/click/51173158879/?c=3190889540&amp;p=58946116052&amp;r=27665" rel="nofollow" target="_blank"><img style="max-width: 100%; max-height: 100%; width: 100%;" src="df_beautiful-soup-web-scraper-python_files/8c80de229a52f9edcdfefa85a454bbbe.webp"></a></div></div><a class="small text-muted" href="https://realpython.com/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section><section class="section2" id="step-1-inspect-your-data-source"><h2>Step 1: Inspect Your Data Source<a class="headerlink" href="#step-1-inspect-your-data-source" title="Permanent link"></a></h2>
+<p>Before you write any Python code, you need to get to know the website
+ that you want to scrape. That should be your first step for any web 
+scraping project you want to tackle. You’ll need to understand the site 
+structure to extract the information that’s relevant for you. Start by 
+opening <a href="https://realpython.github.io/fake-jobs/">the site you want to scrape</a> with your favorite browser.</p>
+<section class="section3" id="explore-the-website"><h3>Explore the Website<a class="headerlink" href="#explore-the-website" title="Permanent link"></a></h3>
+<p>Click through the site and interact with it just like any typical job
+ searcher would. For example, you can scroll through the main page of 
+the website:</p>
+<figure class="js-lightbox"><a href="https://files.realpython.com/media/bs4-fake-python-index.b76716592442.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block border " src="df_beautiful-soup-web-scraper-python_files/bs4-fake-python-index.webp" srcset="df_beautiful-soup-web-scraper-python_files/a_002.png 360w, df_beautiful-soup-web-scraper-python_files/a_012.webp 720w, df_beautiful-soup-web-scraper-python_files/bs4-fake-python-index.webp 1440w" sizes="75vw" alt="Index page of the Fake Python job board" data-asset="3595" width="1440" height="900"></a></figure>
+<p>You can see many job postings in a card format, and each of them has two buttons. If you click <em>Apply</em>,
+ then you’ll see a new page that contains more detailed descriptions of 
+the selected job. You might also notice that the URL in your browser’s 
+address bar changes when you interact with the website.</p>
+</section><section class="section3" id="decipher-the-information-in-urls"><h3>Decipher the Information in URLs<a class="headerlink" href="#decipher-the-information-in-urls" title="Permanent link"></a></h3>
+<p>A programmer can encode a lot of information in a URL. Your web 
+scraping journey will be much easier if you first become familiar with 
+how URLs work and what they’re made of. For example, you might find 
+yourself on a details page that has the following URL:</p>
+<div class="highlight"><pre><span></span><code>https://realpython.github.io/fake-jobs/jobs/senior-python-developer-0.html
+</code></pre></div>
+<p>You can deconstruct the above URL into two main parts:</p>
+<ol>
+<li><strong>The base URL</strong> represents the path to the search functionality of the website. In the example above, the base URL is <code>https://realpython.github.io/fake-jobs/</code>.</li>
+<li><strong>The specific site location</strong> that ends with <code>.html</code> is the path to the job description’s unique resource.</li>
+</ol>
+<p>Any job posted on this website will use the same base URL. However, 
+the unique resources’ location will be different depending on what 
+specific job posting you’re viewing.</p>
+<p>URLs can hold more information than just the location of a file. Some websites use <strong>query parameters</strong>
+ to encode values that you submit when performing a search. You can 
+think of them as query strings that you send to the database to retrieve
+ specific records.</p>
+<p>You’ll find query parameters at the end of a URL. For example, if you go to <a href="https://au.indeed.com/">Indeed</a>
+ and search for “software developer” in “Australia” through their search
+ bar, you’ll see that the URL changes to include these values as query 
+parameters:</p>
+<div class="highlight"><pre><span></span><code>https://au.indeed.com/jobs?q=software+developer&amp;l=Australia
+</code></pre></div>
+<p>The query parameters in this URL are <code>?q=software+developer&amp;l=Australia</code>. Query parameters consist of three parts:</p>
+<ol>
+<li><strong>Start:</strong> The beginning of the query parameters is denoted by a question mark (<code>?</code>).</li>
+<li><strong>Information:</strong> The pieces of information constituting
+ one query parameter are encoded in key-value pairs, where related keys 
+and values are joined together by an equals sign (<code>key=value</code>).</li>
+<li><strong>Separator:</strong> Every URL can have multiple query parameters, separated by an ampersand symbol (<code>&amp;</code>).</li>
+</ol>
+<p>Equipped with this information, you can pick apart the URL’s query parameters into two key-value pairs:</p>
+<ol>
+<li><strong><code>q=software+developer</code></strong> selects the type of job.</li>
+<li><strong><code>l=Australia</code></strong> selects the location of the job.</li>
+</ol>
+<p>Try to change the search parameters and observe how that affects your
+ URL. Go ahead and enter new values in the search bar up top:</p>
+<figure class=""><img loading="lazy" class="img-fluid mx-auto d-block border w-75" src="df_beautiful-soup-web-scraper-python_files/bs4-indeed-search.webp" srcset="df_beautiful-soup-web-scraper-python_files/a.png 360w, df_beautiful-soup-web-scraper-python_files/a_013.webp 720w, df_beautiful-soup-web-scraper-python_files/bs4-indeed-search.webp 1440w" sizes="75vw" alt="Search interface of the Indeed job board" data-asset="3597" width="1440" height="900"><figcaption class="figure-caption text-center">Change these values to observe the changes in the URL.</figcaption></figure>
+<p>Next, try to change the values directly in your URL. See what happens
+ when you paste the following URL into your browser’s address bar:</p>
+<div class="highlight"><pre><span></span><code>https://au.indeed.com/jobs?q=developer&amp;l=perth
+</code></pre></div>
+<p>If you change and submit the values in the website’s search box, then
+ it’ll be directly reflected in the URL’s query parameters and vice 
+versa. If you change either of them, then you’ll see different results 
+on the website.</p>
+<p>As you can see, exploring the URLs of a site can give you insight into how to retrieve data from the website’s server.</p>
+<p>Head back to <a href="https://realpython.github.io/fake-jobs/">Fake Python Jobs</a>
+ and continue exploring it. This site is a purely static website that 
+doesn’t operate on top of a database, which is why you won’t have to 
+work with query parameters in this scraping tutorial.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"><a href="https://srv.realpython.net/click/53740567618/?c=44675371757&amp;p=58946116052&amp;r=75083" rel="nofollow" target="_blank"><img style="max-width: 100%; max-height: 100%; width: 100%;" src="df_beautiful-soup-web-scraper-python_files/32dc2b8267d0b6061434a93732943fa5.webp"></a></div></div><a class="small text-muted" href="https://realpython.com/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section><section class="section3" id="inspect-the-site-using-developer-tools"><h3>Inspect the Site Using Developer Tools<a class="headerlink" href="#inspect-the-site-using-developer-tools" title="Permanent link"></a></h3>
+<p>Next, you’ll want to learn more about how the data is structured for 
+display. You’ll need to understand the page structure to pick what you 
+want from the HTML response that you’ll collect in one of the upcoming 
+steps.</p>
+<p><strong>Developer tools</strong> can help you understand the 
+structure of a website. All modern browsers come with developer tools 
+installed. In this section, you’ll see how to work with the developer 
+tools in Chrome. The process will be very similar to other modern 
+browsers.</p>
+<p>In Chrome on macOS, you can open up the developer tools through the menu by selecting <em>View</em> → <em>Developer</em> → <em>Developer Tools</em>. On Windows and Linux, you can access them by clicking the top-right menu button (<code>⋮</code>) and selecting <em>More Tools</em> → <em>Developer Tools</em>. You can also access your developer tools by right-clicking on the page and selecting the <em>Inspect</em> option or using a <a href="https://developer.chrome.com/docs/devtools/shortcuts/">keyboard shortcut</a>:</p>
+<ul>
+<li><strong>Mac:</strong> <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-i">I</kbd></span></li>
+<li><strong>Windows/Linux:</strong> <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-i">I</kbd></span></li>
+</ul>
+<p>Developer tools allow you to interactively explore the site’s <a href="https://en.wikipedia.org/wiki/Document_Object_Model">document object model (DOM)</a> to better understand your source. To dig into your page’s DOM, select the <em>Elements</em>
+ tab in developer tools. You’ll see a structure with clickable HTML 
+elements. You can expand, collapse, and even edit elements right in your
+ browser:</p>
+<figure class="js-lightbox"><a href="https://files.realpython.com/media/bs4-devtools.f0a236ca5fa3.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block border " src="df_beautiful-soup-web-scraper-python_files/bs4-devtools.webp" srcset="df_beautiful-soup-web-scraper-python_files/a_003.png 360w, df_beautiful-soup-web-scraper-python_files/a_007.webp 720w, df_beautiful-soup-web-scraper-python_files/bs4-devtools.webp 1440w" sizes="75vw" alt="Chrome developer tools open showing the HTML of a Fake Python job board card" data-asset="3596" width="1440" height="900"></a><figcaption class="figure-caption text-center">The HTML on the right represents the structure of the page you can see on the left.</figcaption></figure>
+<p>You can think of the text displayed in your browser as the HTML 
+structure of that page. If you’re interested, then you can read more 
+about the difference between the DOM and HTML on <a href="https://css-tricks.com/dom/">CSS-TRICKS</a>.</p>
+<p>When you right-click elements on the page, you can select <em>Inspect</em>
+ to zoom to their location in the DOM. You can also hover over the HTML 
+text on your right and see the corresponding elements light up on the 
+page.</p>
+<p>Click to expand the exercise block for a specific task to practice using your developer tools:</p>
+<div class="card mb-3" id="collapse_cardb998a6">
+<div class="card-header border-0">
+<p class="m-0"><button class="btn w-100" data-toggle="collapse" data-target="#collapseb998a6" aria-expanded="false" aria-controls="collapseb998a6" markdown="1"><span class="float-left" markdown="1">Exercise: Explore the HTML</span><span class="float-right text-muted">Show/Hide</span></button></p>
+</div>
+<div class="collapse js-collapsible-section" data-parent="#collapse_cardb998a6" id="collapseb998a6">
+<div class="card-body">
+<p>Find a single job posting. What HTML element is it wrapped in, and what other HTML elements does it contain?</p>
+</div>
+</div>
+</div>
+<p>Play around and explore! The more you get to know the page you’re 
+working with, the easier it will be to scrape it. However, don’t get too
+ overwhelmed with all that HTML text. You’ll use the power of 
+programming to step through this maze and cherry-pick the information 
+that’s relevant to you.</p>
+</section></section><section class="section2" id="step-2-scrape-html-content-from-a-page"><h2>Step 2: Scrape HTML Content From a Page<a class="headerlink" href="#step-2-scrape-html-content-from-a-page" title="Permanent link"></a></h2>
+<p>Now that you have an idea of what you’re working with, it’s time to 
+start using Python. First, you’ll want to get the site’s HTML code into 
+your Python script so that you can interact with it. For this task, 
+you’ll use Python’s <a href="https://realpython.com/python-requests/"><code>requests</code></a> library.</p>
+<p>Create a <a href="https://realpython.com/python-virtual-environments-a-primer/">virtual environment</a>
+ for your project before you install any external package. Activate your
+ new virtual environment, then type the following command in your 
+terminal to install the external <code>requests</code> library:</p>
+<div class="highlight sh"><pre><span></span><code><span class="gp">$ </span>python -m pip install requests
+</code></pre></div>
+<p>Then open up a new file in your favorite <a href="https://realpython.com/python-ides-code-editors-guide/">text editor</a>. All you need to retrieve the HTML are a few lines of code:</p>
+<div class="highlight python"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">"https://realpython.github.io/fake-jobs/"</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<p>This code issues an <a href="https://realpython.com/python-requests/#the-get-request">HTTP <code>GET</code> request</a> to the given URL. It retrieves the HTML data that the server sends back and stores that data in a Python object.</p>
+<p>If you <a href="https://realpython.com/python-print/">print</a> the <code>.text</code> attribute of <code>page</code>,
+ then you’ll notice that it looks just like the HTML that you inspected 
+earlier with your browser’s developer tools. You successfully fetched 
+the static site content from the Internet! You now have access to the 
+site’s HTML from within your Python script.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"><a href="https://srv.realpython.net/click/28058324595/?c=16800393111&amp;p=58946116052&amp;r=77771" rel="nofollow" target="_blank"><img style="max-width: 100%; max-height: 100%; width: 100%;" src="df_beautiful-soup-web-scraper-python_files/92bc368810c575854c12181ea43cecea.webp"></a></div></div><a class="small text-muted" href="https://realpython.com/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div><section class="section3" id="static-websites"><h3>Static Websites<a class="headerlink" href="#static-websites" title="Permanent link"></a></h3>
+<p>The website that you’re scraping in this tutorial serves <strong>static HTML content</strong>.
+ In this scenario, the server that hosts the site sends back HTML 
+documents that already contain all the data that you’ll get to see as a 
+user.</p>
+<p>When you inspected the page with developer tools earlier on, you 
+discovered that a job posting consists of the following long and 
+messy-looking HTML:</p>
+<div class="highlight html"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"card"</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"card-content"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"media"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"media-left"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">figure</span> <span class="na">class</span><span class="o">=</span><span class="s">"image is-48x48"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">img</span>
+            <span class="na">src</span><span class="o">=</span><span class="s">"https://files.realpython.com/media/real-python-logo-thumbnail.7f0db70c2ed2.jpg"</span>
+            <span class="na">alt</span><span class="o">=</span><span class="s">"Real Python Logo"</span>
+          <span class="p">/&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">figure</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"media-content"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">"title is-5"</span><span class="p">&gt;</span>Senior Python Developer<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"subtitle is-6 company"</span><span class="p">&gt;</span>Payne, Roberts and Davis<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"content"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"location"</span><span class="p">&gt;</span>Stewartbury, AA<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"is-small has-text-grey"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">time</span> <span class="na">datetime</span><span class="o">=</span><span class="s">"2021-04-08"</span><span class="p">&gt;</span>2021-04-08<span class="p">&lt;/</span><span class="nt">time</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">footer</span> <span class="na">class</span><span class="o">=</span><span class="s">"card-footer"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span>
+        <span class="na">href</span><span class="o">=</span><span class="s">"https://www.realpython.com"</span>
+        <span class="na">target</span><span class="o">=</span><span class="s">"_blank"</span>
+        <span class="na">class</span><span class="o">=</span><span class="s">"card-footer-item"</span>
+        <span class="p">&gt;</span>Learn<span class="p">&lt;/</span><span class="nt">a</span>
+      <span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span>
+        <span class="na">href</span><span class="o">=</span><span class="s">"https://realpython.github.io/fake-jobs/jobs/senior-python-developer-0.html"</span>
+        <span class="na">target</span><span class="o">=</span><span class="s">"_blank"</span>
+        <span class="na">class</span><span class="o">=</span><span class="s">"card-footer-item"</span>
+        <span class="p">&gt;</span>Apply<span class="p">&lt;/</span><span class="nt">a</span>
+      <span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>It can be challenging to wrap your head around a long block of HTML code. To make it easier to read, you can use an <a href="https://webformatter.com/html">HTML formatter</a>
+ to clean it up automatically. Good readability helps you better 
+understand the structure of any code block. While it may or may not help
+ improve the HTML formatting, it’s always worth a try.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> Keep in mind that every website will look 
+different. That’s why it’s necessary to inspect and understand the 
+structure of the site you’re currently working with before moving 
+forward.</p>
+</div>
+<p>The HTML you’ll encounter will sometimes be confusing. Luckily, the HTML of this job board has descriptive <strong>class names</strong> on the elements that you’re interested in:</p>
+<ul>
+<li><strong><code>class="title is-5"</code></strong> contains the title of the job posting.</li>
+<li><strong><code>class="subtitle is-6 company"</code></strong> contains the name of the company that offers the position.</li>
+<li><strong><code>class="location"</code></strong> contains the location where you’d be working.</li>
+</ul>
+<p>In case you ever get lost in a large pile of HTML, remember that you 
+can always go back to your browser and use the developer tools to 
+further explore the HTML structure interactively.</p>
+<p>By now, you’ve successfully harnessed the power and user-friendly design of Python’s <code>requests</code>
+ library. With only a few lines of code, you managed to scrape static 
+HTML content from the Web and make it available for further processing.</p>
+<p>However, there are more challenging situations that you might 
+encounter when you’re scraping websites. Before you learn how to pick 
+the relevant information from the HTML that you just scraped, you’ll 
+take a quick look at two of these more challenging situations.</p>
+</section><section class="section3" id="hidden-websites"><h3>Hidden Websites<a class="headerlink" href="#hidden-websites" title="Permanent link"></a></h3>
+<p>Some pages contain information that’s hidden behind a login. That 
+means you’ll need an account to be able to scrape anything from the 
+page. The process to make an HTTP request from your Python script is 
+different from how you access a page from your browser. Just because you
+ can log in to the page through your browser doesn’t mean you’ll be able
+ to scrape it with your Python script.</p>
+<p>However, the <code>requests</code> library comes with the built-in capacity to <a href="https://docs.python-requests.org/en/master/user/authentication/">handle authentication</a>.
+ With these techniques, you can log in to websites when making the HTTP 
+request from your Python script and then scrape information that’s 
+hidden behind a login. You won’t need to log in to access the job board 
+information, which is why this tutorial won’t cover authentication.</p>
+</section><section class="section3" id="dynamic-websites"><h3>Dynamic Websites<a class="headerlink" href="#dynamic-websites" title="Permanent link"></a></h3>
+<p>In this tutorial, you’ll learn how to scrape a static website. Static
+ sites are straightforward to work with because the server sends you an 
+HTML page that already contains all the page information in the 
+response. You can parse that HTML response and immediately begin to pick
+ out the relevant data.</p>
+<p>On the other hand, with a <strong>dynamic website</strong>, the server might not send back any HTML at all. Instead, you could receive <a href="https://realpython.com/python-vs-javascript/">JavaScript</a>
+ code as a response. This code will look completely different from what 
+you saw when you inspected the page with your browser’s developer tools.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> In this tutorial, the term <strong>dynamic website</strong> refers to a website that doesn’t return the same HTML that you see when viewing the page in your browser.</p>
+<p>Many modern web applications are designed to provide their 
+functionality in collaboration with the clients’ browsers. Instead of 
+sending HTML pages, these apps send <strong>JavaScript</strong> code 
+that instructs your browser to create the desired HTML. Web apps deliver
+ dynamic content in this way to offload work from the server to the 
+clients’ machines as well as to avoid page reloads and improve the 
+overall user experience.</p>
+</div>
+<p>What happens in the browser is not the same as what happens in your 
+script. Your browser will diligently execute the JavaScript code it 
+receives from a server and create the DOM and HTML for you locally. 
+However, if you request a dynamic website in your Python script, then 
+you won’t get the HTML page content.</p>
+<p>When you use <code>requests</code>, you only receive what the server 
+sends back. In the case of a dynamic website, you’ll end up with some 
+JavaScript code instead of HTML. The only way to go from the JavaScript 
+code you received to the content that you’re interested in is to <strong>execute</strong> the code, just like your browser does. The <code>requests</code> library can’t do that for you, but there are other solutions that can.</p>
+<p>For example, <a href="https://github.com/psf/requests-html"><code>requests-html</code></a> is a project created by the author of the <code>requests</code> library that allows you to render JavaScript using syntax that’s similar to the syntax in <code>requests</code>. It also includes capabilities for parsing the data by using <strong>Beautiful Soup</strong> under the hood.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> Another popular choice for scraping dynamic content is <a href="https://realpython.com/modern-web-automation-with-python-and-selenium/">Selenium</a>.
+ You can think of Selenium as a slimmed-down browser that executes the 
+JavaScript code for you before passing on the rendered HTML response to 
+your script.</p>
+</div>
+<p>You won’t go deeper into scraping dynamically-generated content in 
+this tutorial. For now, it’s enough to remember to look into one of the 
+options mentioned above if you need to scrape a dynamic website.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"><a href="https://srv.realpython.net/click/48903086761/?c=9349191308&amp;p=58946116052&amp;r=97516" rel="nofollow" target="_blank"><img style="max-width: 100%; max-height: 100%; width: 100%;" src="df_beautiful-soup-web-scraper-python_files/80e19a8924e33dc994db2b63586bc3fc.webp"></a></div></div><a class="small text-muted" href="https://realpython.com/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section></section><section class="section2" id="step-3-parse-html-code-with-beautiful-soup"><h2>Step 3: Parse HTML Code With Beautiful Soup<a class="headerlink" href="#step-3-parse-html-code-with-beautiful-soup" title="Permanent link"></a></h2>
+<p>You’ve successfully scraped some HTML from the Internet, but when you
+ look at it, it just seems like a huge mess. There are tons of HTML 
+elements here and there, thousands of attributes scattered around—and 
+wasn’t there some JavaScript mixed in as well? It’s time to parse this 
+lengthy code response with the help of Python to make it more accessible
+ and pick out the data you want.</p>
+<p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautiful Soup</a> is a Python library for <strong>parsing structured data</strong>.
+ It allows you to interact with HTML in a similar way to how you 
+interact with a web page using developer tools. The library exposes a 
+couple of intuitive functions you can use to explore the HTML you 
+received. To get started, use your terminal to install Beautiful Soup:</p>
+<div class="highlight sh"><pre><span></span><code><span class="gp">$ </span>python -m pip install beautifulsoup4
+</code></pre></div>
+<p>Then, <a href="https://realpython.com/python-import/">import</a> the library in your Python script and create a Beautiful Soup object:</p>
+<div class="highlight python"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</span>
+<span class="n">URL</span> <span class="o">=</span> <span class="s2">"https://realpython.github.io/fake-jobs/"</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+
+<span class="hll"><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">"html.parser"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>When you add the two highlighted lines of code, you create a Beautiful Soup object that takes <code>page.content</code>, which is the HTML content you scraped earlier, as its input.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> You’ll want to pass <code>page.content</code> instead of <code>page.text</code> to avoid problems with character encoding. The <code>.content</code> attribute holds raw bytes, which can be decoded better than the text representation you printed earlier using the <code>.text</code> attribute.</p>
+</div>
+<p>The second argument, <code>"html.parser"</code>, makes sure that you use <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#differences-between-parsers">the appropriate parser</a> for HTML content.</p>
+<section class="section3" id="find-elements-by-id"><h3>Find Elements by ID<a class="headerlink" href="#find-elements-by-id" title="Permanent link"></a></h3>
+<p>In an HTML web page, every element can have an <code>id</code> attribute assigned. As the name already suggests, that <code>id</code>
+ attribute makes the element uniquely identifiable on the page. You can 
+begin to parse your page by selecting a specific element by its ID.</p>
+<p>Switch back to developer tools and identify the HTML object that 
+contains all the job postings. Explore by hovering over parts of the 
+page and using right-click to <em>Inspect</em>.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong>Note:</strong> It helps to periodically switch back to your 
+browser and interactively explore the page using developer tools. This 
+helps you learn how to find the exact elements you’re looking for.</p>
+</div>
+<p>The element you’re looking for is a <code>&lt;div&gt;</code> with an <code>id</code> attribute that has the value <code>"ResultsContainer"</code>. It has some other attributes as well, but below is the gist of what you’re looking for:</p>
+<div class="highlight html"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"ResultsContainer"</span><span class="p">&gt;</span>
+  <span class="c">&lt;!-- all the job listings --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Beautiful Soup allows you to find that specific HTML element by its ID:</p>
+<div class="highlight python"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">"ResultsContainer"</span><span class="p">)</span>
+</code></pre></div>
+<p>For easier viewing, you can prettify any Beautiful Soup object when you print it out. If you call <code>.prettify()</code> on the <code>results</code> variable that you just assigned above, then you’ll see all the HTML contained within the <code>&lt;div&gt;</code>:</p>
+<div class="highlight python"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">prettify</span><span class="p">())</span>
+</code></pre></div>
+<p>When you use the element’s ID, you can pick out one element from 
+among the rest of the HTML. Now you can work with only this specific 
+part of the page’s HTML. It looks like the soup just got a little 
+thinner! However, it’s still quite dense.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"><a href="https://srv.realpython.net/click/65049834810/?c=9349191308&amp;p=58946116052&amp;r=84029" rel="nofollow" target="_blank"><img style="max-width: 100%; max-height: 100%; width: 100%;" src="df_beautiful-soup-web-scraper-python_files/681db5178e811f0240f3775742f6b3b9.webp"></a></div></div><a class="small text-muted" href="https://realpython.com/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section><section class="section3" id="find-elements-by-html-class-name"><h3>Find Elements by HTML Class Name<a class="headerlink" href="#find-elements-by-html-class-name" title="Permanent link"></a></h3>
+<p>You’ve seen that every job posting is wrapped in a <code>&lt;div&gt;</code> element with the class <code>card-content</code>. Now you can work with your new object called <code>results</code>
+ and select only the job postings in it. These are, after all, the parts
+ of the HTML that you’re interested in! You can do this in one line of 
+code:</p>
+<div class="highlight python"><pre><span></span><code><span class="n">job_elements</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"div"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"card-content"</span><span class="p">)</span>
+</code></pre></div>
+<p>Here, you call <code>.find_all()</code> on a Beautiful Soup object, which returns an <a href="https://docs.python.org/3/glossary.html#term-iterable">iterable</a> containing all the HTML for all the job listings displayed on that page.</p>
+<p>Take a look at all of them:</p>
+<div class="highlight python"><pre><span></span><code><span class="k">for</span> <span class="n">job_element</span> <span class="ow">in</span> <span class="n">job_elements</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">job_element</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>That’s already pretty neat, but there’s still a lot of HTML! You saw 
+earlier that your page has descriptive class names on some elements. You
+ can pick out those child elements from each job posting with <code>.find()</code>:</p>
+<div class="highlight python"><pre><span></span><code><span class="k">for</span> <span class="n">job_element</span> <span class="ow">in</span> <span class="n">job_elements</span><span class="p">:</span>
+<span class="hll">    <span class="n">title_element</span> <span class="o">=</span> <span class="n">job_element</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"h2"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"title"</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">company_element</span> <span class="o">=</span> <span class="n">job_element</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"h3"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"company"</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">location_element</span> <span class="o">=</span> <span class="n">job_element</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"p"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"location"</span><span class="p">)</span>
+</span>    <span class="nb">print</span><span class="p">(</span><span class="n">title_element</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">company_element</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">location_element</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</code></pre></div>
+<p>Each <code>job_element</code> is another <code>BeautifulSoup()</code> object. Therefore, you can use the same methods on it as you did on its parent element, <code>results</code>.</p>
+<p>With this code snippet, you’re getting closer and closer to the data 
+that you’re actually interested in. Still, there’s a lot going on with 
+all those HTML tags and attributes floating around:</p>
+<div class="highlight html"><pre><span></span><code><span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">"title is-5"</span><span class="p">&gt;</span>Senior Python Developer<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"subtitle is-6 company"</span><span class="p">&gt;</span>Payne, Roberts and Davis<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"location"</span><span class="p">&gt;</span>Stewartbury, AA<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Next, you’ll learn how to narrow down this output to access only the text content you’re interested in.</p>
+</section><section class="section3" id="extract-text-from-html-elements"><h3>Extract Text From HTML Elements<a class="headerlink" href="#extract-text-from-html-elements" title="Permanent link"></a></h3>
+<p>You only want to see the title, company, and location of each job 
+posting. And behold! Beautiful Soup has got you covered. You can add <code>.text</code> to a Beautiful Soup object to return only the <strong>text content</strong> of the HTML elements that the object contains:</p>
+<div class="highlight python"><pre><span></span><code><span class="k">for</span> <span class="n">job_element</span> <span class="ow">in</span> <span class="n">job_elements</span><span class="p">:</span>
+    <span class="n">title_element</span> <span class="o">=</span> <span class="n">job_element</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"h2"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"title"</span><span class="p">)</span>
+    <span class="n">company_element</span> <span class="o">=</span> <span class="n">job_element</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"h3"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"company"</span><span class="p">)</span>
+    <span class="n">location_element</span> <span class="o">=</span> <span class="n">job_element</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"p"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"location"</span><span class="p">)</span>
+<span class="hll">    <span class="nb">print</span><span class="p">(</span><span class="n">title_element</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span><span class="hll">    <span class="nb">print</span><span class="p">(</span><span class="n">company_element</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span><span class="hll">    <span class="nb">print</span><span class="p">(</span><span class="n">location_element</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span>    <span class="nb">print</span><span class="p">()</span>
+</code></pre></div>
+<p>Run the above code snippet, and you’ll see the text of each element 
+displayed. However, it’s possible that you’ll also get some extra <strong>whitespace</strong>. Since you’re now working with <a href="https://realpython.com/python-strings/">Python strings</a>, you can <code>.strip()</code> the superfluous whitespace. You can also apply any other familiar Python string methods to further clean up your text:</p>
+<div class="highlight python"><pre><span></span><code><span class="k">for</span> <span class="n">job_element</span> <span class="ow">in</span> <span class="n">job_elements</span><span class="p">:</span>
+    <span class="n">title_element</span> <span class="o">=</span> <span class="n">job_element</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"h2"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"title"</span><span class="p">)</span>
+    <span class="n">company_element</span> <span class="o">=</span> <span class="n">job_element</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"h3"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"company"</span><span class="p">)</span>
+    <span class="n">location_element</span> <span class="o">=</span> <span class="n">job_element</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"p"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"location"</span><span class="p">)</span>
+<span class="hll">    <span class="nb">print</span><span class="p">(</span><span class="n">title_element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</span><span class="hll">    <span class="nb">print</span><span class="p">(</span><span class="n">company_element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</span><span class="hll">    <span class="nb">print</span><span class="p">(</span><span class="n">location_element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</span>    <span class="nb">print</span><span class="p">()</span>
+</code></pre></div>
+<p>The results finally look much better:</p>
+<div class="highlight text"><pre><span></span><code>Senior Python Developer
+Payne, Roberts and Davis
+Stewartbury, AA
+
+Energy engineer
+Vasquez-Davidson
+Christopherville, AA
+
+Legal executive
+Jackson, Chambers and Levy
+Port Ericaburgh, AA
+</code></pre></div>
+<p>That’s a readable list of jobs that also includes the company name 
+and each job’s location. However, you’re looking for a position as a 
+software developer, and these results contain job postings in many other
+ fields as well.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"><a href="https://srv.realpython.net/click/33172000876/?c=43772654581&amp;p=58946116052&amp;r=63896" rel="nofollow" target="_blank"><img style="max-width: 100%; max-height: 100%; width: 100%;" src="df_beautiful-soup-web-scraper-python_files/c34848d05efe728b284c7a87c7fcd5c9.webp"></a></div></div><a class="small text-muted" href="https://realpython.com/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section><section class="section3" id="find-elements-by-class-name-and-text-content"><h3>Find Elements by Class Name and Text Content<a class="headerlink" href="#find-elements-by-class-name-and-text-content" title="Permanent link"></a></h3>
+<p>Not all of the job listings are developer jobs. Instead of printing out <em>all</em> the jobs listed on the website, you’ll first filter them using keywords.</p>
+<p>You know that job titles in the page are kept within <code>&lt;h2&gt;</code> elements. To filter for only specific jobs, you can use the <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#the-string-argument"><code>string</code> argument</a>:</p>
+<div class="highlight python"><pre><span></span><code><span class="n">python_jobs</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"h2"</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="s2">"Python"</span><span class="p">)</span>
+</code></pre></div>
+<p>This code finds all <code>&lt;h2&gt;</code> elements where the contained string matches <code>"Python"</code> exactly. Note that you’re directly calling the method on your first <code>results</code> variable. If you go ahead and <code>print()</code> the output of the above code snippet to your console, then you might be disappointed because it’ll be empty:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">python_jobs</span><span class="p">)</span>
+<span class="go">[]</span>
+</code></pre></div>
+<p>There <em>was</em> a Python job in the search results, so why is it not showing up?</p>
+<p>When you use <code>string=</code> as you did above, your program looks for that string <em>exactly</em>.
+ Any differences in the spelling, capitalization, or whitespace will 
+prevent the element from matching. In the next section, you’ll find a 
+way to make your search string more general.</p>
+</section><section class="section3" id="pass-a-function-to-a-beautiful-soup-method"><h3>Pass a Function to a Beautiful Soup Method<a class="headerlink" href="#pass-a-function-to-a-beautiful-soup-method" title="Permanent link"></a></h3>
+<p>In addition to strings, you can sometimes pass functions as arguments
+ to Beautiful Soup methods. You can change the previous line of code to 
+use a function instead:</p>
+<div class="highlight python"><pre><span></span><code><span class="n">python_jobs</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span>
+    <span class="s2">"h2"</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="s2">"python"</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Now you’re passing an <strong>anonymous function</strong> to the <code>string=</code> argument. The <a href="https://realpython.com/python-lambda/">lambda function</a> looks at the text of each <code>&lt;h2&gt;</code> element, converts it to lowercase, and checks whether the substring <code>"python"</code> is found anywhere. You can check whether you managed to identify all the Python jobs with this approach:</p>
+<div class="highlight python repl"><span class="repl-toggle" title="Toggle REPL prompts and output">&gt;&gt;&gt;</span><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">python_jobs</span><span class="p">))</span>
+<span class="go">10</span>
+</code></pre></div>
+<p>Your program has found <code>10</code> matching job posts that include the word <code>"python"</code> in their job title!</p>
+<p>Finding elements depending on their text content is a powerful way to
+ filter your HTML response for specific information. Beautiful Soup 
+allows you to use either exact strings or functions as arguments for 
+filtering text in Beautiful Soup objects.</p>
+<p>However, when you try to run your scraper to print out the information of the filtered Python jobs, you’ll run into an error:</p>
+<div class="highlight pytb"><pre><span></span><code><span class="x">AttributeError: 'NoneType' object has no attribute 'text'</span>
+</code></pre></div>
+<p>This message is a <a href="https://realpython.com/python-traceback/">common error</a> that you’ll run into a lot when you’re scraping information from the Internet. Inspect the HTML of an element in your <code>python_jobs</code> list. What does it look like? Where do you think the error is coming from?</p>
+</section><section class="section3" id="identify-error-conditions"><h3>Identify Error Conditions<a class="headerlink" href="#identify-error-conditions" title="Permanent link"></a></h3>
+<p>When you look at a single element in <code>python_jobs</code>, you’ll see that it consists of only the <code>&lt;h2&gt;</code> element that contains the job title:</p>
+<div class="highlight html"><pre><span></span><code><span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">"title is-5"</span><span class="p">&gt;</span>Senior Python Developer<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>When you revisit the code you used to select the items, you’ll see that that’s what you targeted. You filtered for only the <code>&lt;h2&gt;</code> title elements of the job postings that contain the word <code>"python"</code>. As you can see, these elements don’t include the rest of the information about the job.</p>
+<p>The error message you received earlier was related to this:</p>
+<div class="highlight pytb"><pre><span></span><code><span class="x">AttributeError: 'NoneType' object has no attribute 'text'</span>
+</code></pre></div>
+<p>You tried to find the job title, the company name, and the job’s location in each element in <code>python_jobs</code>, but each element contains only the job title text.</p>
+<p>Your diligent parsing library still looks for the other ones, too, and returns <a href="https://realpython.com/null-in-python/"><code>None</code></a> because it can’t find them. Then, <code>print()</code> fails with the shown error message when you try to extract the <code>.text</code> attribute from one of these <code>None</code> objects.</p>
+<p>The text you’re looking for is nested in sibling elements of the <code>&lt;h2&gt;</code>
+ elements your filter returned. Beautiful Soup can help you to select 
+sibling, child, and parent elements of each Beautiful Soup object.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"><a href="https://srv.realpython.net/click/32768813333/?c=50370534298&amp;p=58946116052&amp;r=98544" rel="nofollow" target="_blank"><img style="max-width: 100%; max-height: 100%; width: 100%;" src="df_beautiful-soup-web-scraper-python_files/b4e37fe7eacd981e87c0ebb599642da6.webp"></a></div></div><a class="small text-muted" href="https://realpython.com/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section><section class="section3" id="access-parent-elements"><h3>Access Parent Elements<a class="headerlink" href="#access-parent-elements" title="Permanent link"></a></h3>
+<p>One way to get access to all the information you need is to step up in the hierarchy of the DOM starting from the <code>&lt;h2&gt;</code> elements that you identified. Take another look at the HTML of a single job posting. Find the <code>&lt;h2&gt;</code>
+ element that contains the job title as well as its closest parent 
+element that contains all the information that you’re interested in:</p>
+<div class="highlight html"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"card"</span><span class="p">&gt;</span>
+<span class="hll">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"card-content"</span><span class="p">&gt;</span>
+</span>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"media"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"media-left"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">figure</span> <span class="na">class</span><span class="o">=</span><span class="s">"image is-48x48"</span><span class="p">&gt;</span>
+          <span class="p">&lt;</span><span class="nt">img</span>
+            <span class="na">src</span><span class="o">=</span><span class="s">"https://files.realpython.com/media/real-python-logo-thumbnail.7f0db70c2ed2.jpg"</span>
+            <span class="na">alt</span><span class="o">=</span><span class="s">"Real Python Logo"</span>
+          <span class="p">/&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">figure</span><span class="p">&gt;</span>
+<span class="hll">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span>      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"media-content"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">"title is-5"</span><span class="p">&gt;</span>Senior Python Developer<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h3</span> <span class="na">class</span><span class="o">=</span><span class="s">"subtitle is-6 company"</span><span class="p">&gt;</span>Payne, Roberts and Davis<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"content"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"location"</span><span class="p">&gt;</span>Stewartbury, AA<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">"is-small has-text-grey"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">time</span> <span class="na">datetime</span><span class="o">=</span><span class="s">"2021-04-08"</span><span class="p">&gt;</span>2021-04-08<span class="p">&lt;/</span><span class="nt">time</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">footer</span> <span class="na">class</span><span class="o">=</span><span class="s">"card-footer"</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span>
+        <span class="na">href</span><span class="o">=</span><span class="s">"https://www.realpython.com"</span>
+        <span class="na">target</span><span class="o">=</span><span class="s">"_blank"</span>
+        <span class="na">class</span><span class="o">=</span><span class="s">"card-footer-item"</span>
+        <span class="p">&gt;</span>Learn<span class="p">&lt;/</span><span class="nt">a</span>
+      <span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">a</span>
+        <span class="na">href</span><span class="o">=</span><span class="s">"https://realpython.github.io/fake-jobs/jobs/senior-python-developer-0.html"</span>
+        <span class="na">target</span><span class="o">=</span><span class="s">"_blank"</span>
+        <span class="na">class</span><span class="o">=</span><span class="s">"card-footer-item"</span>
+        <span class="p">&gt;</span>Apply<span class="p">&lt;/</span><span class="nt">a</span>
+      <span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>The <code>&lt;div&gt;</code> element with the <code>card-content</code> class contains all the information you want. It’s a third-level parent of the <code>&lt;h2&gt;</code> title element that you found using your filter.</p>
+<p>With this information in mind, you can now use the elements in <code>python_jobs</code> and fetch their great-grandparent elements instead to get access to all the information you want:</p>
+<div class="highlight python"><pre><span></span><code><span class="n">python_jobs</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span>
+    <span class="s2">"h2"</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="s2">"python"</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">python_job_elements</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">h2_element</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="k">for</span> <span class="n">h2_element</span> <span class="ow">in</span> <span class="n">python_jobs</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>You added a <a href="https://realpython.com/list-comprehension-python/">list comprehension</a> that operates on each of the <code>&lt;h2&gt;</code> title elements in <code>python_jobs</code>
+ that you got by filtering with the lambda expression. You’re selecting 
+the parent element of the parent element of the parent element of each <code>&lt;h2&gt;</code> title element. That’s three generations up!</p>
+<p>When you were looking at the HTML of a single job posting, you identified that this specific parent element with the class name <code>card-content</code> contains all the information you need.</p>
+<p>Now you can adapt the code in your <a href="https://realpython.com/python-for-loop/"><code>for</code> loop</a> to iterate over the parent elements instead:</p>
+<div class="highlight python"><pre><span></span><code><span class="k">for</span> <span class="n">job_element</span> <span class="ow">in</span> <span class="n">python_job_elements</span><span class="p">:</span>
+    <span class="c1"># -- snip --</span>
+</code></pre></div>
+<p>When you run your script another time, you’ll see that your code once
+ again has access to all the relevant information. That’s because you’re
+ now looping over the <code>&lt;div class="card-content"&gt;</code> elements instead of just the <code>&lt;h2&gt;</code> title elements.</p>
+<p>Using the <code>.parent</code> attribute that each Beautiful Soup 
+object comes with gives you an intuitive way of stepping through your 
+DOM structure and addressing the elements you need. You can also access 
+child elements and sibling elements in a similar manner. Read up on <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#navigating-the-tree">navigating the tree</a> for more information.</p>
+</section><section class="section3" id="extract-attributes-from-html-elements"><h3>Extract Attributes From HTML Elements<a class="headerlink" href="#extract-attributes-from-html-elements" title="Permanent link"></a></h3>
+<p>At this point, your Python script already scrapes the site and 
+filters its HTML for relevant job postings. Well done! However, what’s 
+still missing is the link to apply for a job.</p>
+<p>While you were inspecting the page, you found two links at the bottom
+ of each card. If you handle the link elements in the same way as you 
+handled the other elements, you won’t get the URLs that you’re 
+interested in:</p>
+<div class="highlight python"><pre><span></span><code><span class="k">for</span> <span class="n">job_element</span> <span class="ow">in</span> <span class="n">python_job_elements</span><span class="p">:</span>
+    <span class="c1"># -- snip --</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">job_element</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</code></pre></div>
+<p>If you run this code snippet, then you’ll get the link texts <code>Learn</code> and <code>Apply</code> instead of the associated URLs.</p>
+<p>That’s because the <code>.text</code> attribute leaves only the 
+visible content of an HTML element. It strips away all HTML tags, 
+including the HTML attributes containing the URL, and leaves you with 
+just the link text. To get the URL instead, you need to extract the 
+value of one of the HTML attributes instead of discarding it.</p>
+<p>The URL of a link element is associated with the <code>href</code> attribute. The specific URL that you’re looking for is the value of the <code>href</code> attribute of the second <code>&lt;a&gt;</code> tag at the bottom the HTML of a single job posting:</p>
+<div class="highlight html"><pre><span></span><code>    <span class="c">&lt;!-- snip --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">footer</span> <span class="na">class</span><span class="o">=</span><span class="s">"card-footer"</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"https://www.realpython.com"</span> <span class="na">target</span><span class="o">=</span><span class="s">"_blank"</span>
+           <span class="na">class</span><span class="o">=</span><span class="s">"card-footer-item"</span><span class="p">&gt;</span>Learn<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"https://realpython.github.io/fake-jobs/jobs/senior-python-developer-0.html"</span>
+           <span class="na">target</span><span class="o">=</span><span class="s">"_blank"</span>
+           <span class="na">class</span><span class="o">=</span><span class="s">"card-footer-item"</span><span class="p">&gt;</span>Apply<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Start by fetching all the <code>&lt;a&gt;</code> elements in a job card. Then, extract the value of their <code>href</code> attributes using square-bracket notation:</p>
+<div class="highlight python"><pre><span></span><code><span class="k">for</span> <span class="n">job_element</span> <span class="ow">in</span> <span class="n">python_job_elements</span><span class="p">:</span>
+    <span class="c1"># -- snip --</span>
+    <span class="n">links</span> <span class="o">=</span> <span class="n">job_element</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">links</span><span class="p">:</span>
+<span class="hll">        <span class="n">link_url</span> <span class="o">=</span> <span class="n">link</span><span class="p">[</span><span class="s2">"href"</span><span class="p">]</span>
+</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Apply here: </span><span class="si">{</span><span class="n">link_url</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<p>In this code snippet, you first fetched all links from each of the filtered job postings. Then you extracted the <code>href</code> attribute, which contains the URL, using <code>["href"]</code> and printed it to your console.</p>
+<p>In the exercise block below, you can find instructions for a challenge to refine the link results that you’ve received:</p>
+<div class="card mb-3" id="collapse_carda60af4">
+<div class="card-header border-0">
+<p class="m-0"><button class="btn w-100" data-toggle="collapse" data-target="#collapsea60af4" aria-expanded="false" aria-controls="collapsea60af4" markdown="1"><span class="float-left" markdown="1">Exercise: Refine Your Results</span><span class="float-right text-muted">Show/Hide</span></button></p>
+</div>
+<div class="collapse js-collapsible-section" data-parent="#collapse_carda60af4" id="collapsea60af4">
+<div class="card-body">
+<p>Each job card has two links associated with it. You’re looking for only the <em>second</em> link. How can you edit the code snippet shown above so that you always collect only the URL of the second link?</p>
+</div>
+</div>
+</div>
+<p>Click on the solution block to read up on a possible solution for this exercise:</p>
+<div class="card mb-3" id="collapse_card194719">
+<div class="card-header border-0">
+<p class="m-0"><button class="btn w-100" data-toggle="collapse" data-target="#collapse194719" aria-expanded="false" aria-controls="collapse194719" markdown="1"><span class="float-left" markdown="1">Solution: Refine Your Results</span><span class="float-right text-muted">Show/Hide</span></button></p>
+</div>
+<div class="collapse js-collapsible-section" data-parent="#collapse_card194719" id="collapse194719">
+<div class="card-body">
+<p>To fetch the URL of just the second link for each job card, you can use the following code snippet:</p>
+<div class="highlight python"><pre><span></span><code><span class="k">for</span> <span class="n">job_element</span> <span class="ow">in</span> <span class="n">python_job_elements</span><span class="p">:</span>
+<span class="hll">    <span class="n">link_url</span> <span class="o">=</span> <span class="n">job_element</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="s2">"href"</span><span class="p">]</span>
+</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Apply here: </span><span class="si">{</span><span class="n">link_url</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<p>You’re picking the <em>second</em> link element from the results of <code>.find_all()</code> through its index (<code>[1]</code>). Then you’re directly extracting the URL using the square-bracket notation and addressing the <code>href</code> attribute (<code>["href"]</code>).</p>
+</div>
+</div>
+</div>
+<p>You can use the same square-bracket notation to <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#attributes">extract other HTML attributes</a> as well.</p>
+<div><div class="rounded border border-light" style="display:block;position:relative;"><div style="display:block;width:100%;padding-top:12.5%;"></div><div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"><a href="https://srv.realpython.net/click/36956403387/?c=50370534298&amp;p=58946116052&amp;r=31628" rel="nofollow" target="_blank"><img style="max-width: 100%; max-height: 100%; width: 100%;" src="df_beautiful-soup-web-scraper-python_files/e1ba3fda38afbf853a398cfa81ae1bca.webp"></a></div></div><a class="small text-muted" href="https://realpython.com/account/join/" rel="nofollow"><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a></div></section></section><section class="section2" id="keep-practicing"><h2>Keep Practicing<a class="headerlink" href="#keep-practicing" title="Permanent link"></a></h2>
+<p>If you’ve written the code alongside this tutorial, then you can run 
+your script as is, and you’ll see the fake job information pop up in 
+your terminal. Your next step is to tackle a <strong>real-life job board</strong>! To keep practicing your new skills, revisit the web scraping process using any or all of the following sites:</p>
+<ul>
+<li><a href="https://pythonjobs.github.io/">PythonJobs</a></li>
+<li><a href="https://remote.co/remote-jobs/developer/">Remote(dot)co</a></li>
+<li><a href="https://au.indeed.com/jobs">Indeed</a></li>
+</ul>
+<p>The linked websites return their search results as static HTML 
+responses, similar to the Fake Python job board. Therefore, you can 
+scrape them using only <code>requests</code> and Beautiful Soup.</p>
+<p>Start going through this tutorial again from the top using one of 
+these other sites. You’ll see that each website’s structure is different
+ and that you’ll need to rebuild the code in a slightly different way to
+ fetch the data you want. Tackling this challenge is a great way to 
+practice the concepts that you just learned. While it might make you 
+sweat every so often, your coding skills will be stronger for it!</p>
+<p>During your second attempt, you can also explore additional features of Beautiful Soup. Use the <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">documentation</a> as your guidebook and inspiration. Extra practice will help you become more proficient at web scraping using Python, <code>requests</code>, and Beautiful Soup.</p>
+<p>To wrap up your journey into web scraping, you could then give your code a final makeover and create a <strong>command-line interface (CLI)</strong>
+ app that scrapes one of the job boards and filters the results by a 
+keyword that you can input on each execution. Your CLI tool could allow 
+you to search for specific types of jobs or jobs in particular 
+locations.</p>
+<p>If you’re interested in learning how to adapt your script as a command-line interface, then check out <a href="https://realpython.com/command-line-interfaces-python-argparse/">How to Build Command-Line Interfaces in Python With argparse</a>.</p>
+</section><section class="section2" id="conclusion"><h2>Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h2>
+<p>The <code>requests</code> library gives you a user-friendly way to 
+fetch static HTML from the Internet using Python. You can then parse the
+ HTML with another package called Beautiful Soup. Both packages are 
+trusted and helpful companions for your web scraping adventures. You’ll 
+find that Beautiful Soup will cater to most of your parsing needs, 
+including <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#navigating-the-tree">navigation</a> and <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#searching-the-tree">advanced searching</a>.</p>
+<p>In this tutorial, you learned how to scrape data from the Web using Python, <code>requests</code>,
+ and Beautiful Soup. You built a script that fetches job postings from 
+the Internet and went through the complete web scraping process from 
+start to finish.</p>
+<p><strong>You learned how to:</strong></p>
+<ul>
+<li>Step through a <strong>web scraping pipeline</strong> from start to finish</li>
+<li>Inspect the <strong>HTML structure</strong> of your target site with your browser’s <strong>developer tools</strong></li>
+<li>Decipher the data encoded in <strong>URLs</strong></li>
+<li>Download the page’s <strong>HTML content</strong> using Python’s <strong><code>requests</code> library</strong></li>
+<li><strong>Parse</strong> the downloaded HTML with <strong>Beautiful Soup</strong> to extract relevant information</li>
+<li><strong>Build a script</strong> that fetches job offers from the Web and displays relevant information in your console</li>
+</ul>
+<p>With this broad pipeline in mind and two powerful libraries in your 
+tool kit, you can go out and see what other websites you can scrape. 
+Have fun, and always remember to be respectful and use your programming 
+skills responsibly.</p>
+<p>You can download the source code for the sample script that you built in this tutorial by clicking the link below:</p>
+<div class="alert alert-warning" role="alert">
+<p><strong markdown="1">Get Sample Code:</strong> <a href="https://realpython.com/bonus/beautiful-soup/" class="alert-link" data-toggle="modal" data-target="#modal-beautiful-soup" data-focus="false" markdown="1">Click here to get the sample code you’ll use</a> for the project and examples in this tutorial.</p>
+</div>
+</section>
+<div class="text-center my-3">
+<div class="jsCompletionStatusWidget btn-group mb-0">
+<button title="Click to mark as completed" class="jsBtnCompletion btn btn-secondary border-right" style="border-top-right-radius: 0; border-bottom-right-radius: 0;">Mark as Completed</button>
+<button title="Add bookmark" class="jsBtnBookmark btn btn-secondary border-left"><i class="fa fa-fw fa-bookmark-o"></i></button>
+</div>
+</div>
+<div class="border rounded p-3 card mb-2">
+<p class="mb-0"><span class="badge badge-pill badge-success"><i class="fa fa-play-circle" aria-hidden="true"></i> Watch Now</span>
+ This tutorial has a related video course created by the Real Python 
+team. Watch it together with the written tutorial to deepen your 
+understanding: <a class="stretched-link text-success" href="https://realpython.com/courses/web-scraping-beautiful-soup/"><strong>Web Scraping With Beautiful Soup and Python</strong></a></p>
+</div>
+</div>
+<div class="card mt-4 mb-4 bg-secondary">
+<p class="card-header h3 text-center bg-light">🐍 Python Tricks 💌</p>
+<div class="card-body">
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-sm-7">
+<p>Get a short &amp; sweet <strong>Python Trick</strong> delivered to your inbox every couple of days. No spam ever. Unsubscribe any time. Curated by the Real Python team.</p>
+</div>
+<div class="col-xs-12 col-sm-5">
+<img class="img-fluid rounded mb-3" src="df_beautiful-soup-web-scraper-python_files/pytrick-dict-merge.webp" alt="Python Tricks Dictionary Merge" width="738" height="490">
+</div>
+</div>
+<div class="row mb-3">
+<form class="col-12" action="/optins/process/" method="post">
+<input type="hidden" name="csrfmiddlewaretoken" value="aVMjB1IPuqSsrjwyd8C0xOSIYyMvkAlK9ha28EDla4a1DQNnXDMlh2yyN0tjZoCm">
+<input type="hidden" name="slug" value="static-python-tricks-footer">
+<div class="form-group">
+<input name="email" type="email" class="form-control form-control-lg" placeholder="Email Address" required="">
+</div>
+<button name="submit" type="submit" class="btn btn-primary btn-lg btn-block">Send Me Python Tricks »</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="card mt-3" id="author">
+<p class="card-header h3">About <strong>Martin Breuss</strong></p>
+<div class="card-body">
+<div class="container p-0">
+<div class="row">
+<div class="col-12 col-md-3 align-self-center">
+<a href="https://realpython.com/team/mbreuss/"><img loading="lazy" src="df_beautiful-soup-web-scraper-python_files/a_002.jpeg" srcset="df_beautiful-soup-web-scraper-python_files/a_005.jpeg 114w, df_beautiful-soup-web-scraper-python_files/a_011.jpeg 228w, df_beautiful-soup-web-scraper-python_files/a_002.jpeg 456w" sizes="25vw" class="d-block d-md-none rounded-circle img-fluid w-33 mb-0 mx-auto" alt="Martin Breuss" width="456" height="456"></a>
+<a href="https://realpython.com/team/mbreuss/"><img loading="lazy" src="df_beautiful-soup-web-scraper-python_files/a_002.jpeg" srcset="df_beautiful-soup-web-scraper-python_files/a_005.jpeg 114w, df_beautiful-soup-web-scraper-python_files/a_011.jpeg 228w, df_beautiful-soup-web-scraper-python_files/a_002.jpeg 456w" sizes="25vw" class="d-none d-md-block rounded-circle img-fluid w-100 mb-0" alt="Martin Breuss" width="456" height="456"></a>
+</div>
+<div class="col mt-3">
+<p>Martin likes automation, goofy jokes, and snakes, all of which fit 
+into the Python community. He enjoys learning and exploring and is up 
+for talking about it, too. He writes and records content for Real Python
+ and CodingNomads.</p>
+<a href="https://realpython.com/team/mbreuss/" class="card-link">» More about Martin</a>
+</div>
+</div>
+</div>
+</div>
+<hr class="my-0">
+<div class="card-body pb-0">
+<div class="container">
+<div class="row">
+<p><em>Each tutorial at Real Python is created by a team of developers 
+so that it meets our high quality standards. The team members who worked
+ on this tutorial are:</em></p>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="https://realpython.com/team/asantos/"><img loading="lazy" src="df_beautiful-soup-web-scraper-python_files/a_015.webp" srcset="df_beautiful-soup-web-scraper-python_files/a.webp 239w, df_beautiful-soup-web-scraper-python_files/a_011.webp 479w, df_beautiful-soup-web-scraper-python_files/a_015.webp 959w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Aldren Santos" width="456" height="456"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="https://realpython.com/team/asantos/" class="card-link small"><p>Aldren</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="https://realpython.com/team/bzaczynski/"><img loading="lazy" src="df_beautiful-soup-web-scraper-python_files/a_009.webp" srcset="df_beautiful-soup-web-scraper-python_files/a_014.webp 225w, df_beautiful-soup-web-scraper-python_files/a_004.webp 450w, df_beautiful-soup-web-scraper-python_files/a_009.webp 900w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Bartosz Zaczyński" width="456" height="456"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="https://realpython.com/team/bzaczynski/" class="card-link small"><p>Bartosz</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="https://realpython.com/team/gahjelle/"><img loading="lazy" src="df_beautiful-soup-web-scraper-python_files/a_013.jpeg" srcset="df_beautiful-soup-web-scraper-python_files/a_010.jpeg 200w, df_beautiful-soup-web-scraper-python_files/a_003.webp 400w, df_beautiful-soup-web-scraper-python_files/a_013.jpeg 800w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Geir Arne Hjelle" width="456" height="456"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="https://realpython.com/team/gahjelle/" class="card-link small"><p>Geir Arne</p></a>
+</div>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="https://realpython.com/team/jayazhane/"><img loading="lazy" src="df_beautiful-soup-web-scraper-python_files/a_003.jpeg" srcset="df_beautiful-soup-web-scraper-python_files/a_006.jpeg 143w, df_beautiful-soup-web-scraper-python_files/a_009.jpeg 286w, df_beautiful-soup-web-scraper-python_files/a_003.jpeg 572w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Jaya Zhané" width="456" height="456"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="https://realpython.com/team/jayazhane/" class="card-link small"><p>Jaya</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="https://realpython.com/team/jjablonski/"><img loading="lazy" src="df_beautiful-soup-web-scraper-python_files/a_007.jpeg" srcset="df_beautiful-soup-web-scraper-python_files/a.jpeg 200w, df_beautiful-soup-web-scraper-python_files/a_005.webp 400w, df_beautiful-soup-web-scraper-python_files/a_007.jpeg 800w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Joanna Jablonski" width="456" height="456"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="https://realpython.com/team/jjablonski/" class="card-link small"><p>Joanna</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="https://realpython.com/team/jschmitt/"><img loading="lazy" src="df_beautiful-soup-web-scraper-python_files/a_008.jpeg" srcset="df_beautiful-soup-web-scraper-python_files/a_002.webp 100w, df_beautiful-soup-web-scraper-python_files/a_012.jpeg 200w, df_beautiful-soup-web-scraper-python_files/a_008.jpeg 400w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Jacob Schmitt" width="456" height="456"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="https://realpython.com/team/jschmitt/" class="card-link small"><p>Jacob</p></a>
+</div>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="https://realpython.com/team/mdriscoll/"><img loading="lazy" src="df_beautiful-soup-web-scraper-python_files/a_015.jpeg" srcset="df_beautiful-soup-web-scraper-python_files/a_014.jpeg 225w, df_beautiful-soup-web-scraper-python_files/a_004.jpeg 450w, df_beautiful-soup-web-scraper-python_files/a_015.jpeg 900w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Mike Driscoll" width="456" height="456"></a>
+
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="https://realpython.com/team/mdriscoll/" class="card-link small"><p>Mike</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center"></div>
+<div class="col pl-0 d-none d-sm-block"></div>
+<div class="col-4 col-sm-2 align-self-center"></div>
+<div class="col pl-0 d-none d-sm-block"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-light rounded py-4 my-4 shadow shadow-sm mx-n2">
+<div class="col-12 text-center d-block d-md-none">
+<p class="h2 mb-3">Master <u><span class="marker-highlight">Real-World Python Skills</span></u> With Unlimited Access to Real&nbsp;Python</p>
+<p class="mb-1"><img class="w-75" src="df_beautiful-soup-web-scraper-python_files/lesson-locked.svg" width="510" height="260"></p>
+<p class="mx-auto w-75 mb-3 small"><strong>Join us and get access to hundreds of tutorials, hands-on video courses, and a community of expert&nbsp;Pythonistas:</strong></p>
+<p class="mb-0"><a href="https://realpython.com/account/join/?utm_source=rp_article_footer&amp;utm_content=beautiful-soup-web-scraper-python" class="btn btn-primary btn-sm px-4 mb-0">Level Up Your Python Skills »</a>
+</p></div>
+<div class="col-12 text-center d-none d-md-block">
+<p class="h2 mb-2">Master <u><span class="marker-highlight">Real-World Python Skills</span></u><br>With Unlimited Access to Real&nbsp;Python</p>
+<p class="mb-2"><img class="w-50 mb-2" src="df_beautiful-soup-web-scraper-python_files/lesson-locked.svg" width="510" height="260"></p>
+<p class="mx-auto w-50 mb-3"><strong>Join us and get access to hundreds of tutorials, hands-on video courses, and a community of expert Pythonistas:</strong></p>
+<p><a href="https://realpython.com/account/join/?utm_source=rp_article_footer&amp;utm_content=beautiful-soup-web-scraper-python" class="btn btn-primary btn-lg px-4">Level Up Your Python Skills »</a>
+</p></div>
+</div>
+<div class="card mt-4" id="reader-comments">
+<p class="card-header h3">What Do You Think?</p>
+<div class="text-center mt-3 mb-0 p-0">
+<span>
+<a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet/?text=Check%20out%20this%20%23Python%20tutorial:%20Beautiful%20Soup%3A%20Build%20a%20Web%20Scraper%20With%20Python%20by%20@realpython&amp;url=https%3A//realpython.com/beautiful-soup-web-scraper-python/" class="mr-1 badge badge-twitter text-light mb-1"><i class="mr-1 fa fa-twitter text-light"></i>Tweet</a>
+<a target="_blank" rel="nofollow" href="https://facebook.com/sharer/sharer.php?u=https%3A//realpython.com/beautiful-soup-web-scraper-python/" class="mr-1 badge badge-facebook text-light mb-1"><i class="mr-1 fa fa-facebook text-light"></i>Share</a>
+<a target="_blank" rel="nofollow" href="mailto:?subject=Python article for you&amp;body=Check out this Python tutorial:%0A%0ABeautiful%20Soup%3A%20Build%20a%20Web%20Scraper%20With%20Python%0A%0Ahttps%3A//realpython.com/beautiful-soup-web-scraper-python/" class="badge badge-red text-light mb-1"><i class="mr-1 fa fa-envelope text-light"></i>Email</a>
+</span>
+</div>
+<div class="card-body">
+<div class="alert alert-dark">
+<p class="mb-0"><strong>Real Python Comment Policy:</strong> The most 
+useful comments are those written with the goal of learning from or 
+helping out other readers—after reading the whole article and all the 
+earlier comments. Complaints and insults generally won’t make the cut 
+here.</p>
+</div>
+<p>What’s your #1 takeaway or favorite thing you learned? How are you 
+going to put your newfound skills to use? Leave a comment below and let 
+us know.</p>
+<div class="mb-4" id="disqus_thread">
+</div>
+</div>
+</div>
+<div class="card mt-4 mb-4">
+<p class="card-header h3">Keep Learning</p>
+<div class="card-body">
+<p class="mb-0">Related Tutorial Categories:
+<a href="https://realpython.com/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+<a href="https://realpython.com/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+<a href="https://realpython.com/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+<a href="https://realpython.com/tutorials/web-scraping/" class="badge badge-light text-muted">web-scraping</a>
+</p>
+<p class="mt-3 mb-0">Recommended Video Course: <a class="text-success" href="https://realpython.com/courses/web-scraping-beautiful-soup/">Web Scraping With Beautiful Soup and Python</a></p>
+</div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="rpvc">
+<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header border-0 mt-3">
+<div class="col-12 modal-title text-center">
+<h2 class="my-0 mx-5">Master <u>Real-World Python Skills</u> With Unlimited Access to Real Python</h2>
+<p class="text-center text-muted mt-2 mb-1">Already a member? <a href="https://realpython.com/account/login/?next=%2Fbeautiful-soup-web-scraper-python%2F">Sign-In</a></p>
+</div>
+</div>
+<div class="modal-body bg-light">
+<div class="col-12 text-center">
+<p class="mb-2 mt-3"><a href="https://realpython.com/account/join/?utm_source=rp&amp;utm_medium=web&amp;utm_campaign=pwn&amp;utm_content=v2"><img class="w-50 mb-2" src="df_beautiful-soup-web-scraper-python_files/lesson-locked.svg" width="510" height="260"></a></p>
+<p class="mx-auto w-66 mb-3"><strong>Join us and get access to hundreds of tutorials, hands-on video courses, and a community of expert Pythonistas:</strong></p>
+<p><a href="https://realpython.com/account/join/?utm_source=rp&amp;utm_medium=web&amp;utm_campaign=pwn&amp;utm_content=v2" class="btn btn-primary btn-lg px-4"><i class="fa fa-unlock mr-2"></i>Unlock All Content »</a>
+</p></div>
+</div>
+<div class="modal-footer border-0">
+<button class="text-muted btn" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+<script src="df_beautiful-soup-web-scraper-python_files/pw.js" async=""></script>
+</div>
+<aside class="col-md-7 col-lg-4">
+<div class="card mb-3 bg-secondary">
+<form class="card-body" action="/optins/process/" method="post">
+<div class="form-group">
+<p class="h5 text-muted text-center">— FREE Email Series —</p>
+<p class="h3 text-center">🐍 Python Tricks 💌</p>
+<p><img class="img-fluid rounded" src="df_beautiful-soup-web-scraper-python_files/pytrick-dict-merge.webp" alt="Python Tricks Dictionary Merge" width="738" height="490"></p>
+</div>
+<div class="form-group">
+<input type="hidden" name="csrfmiddlewaretoken" value="aVMjB1IPuqSsrjwyd8C0xOSIYyMvkAlK9ha28EDla4a1DQNnXDMlh2yyN0tjZoCm">
+<input type="hidden" name="slug" value="static-python-tricks-sidebar">
+<input type="email" class="form-control form-control-md" name="email" placeholder="Email…" required="">
+</div>
+<button type="submit" name="submit" class="btn btn-primary btn-md btn-block">Get Python Tricks »</button>
+<p class="mb-0 mt-2 text-muted text-center">🔒 No spam. Unsubscribe any time.</p>
+</form>
+</div>
+<div class="sidebar-module sidebar-module-inset border">
+<p class="h4"><a class="link-unstyled" href="https://realpython.com/tutorials/all/">All Tutorial Topics</a></p>
+<a href="https://realpython.com/tutorials/advanced/" class="badge badge-light text-muted">advanced</a>
+<a href="https://realpython.com/tutorials/api/" class="badge badge-light text-muted">api</a>
+<a href="https://realpython.com/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+<a href="https://realpython.com/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+<a href="https://realpython.com/tutorials/community/" class="badge badge-light text-muted">community</a>
+<a href="https://realpython.com/tutorials/databases/" class="badge badge-light text-muted">databases</a>
+<a href="https://realpython.com/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+<a href="https://realpython.com/tutorials/devops/" class="badge badge-light text-muted">devops</a>
+<a href="https://realpython.com/tutorials/django/" class="badge badge-light text-muted">django</a>
+<a href="https://realpython.com/tutorials/docker/" class="badge badge-light text-muted">docker</a>
+<a href="https://realpython.com/tutorials/flask/" class="badge badge-light text-muted">flask</a>
+<a href="https://realpython.com/tutorials/front-end/" class="badge badge-light text-muted">front-end</a>
+<a href="https://realpython.com/tutorials/gamedev/" class="badge badge-light text-muted">gamedev</a>
+<a href="https://realpython.com/tutorials/gui/" class="badge badge-light text-muted">gui</a>
+<a href="https://realpython.com/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+<a href="https://realpython.com/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+<a href="https://realpython.com/tutorials/projects/" class="badge badge-light text-muted">projects</a>
+<a href="https://realpython.com/tutorials/python/" class="badge badge-light text-muted">python</a>
+<a href="https://realpython.com/tutorials/testing/" class="badge badge-light text-muted">testing</a>
+<a href="https://realpython.com/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+<a href="https://realpython.com/tutorials/web-dev/" class="badge badge-light text-muted">web-dev</a>
+<a href="https://realpython.com/tutorials/web-scraping/" class="badge badge-light text-muted">web-scraping</a>
+</div>
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:100%;"></div>
+<div class="rpad" data-unit="1x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"><a href="https://srv.realpython.net/click/6406225521/?c=31941813441&amp;p=58946116052&amp;r=79576" rel="nofollow" target="_blank"><img style="max-width: 100%; max-height: 100%; width: 100%;" src="df_beautiful-soup-web-scraper-python_files/21855bda3ff8f87b19d280bc237f4b83.webp"></a></div>
+</div>
+</div>
+<div class="sidebar-sticky ">
+<div class="bg-light sidebar-module sidebar-module-inset" id="sidebar-toc">
+<p class="h4 text-muted"><a class="link-unstyled" href="#toc">Table of Contents</a></p>
+<div class="toc">
+<ul>
+<li><a href="#what-is-web-scraping">What Is Web Scraping?</a><ul>
+<li><a href="#reasons-for-web-scraping">Reasons for Web Scraping</a></li>
+<li><a href="#challenges-of-web-scraping">Challenges of Web Scraping</a></li>
+<li><a href="#an-alternative-to-web-scraping-apis">An Alternative to Web Scraping: APIs</a></li>
+</ul>
+</li>
+<li><a href="#scrape-the-fake-python-job-site">Scrape the Fake Python Job Site</a></li>
+<li><a href="#step-1-inspect-your-data-source">Step 1: Inspect Your Data Source</a><ul>
+<li><a href="#explore-the-website">Explore the Website</a></li>
+<li><a href="#decipher-the-information-in-urls">Decipher the Information in URLs</a></li>
+<li><a href="#inspect-the-site-using-developer-tools">Inspect the Site Using Developer Tools</a></li>
+</ul>
+</li>
+<li><a href="#step-2-scrape-html-content-from-a-page">Step 2: Scrape HTML Content From a Page</a><ul>
+<li><a href="#static-websites">Static Websites</a></li>
+<li><a href="#hidden-websites">Hidden Websites</a></li>
+<li><a href="#dynamic-websites">Dynamic Websites</a></li>
+</ul>
+</li>
+<li><a href="#step-3-parse-html-code-with-beautiful-soup">Step 3: Parse HTML Code With Beautiful Soup</a><ul>
+<li><a href="#find-elements-by-id">Find Elements by ID</a></li>
+<li><a href="#find-elements-by-html-class-name">Find Elements by HTML Class Name</a></li>
+<li><a href="#extract-text-from-html-elements">Extract Text From HTML Elements</a></li>
+<li><a href="#find-elements-by-class-name-and-text-content">Find Elements by Class Name and Text Content</a></li>
+<li><a href="#pass-a-function-to-a-beautiful-soup-method">Pass a Function to a Beautiful Soup Method</a></li>
+<li><a href="#identify-error-conditions">Identify Error Conditions</a></li>
+<li><a href="#access-parent-elements">Access Parent Elements</a></li>
+<li><a href="#extract-attributes-from-html-elements">Extract Attributes From HTML Elements</a></li>
+</ul>
+</li>
+<li><a href="#keep-practicing">Keep Practicing</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+</div>
+<div class="sidebar-module sidebar-module-inset text-center my-3 py-0">
+<div class="jsCompletionStatusWidget btn-group mb-0">
+<button title="Click to mark as completed" class="jsBtnCompletion btn btn-secondary border-right" style="border-top-right-radius: 0; border-bottom-right-radius: 0;">Mark as Completed</button>
+<button title="Add bookmark" class="jsBtnBookmark btn btn-secondary border-left"><i class="fa fa-fw fa-bookmark-o"></i></button>
+</div>
+</div>
+<div class="sidebar-module sidebar-module-inset text-center my-3 py-0">
+<span>
+<a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet/?text=Check%20out%20this%20%23Python%20tutorial:%20Beautiful%20Soup%3A%20Build%20a%20Web%20Scraper%20With%20Python%20by%20@realpython&amp;url=https%3A//realpython.com/beautiful-soup-web-scraper-python/" class="mr-1 badge badge-twitter text-light mb-1"><i class="mr-1 fa fa-twitter text-light"></i>Tweet</a>
+<a target="_blank" rel="nofollow" href="https://facebook.com/sharer/sharer.php?u=https%3A//realpython.com/beautiful-soup-web-scraper-python/" class="mr-1 badge badge-facebook text-light mb-1"><i class="mr-1 fa fa-facebook text-light"></i>Share</a>
+<a target="_blank" rel="nofollow" href="mailto:?subject=Python article for you&amp;body=Check out this Python tutorial:%0A%0ABeautiful%20Soup%3A%20Build%20a%20Web%20Scraper%20With%20Python%0A%0Ahttps%3A//realpython.com/beautiful-soup-web-scraper-python/" class="badge badge-red text-light mb-1"><i class="mr-1 fa fa-envelope text-light"></i>Email</a>
+</span>
+</div>
+<div class="sidebar-module sidebar-module-inset border card">
+<p><span class="badge badge-pill badge-success"><i class="fa fa-play-circle mr-1" aria-hidden="true"></i> Recommended Video Course</span><br><a class="stretched-link text-success" href="https://realpython.com/courses/web-scraping-beautiful-soup/">Web Scraping With Beautiful Soup and Python</a></p>
+</div>
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:25%;"></div>
+<div class="rpad" data-unit="4x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"><a href="https://srv.realpython.net/click/19491843653/?c=31941813441&amp;p=58946116052&amp;r=77550" rel="nofollow" target="_blank"><img style="max-width: 100%; max-height: 100%; width: 100%;" src="df_beautiful-soup-web-scraper-python_files/609393a03ca1e3437385150e8a1a022e.webp"></a></div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<div class="modal fade" id="modal-beautiful-soup" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header bg-light pt-3 pb-2">
+<div class="container-fluid">
+<div class="row">
+<div class="col-12">
+<div class="progress" style="height: .5rem;">
+<div class="progress-bar progress-bar-striped progress-bar-animated w-50" role="progressbar"></div>
+</div>
+</div>
+<div class="col-12">
+<p class="text-muted text-center mb-0 mt-2">Almost there! Complete this form and click the button below to gain instant access:</p>
+</div>
+</div>
+</div>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body m-4">
+<div class="container-fluid">
+<div class="row align-items-center">
+<div class="col-12 col-lg-4 mb-4">
+<img class="img-fluid rounded" src="df_beautiful-soup-web-scraper-python_files/Python-Web-Scraping-Tutorials_Watermarked.webp" srcset="df_beautiful-soup-web-scraper-python_files/a_016.webp 480w, df_beautiful-soup-web-scraper-python_files/a_008.webp 960w, df_beautiful-soup-web-scraper-python_files/Python-Web-Scraping-Tutorials_Watermarked.webp 1920w" sizes="50vw" alt="Python Web Scraping Category Artwork" width="1920" height="1080">
+</div>
+<div class="col">
+<p class="text-center h3 mb-4">Beautiful Soup (Sample Code)</p>
+<form class="col-12" action="/optins/process/" method="post">
+<input type="hidden" name="csrfmiddlewaretoken" value="aVMjB1IPuqSsrjwyd8C0xOSIYyMvkAlK9ha28EDla4a1DQNnXDMlh2yyN0tjZoCm">
+<input type="hidden" name="slug" value="beautiful-soup">
+<div class="form-group">
+<input type="email" name="email" class="form-control" placeholder="Email Address" required="" autofocus="">
+</div>
+<button name="submit" type="submit" class="btn btn-primary btn-block text-wrap">Send Code »</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="w-75 mx-auto mt-4 mb-0">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:12.5%;"></div>
+<div class="rpad rounded border" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"><a href="https://srv.realpython.net/click/53616533979/?c=62098619220&amp;p=58946116052&amp;r=41778" rel="nofollow" target="_blank"><img style="max-width: 100%; max-height: 100%; width: 100%;" src="df_beautiful-soup-web-scraper-python_files/babd32c4a9b6cf2453889710f58b5914.webp"></a></div>
+</div>
+<a class="small text-muted" href="https://realpython.com/account/join/" rel="nofollow"> <i class="fa fa-info-circle" aria-hidden="true"> </i> Remove ads</a>
+</div>
+<p class="text-center text-muted w-75 mx-auto">© 2012–2022 Real Python&nbsp;⋅ <a href="https://realpython.com/newsletter/">Newsletter</a>&nbsp;⋅ <a href="https://realpython.com/podcasts/rpp/">Podcast</a>&nbsp;⋅ <a href="https://www.youtube.com/realpython">YouTube</a>&nbsp;⋅ <a href="https://twitter.com/realpython">Twitter</a>&nbsp;⋅ <a href="https://facebook.com/LearnRealPython">Facebook</a>&nbsp;⋅ <a href="https://www.instagram.com/realpython/">Instagram</a>&nbsp;⋅ <a href="https://realpython.com/">Python&nbsp;Tutorials</a>&nbsp;⋅ <a href="https://realpython.com/search">Search</a>&nbsp;⋅ <a href="https://realpython.com/privacy-policy/">Privacy Policy</a>&nbsp;⋅ <a href="https://realpython.com/energy-policy/" class="text-success active">Energy Policy</a>&nbsp;⋅ <a href="https://realpython.com/sponsorships/">Advertise</a>&nbsp;⋅ <a href="https://realpython.com/contact/">Contact</a><br>❤️ Happy Pythoning!</p>
+</div>
+</footer>
+<script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            // 
+            if (elem.dataset.toggle === "tab") {
+              return;
+            }
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+<script src="df_beautiful-soup-web-scraper-python_files/jquery.js"></script>
+<script src="df_beautiful-soup-web-scraper-python_files/popper.js"></script>
+<script src="df_beautiful-soup-web-scraper-python_files/bootstrap.js"></script>
+<script>
+    (function() {
+      document.querySelectorAll(".js-search-form-submit").forEach(function(el) {
+        el.addEventListener("click", function(e) {
+          e.preventDefault();
+          e.currentTarget.parentElement.submit();
+        })
+      });
+    })();
+    </script>
+<script src="df_beautiful-soup-web-scraper-python_files/repl-toggle.js" async=""></script>
+<script src="df_beautiful-soup-web-scraper-python_files/lightbox.js" async=""></script>
+<script>window.rp_prop_id = '58946116052';</script>
+<script src="df_beautiful-soup-web-scraper-python_files/tag.js" async=""></script>
+<script src="df_beautiful-soup-web-scraper-python_files/toc-refresh.js" async=""></script>
+<script id="js-context" type="application/json">{"is_completed": false, "is_bookmarked": false, "api_article_bookmark_url": "/api/v1/articles/beautiful-soup-web-scraper-python/bookmark/", "api_article_completion_status_url": "/api/v1/articles/beautiful-soup-web-scraper-python/completion_status/", "api_article_progress_url": "/api/v1/articles/beautiful-soup-web-scraper-python/progress/"}</script>
+<script src="df_beautiful-soup-web-scraper-python_files/completion-status.js" async=""></script>
+<script src="df_beautiful-soup-web-scraper-python_files/progress.js" async=""></script>
+<script id="dsq-count-scr" src="df_beautiful-soup-web-scraper-python_files/count.js" async=""></script>
+<script>
+      var disqus_config = function () {
+        this.page.url = 'https://realpython.com/beautiful-soup-web-scraper-python/';
+        this.page.identifier = 'https://realpython.com/beautiful-soup-web-scraper-python/';
+        this.callbacks.onReady = [function() {
+          if (window.onDisqusReady) {
+            window.onDisqusReady();
+          }
+        }];
+      };
+      var disqus_script_url = 'https://realpython.disqus.com/embed.js';
+    </script>
+<script src="df_beautiful-soup-web-scraper-python_files/lazy-disqus.js" defer="defer"></script>
+<script src="df_beautiful-soup-web-scraper-python_files/OneSignalSDK.js" async=""></script>
+<script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "c0081e20-a523-42bb-b0ac-04c5a9e8bf40"
+      });
+    });
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Beautiful Soup: Build a Web Scraper With Python",
+    
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://files.realpython.com/media/Build-a-Web-Scraper-With-Requests-and-Beautiful-Soup_Watermarked.37918fb3906c.jpg",
+      "width": 1920,
+      "height": 1080
+    },
+    
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://realpython.com/beautiful-soup-web-scraper-python/"
+    },
+    "datePublished": "2021-06-30T12:58:06+00:00",
+    "dateModified": "2021-11-10T09:10:09.277699+00:00",
+     "publisher": {
+      "@type": "Organization",
+      "name": "Real Python",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cdn.realpython.com/static/real-python-logo-square-tiny.b2452b6d3823.png",
+        "width": 60,
+        "height": 60
+      }
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Real Python",
+      "url": "https://realpython.com",
+      "logo": "https://cdn.realpython.com/static/real-python-logo-square.146e987bf77c.png"
+    },
+    "description": "In this tutorial, you\u0027ll walk through the main steps of the web scraping process. You\u0027ll learn how to write a script that uses Python\u0027s requests library to scrape data from a website. You\u0027ll also use Beautiful Soup to extract the specific pieces of information that you\u0027re interested in."
+  }
+  </script>
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2220911568135371');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2220911568135371&ev=PageView&noscript=1"
+/></noscript>
+<script>!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script>
+window.Beacon('init', 'f6ddfa28-ffa8-423f-b3b1-50e29e420c43')
+
+Beacon("identify", {
+  email: "marques.s.arthur@gmail.com",
+  name: "Arthur Marques",
+  has_active_subscription: "False",
+  username: "marquesarthur",
+  userid: "342137"
+});
+</script>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6cd085b66f416034',m:'.Qe3hAPerJMzBJC70vIQDJ0SAL5YpqjsadTpvBKkWlg-1642096807-0-ARXvW68FrHaR8E4PQxs44X1KxpQdvy+J3izKUmFkgN+Z6RpNDF3qBUIaqJDPx9EQ+jMxnFvUYEQnWxzEL2+S2TJrnwZ+IVjtoLoeK6y5r+TZAwyOSsayuBrVi+xg3FVi4wAB1Jw46yH7kLFuoY7zhjMOdhh2R4N/LCMgky9dMp/m',s:[0x5313700c62,0xa8d268d63b],}})();</script>
+
+<div id="beacon-container"><div class="hsds-beacon"><div class="Beacon"><div class="sc-AxheI gkgGqG"></div><div class="sc-AxhCb cszqFf BeaconContainer is-configDisplayRight" data-css-with-delay="false"></div><div class="sc-fznyAO jSVYqG BeaconFabButtonFrame" style="border-radius: 55px; height: 55px; position: fixed; transform: scale(1); width: 105px; z-index: 1049;"><iframe aria-label="Toggle Customer Support" id="" data-cy="FrameComponent"></iframe></div><span></span><span></span></div></div></div><div id="onesignal-bell-container" class="onesignal-bell-container onesignal-reset onesignal-bell-container-bottom-left"><div id="onesignal-bell-launcher" class="onesignal-bell-launcher onesignal-bell-launcher-md onesignal-bell-launcher-bottom-left onesignal-bell-launcher-theme-default onesignal-bell-launcher-active" style="bottom: 15px; left: 15px;"><div class="onesignal-bell-launcher-button"><svg class="onesignal-bell-svg" xmlns="http://www.w3.org/2000/svg" width="99.7" height="99.7" viewBox="0 0 99.7 99.7" style="filter: drop-shadow(0 2px 4px rgba(34,36,38,0.35));; -webkit-filter: drop-shadow(0 2px 4px rgba(34,36,38,0.35));;"><circle class="background" cx="49.9" cy="49.9" r="49.9" style="fill: rgb(208, 2, 27);"></circle><path class="foreground" d="M50.1 66.2H27.7s-2-.2-2-2.1c0-1.9 1.7-2 1.7-2s6.7-3.2 6.7-5.5S33 52.7 33 43.3s6-16.6 13.2-16.6c0 0 1-2.4 3.9-2.4 2.8 0 3.8 2.4 3.8 2.4 7.2 0 13.2 7.2 13.2 16.6s-1 11-1 13.3c0 2.3 6.7 5.5 6.7 5.5s1.7.1 1.7 2c0 1.8-2.1 2.1-2.1 2.1H50.1zm-7.2 2.3h14.5s-1 6.3-7.2 6.3-7.3-6.3-7.3-6.3z" style="fill: rgb(255, 255, 255);"></path><ellipse class="stroke" cx="49.9" cy="49.9" rx="37.4" ry="36.9" style="stroke: rgb(255, 255, 255);"></ellipse></svg></div><div class="onesignal-bell-launcher-badge" style="filter: drop-shadow(0 2px 4px rgba(34,36,38,0));; -webkit-filter: drop-shadow(0 2px 4px rgba(34,36,38,0));;"></div><div class="onesignal-bell-launcher-message"><div class="onesignal-bell-launcher-message-body"></div></div><div class="onesignal-bell-launcher-dialog" style="filter: drop-shadow(0px 2px 2px rgba(34,36,38,.15));; -webkit-filter: drop-shadow(0px 2px 2px rgba(34,36,38,.15));;"><div class="onesignal-bell-launcher-dialog-body"></div></div></div></div></body></html>
