@@ -85,16 +85,16 @@ ___
 
 Please **use only** the following resources to find information that might assist you complete this task:
 
-* [Requests: HTTP for Humans™](https://www.cs.ubc.ca/~msarthur/df_python-requests.html)
-* [Requests API](https://www.cs.ubc.ca/~msarthur/df_python-requests-api.html)
-* [Beautiful Soup Documentation](https://www.cs.ubc.ca/~msarthur/df_BeautifulSoup.html)
-* [Tutorial: Web Scraping with Python Using Beautiful Soup](https://www.cs.ubc.ca/~msarthur/df_web-scraping-python-using-beautiful-soup.html)
-* [Extracting an attribute value with beautifulsoup](https://www.cs.ubc.ca/~msarthur/df_extracting-an-attribute-value-with-beautifulsoup.html)
-* [How to find children of nodes using BeautifulSoup](https://www.cs.ubc.ca/~msarthur/df_how-to-find-children-of-nodes-using-beautifulsoup.html)
-* [How to find elements by class](https://www.cs.ubc.ca/~msarthur/df_how-to-find-elements-by-class.html)
-* [How to extract HTTP response body from a Python requests call?](https://www.cs.ubc.ca/~msarthur/df_how-to-extract-http-response-body-from-a-python-requests-call.html)
-* [Beautiful Soup: Build a Web Scraper With Python](https://www.cs.ubc.ca/~msarthur/df_beautiful-soup-web-scraper-python.html)
-* [Web Scraping with BeautifulSoup](https://www.cs.ubc.ca/~msarthur/df_python-web-scraping-beautiful-soup.html)
+* [Requests: HTTP for Humans™](https://www.cs.ubc.ca/~msarthur/hf_python-requests.html)
+* [Requests API](https://www.cs.ubc.ca/~msarthur/hf_python-requests-api.html)
+* [Beautiful Soup Documentation](https://www.cs.ubc.ca/~msarthur/hf_BeautifulSoup.html)
+* [Tutorial: Web Scraping with Python Using Beautiful Soup](https://www.cs.ubc.ca/~msarthur/hf_web-scraping-python-using-beautiful-soup.html)
+* [Extracting an attribute value with beautifulsoup](https://www.cs.ubc.ca/~msarthur/hf_extracting-an-attribute-value-with-beautifulsoup.html)
+* [How to find children of nodes using BeautifulSoup](https://www.cs.ubc.ca/~msarthur/hf_how-to-find-children-of-nodes-using-beautifulsoup.html)
+* [How to find elements by class](https://www.cs.ubc.ca/~msarthur/hf_how-to-find-elements-by-class.html)
+* [How to extract HTTP response body from a Python requests call?](https://www.cs.ubc.ca/~msarthur/hf_how-to-extract-http-response-body-from-a-python-requests-call.html)
+* [Beautiful Soup: Build a Web Scraper With Python](https://www.cs.ubc.ca/~msarthur/hf_beautiful-soup-web-scraper-python.html)
+* [Web Scraping with BeautifulSoup](https://www.cs.ubc.ca/~msarthur/hf_python-web-scraping-beautiful-soup.html)
 
 
 ## Colab

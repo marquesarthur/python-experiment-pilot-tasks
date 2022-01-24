@@ -92,13 +92,13 @@ ___
 Please **use only** the following resources to find information that might assist you complete this task:
 
 
-* [GeoPy’s documentation](https://www.cs.ubc.ca/~msarthur/df_geopy.readthedocs.html)
-* [Locations in Python (Geocoding w/Geopy)](https://www.cs.ubc.ca/~msarthur/df_locations-in-python-geocoding-w-geopy.html)
-* [Obtaining latitude and longitude of multiple locations using Geopy](https://www.cs.ubc.ca/~msarthur/df_obtaining-latitude-and-longitude-of-multiple-locations-using-geopy.html)
-* [Python module for getting latitude and longitude from the name of a US city](https://www.cs.ubc.ca/~msarthur/df_python-module-for-getting-latitude-and-longitude-from-the-name-of-a-us-city.html)
-* [Calculate point based on distance and direction](https://www.cs.ubc.ca/~msarthur/df_calculate-point-based-on-distance-and-direction.html)
-* [Geocoding in Python Using Geopy](https://www.cs.ubc.ca/~msarthur/df_geocoding-in-python-using-geopy.html)
-* [Python Geopy to find geocode of an Address](https://www.cs.ubc.ca/~msarthur/df_python-geopy-to-find-geocode-of-an-address.html)
+* [GeoPy’s documentation](https://www.cs.ubc.ca/~msarthur/hf_geopy.readthedocs.html)
+* [Locations in Python (Geocoding w/Geopy)](https://www.cs.ubc.ca/~msarthur/hf_locations-in-python-geocoding-w-geopy.html)
+* [Obtaining latitude and longitude of multiple locations using Geopy](https://www.cs.ubc.ca/~msarthur/hf_obtaining-latitude-and-longitude-of-multiple-locations-using-geopy.html)
+* [Python module for getting latitude and longitude from the name of a US city](https://www.cs.ubc.ca/~msarthur/hf_python-module-for-getting-latitude-and-longitude-from-the-name-of-a-us-city.html)
+* [Calculate point based on distance and direction](https://www.cs.ubc.ca/~msarthur/hf_calculate-point-based-on-distance-and-direction.html)
+* [Geocoding in Python Using Geopy](https://www.cs.ubc.ca/~msarthur/hf_geocoding-in-python-using-geopy.html)
+* [Python Geopy to find geocode of an Address](https://www.cs.ubc.ca/~msarthur/hf_python-geopy-to-find-geocode-of-an-address.html)
 
 
 ## Colab
