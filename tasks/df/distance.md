@@ -92,14 +92,13 @@ ___
 Please **use only** the following resources to find information that might assist you complete this task:
 
 
-* [GeoPy’s documentation](https://geopy.readthedocs.io/en/stable/)
-<!-- * [geopy](https://github.com/geopy/geopy) -->
-* [Locations in Python (Geocoding w/Geopy)](https://holypython.com/locations-in-python-geocoding-w-geopy/)
-* [Obtaining latitude and longitude of multiple locations using Geopy](https://stackoverflow.com/questions/37608811/obtaining-latitude-and-longitude-of-multiple-locations-using-geopy)
-* [Python module for getting latitude and longitude from the name of a US city](https://stackoverflow.com/questions/13686001/python-module-for-getting-latitude-and-longitude-from-the-name-of-a-us-city)
-* [Calculate point based on distance and direction](https://stackoverflow.com/questions/24427828/calculate-point-based-on-distance-and-direction)
-* [Geocoding in Python Using Geopy](https://pythonsimplified.com/geocoding-in-python-using-geopy/)
-* [Python Geopy to find geocode of an Address](https://www.askpython.com/python/python-geopy-to-find-geocode-of-an-address)
+* [GeoPy’s documentation](hhttps://www.cs.ubc.ca/~msarthur/df_geopy.readthedocs.html)
+* [Locations in Python (Geocoding w/Geopy)](https://www.cs.ubc.ca/~msarthur/df_locations-in-python-geocoding-w-geopy.html)
+* [Obtaining latitude and longitude of multiple locations using Geopy](https://www.cs.ubc.ca/~msarthur/df_obtaining-latitude-and-longitude-of-multiple-locations-using-geopy.html)
+* [Python module for getting latitude and longitude from the name of a US city](https://www.cs.ubc.ca/~msarthur/df_python-module-for-getting-latitude-and-longitude-from-the-name-of-a-us-city.html)
+* [Calculate point based on distance and direction](https://www.cs.ubc.ca/~msarthur/df_calculate-point-based-on-distance-and-direction.html)
+* [Geocoding in Python Using Geopy](https://www.cs.ubc.ca/~msarthur/df_geocoding-in-python-using-geopy.html)
+* [Python Geopy to find geocode of an Address](https://www.cs.ubc.ca/~msarthur/df_python-geopy-to-find-geocode-of-an-address.html)
 
 
 ## Colab

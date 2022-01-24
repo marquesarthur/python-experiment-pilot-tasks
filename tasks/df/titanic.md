@@ -85,18 +85,18 @@ Please **use only** the following resources to find information that might assis
 
 
 
-* [How do I read and write tabular data?](https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html)
-* [How do I select a subset of a DataFrame?](https://pandas.pydata.org/docs/getting_started/intro_tutorials/03_subset_data.html)
-* [API reference pandas.core.groupby](https://pandas.pydata.org/docs/reference/api/pandas.core.groupby.DataFrameGroupBy.aggregate.html)
-* [API reference pandas.DataFrame.sort_values](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html)
-* [API reference seaborn.barplot](https://seaborn.pydata.org/generated/seaborn.barplot.html)
-* [Pandas query(): How to Filter Rows of Pandas Dataframe?](https://cmdlinetips.com/2019/07/how-to-select-rows-of-pandas-dataframe-with-query-function/)
-* [How to Make a Seaborn Barplot](https://www.sharpsightlabs.com/blog/seaborn-barplot/)
-* [Filter Dataframe Rows Based on Column Values in Pandas](https://www.delftstack.com/howto/python-pandas/how-to-filter-dataframe-rows-based-on-column-values-in-pandas/)
-* [How do I select rows from a DataFrame based on column values?](https://stackoverflow.com/questions/17071871/how-do-i-select-rows-from-a-dataframe-based-on-column-values)
-* ['Could not interpret input' error with Seaborn when plotting groupbys](https://stackoverflow.com/questions/32908315/could-not-interpret-input-error-with-seaborn-when-plotting-groupbys)
-* [Difference between "as_index = False", and "reset_index()" in pandas groupby](https://stackoverflow.com/questions/51866908/difference-between-as-index-false-and-reset-index-in-pandas-groupby/51933722)
-* [Pandas read_csv from url](https://stackoverflow.com/questions/32400867/pandas-read-csv-from-url)
+* [How do I read and write tabular data?](https://www.cs.ubc.ca/~msarthur/02_read_write.html)
+* [How do I select a subset of a DataFrame?](https://www.cs.ubc.ca/~msarthur/03_subset_data.html)
+* [API reference pandas.core.groupby](https://www.cs.ubc.ca/~msarthur/pandas.core.groupby.DataFrameGroupBy.aggregate.html)
+* [API reference pandas.DataFrame.sort_values](https://www.cs.ubc.ca/~msarthur/pandas.DataFrame.sort_values.html)
+* [API reference seaborn.barplot](https://www.cs.ubc.ca/~msarthur/seaborn.barplot.html)
+* [Pandas query(): How to Filter Rows of Pandas Dataframe?](https://www.cs.ubc.ca/~msarthur/how-to-select-rows-of-pandas-dataframe-with-query-function.html)
+* [How to Make a Seaborn Barplot](https://www.cs.ubc.ca/~msarthur/seaborn-barplot.html)
+* [Filter Dataframe Rows Based on Column Values in Pandas](https://www.cs.ubc.ca/~msarthur/how-to-filter-dataframe-rows-based-on-column-values-in-pandas.html)
+* [How do I select rows from a DataFrame based on column values?](https://www.cs.ubc.ca/~msarthur/how-do-i-select-rows-from-a-dataframe-based-on-column-values.html)
+* ['Could not interpret input' error with Seaborn when plotting groupbys](https://www.cs.ubc.ca/~msarthur/could-not-interpret-input-error-with-seaborn-when-plotting-groupbys.html)
+* [Difference between "as_index = False", and "reset_index()" in pandas groupby](https://www.cs.ubc.ca/~msarthur/difference-between-as-index-false-and-reset-index-in-pandas-groupby/51933722.html)
+* [Pandas read_csv from url](https://www.cs.ubc.ca/~msarthur/pandas-read-csv-from-url.html)
 
 
 
