@@ -660,9 +660,9 @@ work when passed a DataFrame or when passed to DataFrame.apply.</p>
 <p>Can also accept a Numba JIT function with
 <code class="docutils literal notranslate"><span class="pre">engine='numba'</span></code> specified. Only passing a single function is supported
 with this engine.</p>
-<p>If the <code class="docutils literal notranslate"><span class="pre">'numba'</span></code> engine is chosen, the function must be
+<p><mark style="background-color: yellow; color: black;">If the <code class="docutils literal notranslate"><span class="pre">'numba'</span></code> engine is chosen, the function must be
 a user defined function with <code class="docutils literal notranslate"><span class="pre">values</span></code> and <code class="docutils literal notranslate"><span class="pre">index</span></code> as the
-first and second arguments respectively in the function signature.
+first and second arguments respectively in the function signature.</mark>
 Each group’s index will be passed to the user defined function
 and optionally available for use.</p>
 <div class="versionchanged">
@@ -742,7 +742,7 @@ see the examples below.</p>
 <span class="go">3  2  4 -0.562860</span>
 </pre></div>
 </div>
-<p>The aggregation is for each column.</p>
+<p><mark style="background-color: yellow; color: black;">The aggregation is for each column.</mark></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'A'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">'min'</span><span class="p">)</span>
 <span class="go">   B         C</span>
 <span class="go">A</span>
@@ -759,7 +759,7 @@ see the examples below.</p>
 <span class="go">2   3   4 -0.562860  1.267767</span>
 </pre></div>
 </div>
-<p>Select a column for aggregation</p>
+<p><mark style="background-color: yellow; color: black;">Select a column for aggregation</mark></p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'A'</span><span class="p">)</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">'min'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">])</span>
 <span class="go">   min  max</span>
 <span class="go">A</span>

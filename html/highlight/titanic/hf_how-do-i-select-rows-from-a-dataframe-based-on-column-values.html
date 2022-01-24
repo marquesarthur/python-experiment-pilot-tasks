@@ -761,7 +761,7 @@ your communities            </h3>
         <div class="comment-text  js-comment-text-and-form">
             <div class="comment-body js-comment-edit-hide">
                 
-                <span class="comment-copy">you can also use DFsql, to run in memory SQL on pandas dataframes <a href="https://medium.com/riselab/why-every-data-scientist-using-pandas-needs-modin-bringing-sql-to-dataframes-3b216b29a7c0" rel="nofollow noreferrer">medium.com/riselab/…</a>  <a href="https://github.com/mindsdb/dfsql" rel="nofollow noreferrer">github.com/mindsdb/dfsql</a></span>
+                <span class="comment-copy"><mark style="background-color: yellow; color: black;">you can also use DFsql, to run in memory SQL on pandas dataframes <a href="https://medium.com/riselab/why-every-data-scientist-using-pandas-needs-modin-bringing-sql-to-dataframes-3b216b29a7c0" rel="nofollow noreferrer">medium.com/riselab/…</a>  <a href="https://github.com/mindsdb/dfsql" rel="nofollow noreferrer">github.com/mindsdb/dfsql</a></mark></span>
                 
               <div class="d-inline-flex ai-center">
 –&nbsp;<a href="https://stackoverflow.com/users/2719972/jorge-torres" title="263 reputation" class="comment-user">Jorge Torres</a>
@@ -1682,7 +1682,7 @@ spec = pd.DataFrame(
     
     <div class="s-prose js-post-body" itemprop="text">
 <h3>tl;dr</h3>
-<p>The Pandas equivalent to</p>
+<p><mark style="background-color: yellow; color: black;">The Pandas equivalent to</mark></p>
 <pre class="lang-py s-code-block"><code class="hljs language-python">select * <span class="hljs-keyword">from</span> table where column_name = some_value
 </code></pre>
 <p>is</p>
@@ -1823,7 +1823,7 @@ df[df.foo == <span class="hljs-number">222</span>]
         <div class="comment-text  js-comment-text-and-form">
             <div class="comment-body js-comment-edit-hide">
                 
-                <span class="comment-copy"><code>query</code> is the only answer here that is compatible with method chaining.  It seems like it's the pandas analog to <code>filter</code> in dplyr.</span>
+                <span class="comment-copy"><code>query</code> is the only answer here that is compatible with method chaining. <mark style="background-color: yellow; color: black;"> It seems like it's the pandas analog to <code>filter</code> in dplyr.</mark></span>
                 
               <div class="d-inline-flex ai-center">
 –&nbsp;<a href="https://stackoverflow.com/users/568249/berk-u" title="6,658 reputation" class="comment-user">Berk U.</a>
@@ -1900,7 +1900,7 @@ df[df.foo == <span class="hljs-number">222</span>]
 <div class="answercell post-layout--right">
     
     <div class="s-prose js-post-body" itemprop="text">
-<p>I find the syntax of the previous answers to be redundant and difficult to remember. Pandas introduced the <code>query()</code> method in v0.13 and I much prefer it. For your question, you could do <code>df.query('col == val')</code></p>
+<p>I find the syntax of the previous answers to be redundant and difficult to remember. Pandas introduced the <code>query()</code> method in v0.13 and I much prefer it.<mark style="background-color: yellow; color: black;"> For your question, you could do <code>df.query('col == val')</code></mark></p>
 
 <p>Reproduced from <a href="http://pandas.pydata.org/pandas-docs/version/0.17.0/indexing.html#indexing-query">http://pandas.pydata.org/pandas-docs/version/0.17.0/indexing.html#indexing-query</a></p>
 

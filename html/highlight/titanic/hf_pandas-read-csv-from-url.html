@@ -1099,12 +1099,12 @@ error_bad_lines=False and more than 99% of data was ignored. The URL is <a href=
 <div class="answercell post-layout--right">
     
     <div class="s-prose js-post-body" itemprop="text">
-<p>UPDATE: From pandas <code>0.19.2</code> you can now just <a href="https://stackoverflow.com/a/41880513/2071807"><strong>pass <code>read_csv()</code> the url directly</strong></a>, although that will fail if it requires authentication.</p>
+<p><mark style="background-color: yellow; color: black;">UPDATE: From pandas <code>0.19.2</code> you can now just <a href="https://stackoverflow.com/a/41880513/2071807"><strong>pass <code>read_csv()</code> the url directly</strong></a>, although that will fail if it requires authentication.</mark></p>
 <hr>
 <p>For <strong>older pandas versions</strong>, or <strong>if you need authentication</strong>, or for any other HTTP-fault-tolerant reason:</p>
 <p><strong>Use <code>pandas.read_csv</code> with a file-like object as the first argument.</strong></p>
 <ul>
-<li><p>If you want to read the csv from a string, you can use <a href="https://docs.python.org/3/library/io.html#io.StringIO" rel="noreferrer"><code>io.StringIO</code></a>.</p>
+<li><p><mark style="background-color: yellow; color: black;">If you want to read the csv from a string, you can use <a href="https://docs.python.org/3/library/io.html#io.StringIO" rel="noreferrer"><code>io.StringIO</code></a>.</mark></p>
 </li>
 <li><p>For the URL <code>https://github.com/cs109/2014_data/blob/master/countries.csv</code>, you get <strong><code>html</code></strong> response, not <strong>raw</strong> csv; you should use the url given by the <code>Raw</code> link in the github page for getting raw csv response , which is <code>https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv</code></p>
 </li>
@@ -1275,10 +1275,10 @@ content, decoded content and the StringIO object?</span>
         <div class="comment-text  js-comment-text-and-form">
             <div class="comment-body js-comment-edit-hide">
                 
-                <span class="comment-copy">"Update From pandas 0.19.2 
+                <span class="comment-copy"><mark style="background-color: yellow; color: black;">"Update From pandas 0.19.2 
 you can now just pass the url directly." Unless you can't because you 
 need to pass authentication arguments, in which case the original 
-example is much needed.</span>
+example is much needed.</mark></span>
                 
               <div class="d-inline-flex ai-center">
 –&nbsp;<a href="https://stackoverflow.com/users/541136/aaron-hall" title="321,425 reputation" class="comment-user">Aaron Hall</a>
@@ -1356,7 +1356,7 @@ returned by request object (ex: 500 -&gt; retry may be needed, 404 -&gt;
     <div class="s-prose js-post-body" itemprop="text">
 <p>As I commented you need to use a StringIO  object and decode i.e <code>c=pd.read_csv(io.StringIO(s.decode("utf-8")))</code> if using requests, you need to decode as .content returns <em>bytes</em> if you used .text you would just need to pass s as is <code>s = requests.get(url).text</code> c = <code>pd.read_csv(StringIO(s))</code>. </p>
 
-<p>A simpler approach is to pass the correct url of the <em>raw</em> data directly to <code>read_csv</code>, you <strong>don't</strong> have to pass a file like object, you can pass a url so you don't need requests at all:</p>
+<p><mark style="background-color: yellow; color: black;">A simpler approach is to pass the correct url of the <em>raw</em> data directly to <code>read_csv</code>, you <strong>don't</strong> have to pass a file like object, you can pass a url so you don't need requests at all:</mark></p>
 
 <pre class="lang-py s-code-block"><code class="hljs language-python">c = pd.read_csv(<span class="hljs-string">"https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv"</span>)
 
@@ -1597,7 +1597,7 @@ could be file ://localhost/path/to/table.csv</p>
     
     <div class="s-prose js-post-body" itemprop="text">
 <p>The problem you're having is that the output you get into the variable 's' is not a csv, but a html file. 
-In order to get the raw csv, you have to modify the url to: </p>
+    <mark style="background-color: yellow; color: black;"> In order to get the raw csv, you have to modify the url to: </mark></p>
 
 <p>'<a href="https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv" rel="noreferrer">https://raw.githubusercontent.com/cs109/2014_data/master/countries.csv</a>'</p>
 
