@@ -92,7 +92,7 @@ ___
 Please **use only** the following resources to find information that might assist you complete this task:
 
 
-* [GeoPy’s documentation](hhttps://www.cs.ubc.ca/~msarthur/df_geopy.readthedocs.html)
+* [GeoPy’s documentation](https://www.cs.ubc.ca/~msarthur/df_geopy.readthedocs.html)
 * [Locations in Python (Geocoding w/Geopy)](https://www.cs.ubc.ca/~msarthur/df_locations-in-python-geocoding-w-geopy.html)
 * [Obtaining latitude and longitude of multiple locations using Geopy](https://www.cs.ubc.ca/~msarthur/df_obtaining-latitude-and-longitude-of-multiple-locations-using-geopy.html)
 * [Python module for getting latitude and longitude from the name of a US city](https://www.cs.ubc.ca/~msarthur/df_python-module-for-getting-latitude-and-longitude-from-the-name-of-a-us-city.html)
