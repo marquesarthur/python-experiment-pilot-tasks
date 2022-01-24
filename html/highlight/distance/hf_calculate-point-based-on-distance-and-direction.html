@@ -613,7 +613,7 @@ your communities            </h3>
     
     <div class="s-prose js-post-body" itemprop="text">
                 
-<p>I would like to calculate a point based on direction and distance using GeoDjango or GeoPy.</p>
+<p><mark>I would like to calculate a point based on direction and distance using GeoDjango or GeoPy.</mark></p>
 
 <p>For example, If I have a point that is (-24680.1613, 6708860.65389) I
  would like to find out a point 1KM North, 1KM East, 1KM Sourh and 1KM 
@@ -800,7 +800,7 @@ west using Vincenty distance formula. </p>
     <div class="s-prose js-post-body" itemprop="text">
 <p><strong>Edit 2</strong></p>
 
-<p>Okay, there is an out-of-the-box solution with geopy, it is just not well-documented:</p>
+<p><mark>Okay, there is an out-of-the-box solution with geopy, it is just not well-documented:</mark></p>
 
 <pre class="lang-py s-code-block"><code class="hljs language-python"><span class="hljs-keyword">import</span> geopy
 <span class="hljs-keyword">import</span> geopy.distance
@@ -832,9 +832,9 @@ d = geopy.distance.VincentyDistance(kilometers = <span class="hljs-number">1</sp
 
 <p>However, I am not sure if that serves your purposes in all generality.</p>
 
-<p>Okay, seriously, you can get started using geopy. First of all, you 
+<p><mark>Okay, seriously, you can get started using geopy.</mark> <mark>First of all, you 
 need to define your starting point in a coordinate system known to 
-geopy. At the first glance, it seems that you cannot just "add" a 
+geopy.</mark> At the first glance, it seems that you cannot just "add" a 
 certain distance into a certain direction. The reason, I think, is that 
 calculation of the distance is a problem without simple inverse 
 solution. Or how would we invert the <code>measure</code> function defined in <a href="https://code.google.com/p/geopy/source/browse/trunk/geopy/distance.py#217" rel="noreferrer">https://code.google.com/p/geopy/source/browse/trunk/geopy/distance.py#217</a>?</p>
@@ -850,9 +850,9 @@ dist = geopy.distance.distance(pt1, pt2).km
 </code></pre>
 
 <p>For going north by one kilometer you would iteratively change the 
-latitude into a positive direction and check against the distance. You 
+latitude into a positive direction and check against the distance. <mark>You 
 can automate this approach using a simple iterative solver from e.g. 
-SciPy: just find the root of <code>geopy.distance.distance().km - 1</code> via one of the optimizers listed in <a href="http://docs.scipy.org/doc/scipy/reference/optimize.html#root-finding" rel="noreferrer">http://docs.scipy.org/doc/scipy/reference/optimize.html#root-finding</a>.</p>
+SciPy: just find the root of <code>geopy.distance.distance().km - 1</code></mark> via one of the optimizers listed in <a href="http://docs.scipy.org/doc/scipy/reference/optimize.html#root-finding" rel="noreferrer">http://docs.scipy.org/doc/scipy/reference/optimize.html#root-finding</a>.</p>
 
 <p>I think it is clear that you go south by changing the latitude into a
  negative direction, and west and east by changing the longitude.</p>
@@ -1145,7 +1145,7 @@ between two points. Is this possible? Question is here: <a href="https://stackov
 
 <p><code>VincentyDistance</code> is officially deprecated, and was never fully precise and sometimes inaccurate.</p>
 
-<p>This snippet shows how to use with the latest (and future versions of GeoPy - Vincenty will be deprecated in 2.0)</p>
+<p><mark>This snippet shows how to use with the latest (and future versions of GeoPy - Vincenty will be deprecated in 2.0)</mark></p>
 
 <pre class="lang-py s-code-block"><code class="hljs language-python"><span class="hljs-keyword">import</span> geopy
 <span class="hljs-keyword">import</span> geopy.distance
@@ -1419,7 +1419,7 @@ dist_to_location = vincenty(location, new_location).meters
         <div class="comment-text  js-comment-text-and-form">
             <div class="comment-body js-comment-edit-hide">
                 
-                <span class="comment-copy">But it seems your initial_location is not used. I suppose you need to replace location by initial_location or the opposite.</span>
+                <span class="comment-copy">But it seems your initial_location is not used. <mark> I suppose you need to replace location by initial_location or the opposite.</mark></span>
                 
               <div class="d-inline-flex ai-center">
 –&nbsp;<a href="https://stackoverflow.com/users/11428986/mike123" title="166 reputation" class="comment-user">mike123</a>

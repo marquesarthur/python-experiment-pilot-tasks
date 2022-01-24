@@ -450,9 +450,9 @@ you could do:</p>
 <div class="section" id="geopy-is-not-a-service">
 <h3>Geopy Is Not a Service<a class="headerlink" href="#geopy-is-not-a-service" title="Permalink to this headline">¶</a></h3>
 <p>Geocoding is provided by a number of different services, which are not
-affiliated with geopy in any way. These services provide APIs, which anyone
+affiliated with geopy in any way.<mark style="background-color: yellow; color: black;"> These services provide APIs, which anyone
 could implement, and geopy is just a library which provides these
-implementations for many different services in a single package.</p>
+implementations for many different services in a single package.</mark></p>
 <a class="reference external image-reference" href="https://geopy.readthedocs.io/en/stable/_static/geopy_and_geocoding_services.svg"><img alt="_images/geopy_and_geocoding_services.svg" src="df_geopy.readthedocs_files/geopy_and_geocoding_services.svg"></a>
 <p>Therefore:</p>
 <ol class="arabic simple">
@@ -475,8 +475,8 @@ always try a different one.</p>
 </div>
 <div class="section" id="async-mode">
 <span id="id2"></span><h3>Async Mode<a class="headerlink" href="#async-mode" title="Permalink to this headline">¶</a></h3>
-<p>By default geopy geocoders are synchronous (i.e. they use an Adapter
-based on <a class="reference internal" href="#geopy.adapters.BaseSyncAdapter" title="geopy.adapters.BaseSyncAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseSyncAdapter</span></code></a>).</p>
+<p><mark style="background-color: yellow; color: black;">By default geopy geocoders are synchronous (i.e. they use an Adapter
+based on <a class="reference internal" href="#geopy.adapters.BaseSyncAdapter" title="geopy.adapters.BaseSyncAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseSyncAdapter</span></code></a>).</mark></p>
 <p>All geocoders can be used with asyncio by simply switching to an
 Adapter based on <a class="reference internal" href="#geopy.adapters.BaseAsyncAdapter" title="geopy.adapters.BaseAsyncAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseAsyncAdapter</span></code></a> (like <a class="reference internal" href="#geopy.adapters.AioHTTPAdapter" title="geopy.adapters.AioHTTPAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">AioHTTPAdapter</span></code></a>).</p>
 <p>Example:</p>
@@ -3486,9 +3486,9 @@ available.</p></li>
 to respond before raising a <a class="reference internal" href="#geopy.exc.GeocoderTimedOut" title="geopy.exc.GeocoderTimedOut"><code class="xref py py-class docutils literal notranslate"><span class="pre">geopy.exc.GeocoderTimedOut</span></code></a>
 exception. Set this only if you wish to override, on this call
 only, the value set during the geocoder’s initialization.</p></li>
-<li><p><strong>location_bias</strong> (<a class="reference internal" href="#geopy.point.Point" title="geopy.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">geopy.point.Point</span></code></a>, list or tuple of
+<li><p><strong>location_bias</strong> (<a class="reference internal" href="#geopy.point.Point" title="geopy.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">geopy.point.Point</span></code></a>, <mark style="background-color: yellow; color: black;">list or tuple of
 <code class="docutils literal notranslate"><span class="pre">(latitude,</span> <span class="pre">longitude)</span></code>, or string
-as <code class="docutils literal notranslate"><span class="pre">"%(latitude)s,</span> <span class="pre">%(longitude)s"</span></code>.) – The coordinates to use as location bias.</p></li>
+as <code class="docutils literal notranslate"><span class="pre">"%(latitude)s,</span> <span class="pre">%(longitude)s"</span></code>.)</mark> – The coordinates to use as location bias.</p></li>
 <li><p><strong>language</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – Preferred language in which to return results.</p></li>
 <li><p><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Limit the number of returned results, defaults to no
 limit.</p></li>
@@ -5058,8 +5058,8 @@ allows response compression and uses HTTP/1.1 [currently].</p>
 <dt class="sig sig-object py" id="geopy.adapters.URLLibAdapter">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">geopy.adapters.</span></span><span class="sig-name descname"><span class="pre">URLLibAdapter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proxies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssl_context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geopy.adapters.URLLibAdapter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#geopy.adapters.BaseSyncAdapter" title="geopy.adapters.BaseSyncAdapter"><code class="xref py py-class docutils literal notranslate"><span class="pre">geopy.adapters.BaseSyncAdapter</span></code></a></p>
-<p>The fallback adapter which uses urllib from the Python standard
-library, see <a class="reference external" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">urllib.request.urlopen()</span></code></a>.</p>
+<p><mark style="background-color: yellow; color: black;">The fallback adapter which uses urllib from the Python standard
+library, see <a class="reference external" href="https://docs.python.org/3/library/urllib.request.html#urllib.request.urlopen" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">urllib.request.urlopen()</span></code></a></mark>.</p>
 <p>urllib doesn’t support keep-alives, request retries,
 doesn’t persist Cookies and is HTTP/1.1 only.</p>
 <p>urllib was the only available option
@@ -5230,10 +5230,10 @@ a patch/PR instead of hacking around geopy.</p></li>
 ones. We try to upgrade without breaking the geocoder’s API interface,
 but the <a class="reference internal" href="#geopy.location.Location.raw" title="geopy.location.Location.raw"><code class="xref py py-attr docutils literal notranslate"><span class="pre">geopy.location.Location.raw</span></code></a> value might change in a
 backwards-incompatible way.</p></li>
-<li><p>Behavior for invalid input and peculiar edge cases might be altered.
+<li><p><mark style="background-color: yellow; color: black;">Behavior for invalid input and peculiar edge cases might be altered.
 For example, <a class="reference internal" href="#geopy.point.Point" title="geopy.point.Point"><code class="xref py py-class docutils literal notranslate"><span class="pre">geopy.point.Point</span></code></a> instances previously did
 coordinate values normalization, though it’s not documented, and it was
-completely wrong for the latitudes outside the <cite>[-90; 90]</cite> range.
+completely wrong for the latitudes outside the <cite>[-90; 90]</cite> range</mark>.
 So instead of using an incorrectly normalized value for latitude,
 a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a> exception is now thrown (<a class="reference external" href="https://github.com/geopy/geopy/issues/294">#294</a>).</p></li>
 </ul>

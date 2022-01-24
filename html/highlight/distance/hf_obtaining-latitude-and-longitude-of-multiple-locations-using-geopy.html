@@ -613,8 +613,8 @@ your communities            </h3>
                 
 <p>I have been importing a csv dataset containing multiple addresses. I 
 want to get the latitude and longitude of these places and write those 
-to a new csv file along with the original address. I have been trying to
- use Geopy from python to achieve this. Given below is the code:</p>
+to a new csv file along with the original address. <mark> I have been trying to
+ use Geopy from python to achieve this.</mark> Given below is the code:</p>
 
 <pre class="lang-py s-code-block"><code class="hljs language-python"><span class="hljs-keyword">import</span> csv
 <span class="hljs-comment">##from time import sleep</span>
@@ -841,9 +841,9 @@ to a new csv file along with the original address. I have been trying to
 <div class="answercell post-layout--right">
     
     <div class="s-prose js-post-body" itemprop="text">
-<p>You are forgetting that location can be None at times due to various 
+<p><mark>You are forgetting that location can be None at times due to various 
 reasons including the geocoding service not having geo spatial data for 
-the given address.</p>
+the given address.</mark></p>
 
 <p>simpley do</p>
 
@@ -977,9 +977,9 @@ the given address.</p>
 <div class="answercell post-layout--right">
     
     <div class="s-prose js-post-body" itemprop="text">
-<p>Sometimes Actual location i.e latitude and longitude are not 
-available for a particular address. In that case you have to ignore such
- kind of address. In you code it should be something like this -</p>
+<p><mark>Sometimes Actual location i.e latitude and longitude are not 
+available for a particular address.</mark> In that case you have to ignore such
+ kind of address. <mark>In you code it should be something like this -</mark></p>
 <p>import csv</p>
 <h1>from time import sleep</h1>
 <p>from geopy.geocoders import   Nominatim</p>
