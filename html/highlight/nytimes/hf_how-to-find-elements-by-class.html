@@ -616,7 +616,7 @@ your communities            </h3>
     
     <div class="s-prose js-post-body" itemprop="text">
                 
-<p>I'm having trouble parsing HTML elements with "class" attribute using Beautifulsoup. The code looks like this</p>
+<p><mark style="background-color: yellow; color: black;">I'm having trouble parsing HTML elements with "class" attribute using Beautifulsoup. The code looks like this</mark></p>
 
 <pre class="default s-code-block"><code class="hljs language-erlang">soup = BeautifulSoup(sdata)
 mydivs = soup.findAll('<span class="hljs-keyword">div</span>')
@@ -1179,7 +1179,7 @@ KeyError: <span class="hljs-symbol">'class</span>'
         <div class="comment-text  js-comment-text-and-form">
             <div class="comment-body js-comment-edit-hide">
                 
-                <span class="comment-copy">Supplement to @NunoAndré's answer for BeautifulSoup 3: <code>soup.findAll("a", {'class':['stylelistrowone', 'stylelistrow']})</code>.</span>
+                <span class="comment-copy"><mark style="background-color: yellow; color: black;">Supplement to @NunoAndré's answer for BeautifulSoup 3: <code>soup.findAll("a", {'class':['stylelistrowone', 'stylelistrow']})</code>.</mark></span>
                 
               <div class="d-inline-flex ai-center">
 –&nbsp;<a href="https://stackoverflow.com/users/5022378/brad" title="3,127 reputation" class="comment-user">Brad</a>
@@ -2121,7 +2121,7 @@ soup.<span class="hljs-keyword">select</span>(<span class="hljs-string">'.stylel
     <div class="s-prose js-post-body" itemprop="text">
 <p>As of BeautifulSoup 4+ ,</p>
 
-<p>If you have a single class name , you can just pass the class name as parameter like :</p>
+<p><mark style="background-color: yellow; color: black;">If you have a single class name , you can just pass the class name as parameter like :</mark></p>
 
 <pre class="default s-code-block"><code class="hljs language-ini"><span class="hljs-attr">mydivs</span> = soup.find_all(<span class="hljs-string">'div'</span>, <span class="hljs-string">'class_name'</span>)
 </code></pre>

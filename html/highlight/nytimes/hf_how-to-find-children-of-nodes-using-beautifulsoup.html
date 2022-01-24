@@ -1033,7 +1033,7 @@ at all: "</span>
 
 <p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#the-recursive-argument" rel="noreferrer">https://www.crummy.com/software/BeautifulSoup/bs4/doc/#the-recursive-argument</a></p>
 
-<p>In your case as you want link1 which is first direct child:</p>
+<p><mark style="background-color: yellow; color: black;">In your case as you want link1 which is first direct child:</mark></p>
 
 <pre class="default s-code-block"><code class="hljs language-php"><span class="hljs-comment"># for only first direct child</span>
 soup.find(<span class="hljs-string">"li"</span>, { <span class="hljs-string">"class"</span> : <span class="hljs-string">"test"</span> }).find(<span class="hljs-string">"a"</span>, recursive=<span class="hljs-literal">False</span>)
@@ -1271,7 +1271,7 @@ soup.find(<span class="hljs-string">"li"</span>, { <span class="hljs-string">"cl
         <div class="comment-text  js-comment-text-and-form">
             <div class="comment-body js-comment-edit-hide">
                 
-                <span class="comment-copy">This answers the question how to select <code>&lt;a&gt;link1&lt;/a&gt;</code> in the HTML given in the question, but this will FAIL when the first <code>&lt;li class="test"&gt;</code> will contain no <code>&lt;a&gt;</code> elements and there are other <code>li</code> elements with <code>test</code> class that contains<code>&lt;a&gt;</code>.</span>
+                <span class="comment-copy"><mark style="background-color: yellow; color: black;">This answers the question how to select <code>&lt;a&gt;link1&lt;/a&gt;</code> in the HTML given in the question, but this will FAIL when the first <code>&lt;li class="test"&gt;</code> will contain no <code>&lt;a&gt;</code> elements and there are other <code>li</code> elements with <code>test</code> class that contains<code>&lt;a&gt;</code>.</mark></span>
                 
               <div class="d-inline-flex ai-center">
 –&nbsp;<a href="https://stackoverflow.com/users/4796844/radzak" title="2,525 reputation" class="comment-user">radzak</a>

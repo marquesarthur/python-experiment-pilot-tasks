@@ -629,7 +629,7 @@ output = inputTag[<span class="hljs-string">'value'</span>]
 
 <span class="hljs-built_in">print</span> <span class="hljs-built_in">str</span>(output)
 </code></pre>
-<p>I get a TypeError: list indices must be integers, not str</p>
+<p><mark style="background-color: yellow; color: black;">I get a TypeError: list indices must be integers, not str</mark></p>
 <p>even though from the Beautifulsoup documentation i understand that 
 strings should not be a problem here... but i a no specialist and i may 
 have misunderstood.</p>
@@ -1253,7 +1253,7 @@ Attribute name = Mary
 <p>For me:</p>
 <pre class="lang-html s-code-block"><code class="hljs language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"color"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Blue"</span>/&gt;</span>
 </code></pre>
-<p>This can be fetched by below snippet.</p>
+<p><mark style="background-color: yellow; color: black;">This can be fetched by below snippet.</mark></p>
 <pre class="lang-python s-code-block"><code class="hljs language-python">page = requests.get(<span class="hljs-string">"https://www.abcd.com"</span>)
 soup = BeautifulSoup(page.content, <span class="hljs-string">'html.parser'</span>)
 colorName = soup.find(<span class="hljs-built_in">id</span>=<span class="hljs-string">'color'</span>)
@@ -1865,7 +1865,7 @@ get_details = soup.find_all(<span class="hljs-string">"input"</span>, attrs={<sp
 <div class="answercell post-layout--right">
     
     <div class="s-prose js-post-body" itemprop="text">
-<p>I am using this with Beautifulsoup 4.8.1 to get the value of all class attributes of  certain elements:</p>
+<p><mark style="background-color: yellow; color: black;">I am using this with Beautifulsoup 4.8.1 to get the value of all class attributes of  certain elements:</mark></p>
 
 <pre class="lang-py s-code-block"><code class="hljs language-python"><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
 

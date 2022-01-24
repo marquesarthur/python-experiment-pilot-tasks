@@ -623,7 +623,7 @@ like this:</p>
 <span class="hljs-built_in">print</span> r.content
 </code></pre>
 
-<p>This should indeed print lots of content, but instead prints nothing.</p>
+<p><mark style="background-color: yellow; color: black;">This should indeed print lots of content, but instead prints nothing.</mark></p>
 
 <p>Any suggestions? Maybe I've misunderstood how requests.get() works?</p>
     </div>
@@ -1094,7 +1094,7 @@ site_response = <span class="hljs-built_in">str</span>(site_request.content)
 <div class="answercell post-layout--right">
     
     <div class="s-prose js-post-body" itemprop="text">
-<p>You can try this method:</p>
+<p><mark style="background-color: yellow; color: black;">You can try this method:</mark></p>
 <pre class="lang-py s-code-block"><code class="hljs language-python"><span class="hljs-keyword">import</span> requests
 
 response = requests.get(<span class="hljs-string">"http://www.google.com"</span>)

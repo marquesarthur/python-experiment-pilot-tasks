@@ -476,6 +476,7 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                 object.</p>
               <dl class="py function">
                 <dt class="sig sig-object py" id="requests.request">
+                  <mark style="background-color: yellow; color: black;">
                   <span class="sig-prename descclassname"><span class="pre">requests.</span></span><span
                     class="sig-name descname"><span class="pre">request</span></span><span class="sig-paren">(</span><em
                     class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em
@@ -486,6 +487,7 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                     href="https://docs.python-requests.org/en/latest/_modules/requests/api/#request"><span
                       class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
                     href="#requests.request" title="Permalink to this definition">¶</a>
+                  </mark>
                 </dt>
                 <dd>
                   <p>Constructs and sends a <a class="reference internal" href="#requests.Request"
@@ -506,7 +508,8 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                               class="docutils literal notranslate"><span class="pre">POST</span></code>, <code
                               class="docutils literal notranslate"><span class="pre">PUT</span></code>, <code
                               class="docutils literal notranslate"><span class="pre">PATCH</span></code>, or <code
-                              class="docutils literal notranslate"><span class="pre">DELETE</span></code>.</p>
+                              class="docutils literal notranslate"><span class="pre">DELETE</span></code>.
+                          </p>
                         </li>
                         <li>
                           <p><strong>url</strong> – URL for the new <a class="reference internal"
@@ -1046,7 +1049,7 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                     href="#requests.URLRequired" title="Permalink to this definition">¶</a>
                 </dt>
                 <dd>
-                  <p>A valid URL is required to make a request.</p>
+                  <p><mark style="background-color: yellow; color: black;">A valid URL is required to make a request.</mark></p>
                 </dd>
               </dl>
 
@@ -1794,9 +1797,9 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                     <dd>
                       <p>This method re-evaluates the proxy configuration by considering the
                         environment variables. If we are redirected to a URL covered by
-                        NO_PROXY, we strip the proxy configuration. Otherwise, we set missing
+                        NO_PROXY, we strip the proxy configuration. <mark style="background-color: yellow; color: black;">Otherwise, we set missing
                         proxy keys for this URL (in case they were stripped by a previous
-                        redirect).</p>
+                        redirect).</mark></p>
                       <p>This method also replaces the Proxy-Authorization header where
                         necessary.</p>
                       <dl class="field-list simple">
@@ -2090,6 +2093,7 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                   title="Permalink to this headline">¶</a></h2>
               <dl class="py class">
                 <dt class="sig sig-object py" id="requests.Request">
+                  <mark style="background-color: yellow; color: black;">
                   <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span
                       class="pre">requests.</span></span><span class="sig-name descname"><span
                       class="pre">Request</span></span><span class="sig-paren">(</span><em class="sig-param"><span
@@ -2122,6 +2126,7 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                     href="https://docs.python-requests.org/en/latest/_modules/requests/models/#Request"><span
                       class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink"
                     href="#requests.Request" title="Permalink to this definition">¶</a>
+                  </mark>
                 </dt>
                 <dd>
                   <p>A user-created <a class="reference internal" href="#requests.Request"
@@ -2885,7 +2890,7 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                         href="#requests.PreparedRequest.prepare_url" title="Permalink to this definition">¶</a>
                     </dt>
                     <dd>
-                      <p>Prepares the given HTTP URL.</p>
+                      <p><mark style="background-color: yellow; color: black;">Prepares the given HTTP URL.</mark></p>
                     </dd>
                   </dl>
 
@@ -2908,7 +2913,7 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                         href="#requests.PreparedRequest.url" title="Permalink to this definition">¶</a>
                     </dt>
                     <dd>
-                      <p>HTTP URL to send the request to.</p>
+                      <p><mark style="background-color: yellow; color: black;">HTTP URL to send the request to.</mark></p>
                     </dd>
                   </dl>
 
@@ -3401,9 +3406,9 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                         href="#requests.adapters.HTTPAdapter.request_url" title="Permalink to this definition">¶</a>
                     </dt>
                     <dd>
-                      <p>Obtain the url to use when making the final request.</p>
+                      <p><mark style="background-color: yellow; color: black;">Obtain the url to use when making the final request.</mark></p>
                       <p>If the message is being sent through a HTTP proxy, the full URL has to
-                        be used. Otherwise, we should only use the path portion of the URL.</p>
+                        be used.<mark style="background-color: yellow; color: black;"> Otherwise, we should only use the path portion of the URL.</mark></p>
                       <p>This should not be called from user code, and is only exposed for use
                         when subclassing the
                         <a class="reference internal" href="#requests.adapters.HTTPAdapter"
@@ -4373,11 +4378,13 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                 </li>
                 <li>
                   <p>205: <code class="docutils literal notranslate"><span class="pre">reset_content</span></code>,
-                    <code class="docutils literal notranslate"><span class="pre">reset</span></code></p>
+                    <code class="docutils literal notranslate"><span class="pre">reset</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>206: <code class="docutils literal notranslate"><span class="pre">partial_content</span></code>,
-                    <code class="docutils literal notranslate"><span class="pre">partial</span></code></p>
+                    <code class="docutils literal notranslate"><span class="pre">partial</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>207: <code class="docutils literal notranslate"><span class="pre">multi_status</span></code>, <code
@@ -4399,7 +4406,8 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                 <li>
                   <p>301: <code class="docutils literal notranslate"><span class="pre">moved_permanently</span></code>,
                     <code class="docutils literal notranslate"><span class="pre">moved</span></code>, <code
-                      class="docutils literal notranslate"><span class="pre">\o-</span></code></p>
+                      class="docutils literal notranslate"><span class="pre">\o-</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>302: <code class="docutils literal notranslate"><span class="pre">found</span></code></p>
@@ -4420,12 +4428,14 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                 <li>
                   <p>307: <code class="docutils literal notranslate"><span class="pre">temporary_redirect</span></code>,
                     <code class="docutils literal notranslate"><span class="pre">temporary_moved</span></code>, <code
-                      class="docutils literal notranslate"><span class="pre">temporary</span></code></p>
+                      class="docutils literal notranslate"><span class="pre">temporary</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>308: <code class="docutils literal notranslate"><span class="pre">permanent_redirect</span></code>,
                     <code class="docutils literal notranslate"><span class="pre">resume_incomplete</span></code>, <code
-                      class="docutils literal notranslate"><span class="pre">resume</span></code></p>
+                      class="docutils literal notranslate"><span class="pre">resume</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>400: <code class="docutils literal notranslate"><span class="pre">bad_request</span></code>, <code
@@ -4436,7 +4446,8 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                 </li>
                 <li>
                   <p>402: <code class="docutils literal notranslate"><span class="pre">payment_required</span></code>,
-                    <code class="docutils literal notranslate"><span class="pre">payment</span></code></p>
+                    <code class="docutils literal notranslate"><span class="pre">payment</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>403: <code class="docutils literal notranslate"><span class="pre">forbidden</span></code></p>
@@ -4447,7 +4458,8 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                 </li>
                 <li>
                   <p>405: <code class="docutils literal notranslate"><span class="pre">method_not_allowed</span></code>,
-                    <code class="docutils literal notranslate"><span class="pre">not_allowed</span></code></p>
+                    <code class="docutils literal notranslate"><span class="pre">not_allowed</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>406: <code class="docutils literal notranslate"><span class="pre">not_acceptable</span></code></p>
@@ -4456,11 +4468,13 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                   <p>407: <code
                       class="docutils literal notranslate"><span class="pre">proxy_authentication_required</span></code>,
                     <code class="docutils literal notranslate"><span class="pre">proxy_auth</span></code>, <code
-                      class="docutils literal notranslate"><span class="pre">proxy_authentication</span></code></p>
+                      class="docutils literal notranslate"><span class="pre">proxy_authentication</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>408: <code class="docutils literal notranslate"><span class="pre">request_timeout</span></code>,
-                    <code class="docutils literal notranslate"><span class="pre">timeout</span></code></p>
+                    <code class="docutils literal notranslate"><span class="pre">timeout</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>409: <code class="docutils literal notranslate"><span class="pre">conflict</span></code></p>
@@ -4494,7 +4508,8 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                   <p>416: <code
                       class="docutils literal notranslate"><span class="pre">requested_range_not_satisfiable</span></code>,
                     <code class="docutils literal notranslate"><span class="pre">requested_range</span></code>, <code
-                      class="docutils literal notranslate"><span class="pre">range_not_satisfiable</span></code></p>
+                      class="docutils literal notranslate"><span class="pre">range_not_satisfiable</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>417: <code class="docutils literal notranslate"><span class="pre">expectation_failed</span></code>
@@ -4519,7 +4534,8 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                 </li>
                 <li>
                   <p>424: <code class="docutils literal notranslate"><span class="pre">failed_dependency</span></code>,
-                    <code class="docutils literal notranslate"><span class="pre">dependency</span></code></p>
+                    <code class="docutils literal notranslate"><span class="pre">dependency</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>425: <code
@@ -4528,7 +4544,8 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                 </li>
                 <li>
                   <p>426: <code class="docutils literal notranslate"><span class="pre">upgrade_required</span></code>,
-                    <code class="docutils literal notranslate"><span class="pre">upgrade</span></code></p>
+                    <code class="docutils literal notranslate"><span class="pre">upgrade</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>428: <code
@@ -4537,12 +4554,14 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                 </li>
                 <li>
                   <p>429: <code class="docutils literal notranslate"><span class="pre">too_many_requests</span></code>,
-                    <code class="docutils literal notranslate"><span class="pre">too_many</span></code></p>
+                    <code class="docutils literal notranslate"><span class="pre">too_many</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>431: <code
                       class="docutils literal notranslate"><span class="pre">header_fields_too_large</span></code>,
-                    <code class="docutils literal notranslate"><span class="pre">fields_too_large</span></code></p>
+                    <code class="docutils literal notranslate"><span class="pre">fields_too_large</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>444: <code class="docutils literal notranslate"><span class="pre">no_response</span></code>, <code
@@ -4555,12 +4574,14 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                 <li>
                   <p>450: <code
                       class="docutils literal notranslate"><span class="pre">blocked_by_windows_parental_controls</span></code>,
-                    <code class="docutils literal notranslate"><span class="pre">parental_controls</span></code></p>
+                    <code class="docutils literal notranslate"><span class="pre">parental_controls</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>451: <code
                       class="docutils literal notranslate"><span class="pre">unavailable_for_legal_reasons</span></code>,
-                    <code class="docutils literal notranslate"><span class="pre">legal_reasons</span></code></p>
+                    <code class="docutils literal notranslate"><span class="pre">legal_reasons</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>499: <code
@@ -4590,7 +4611,8 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                 <li>
                   <p>505: <code
                       class="docutils literal notranslate"><span class="pre">http_version_not_supported</span></code>,
-                    <code class="docutils literal notranslate"><span class="pre">http_version</span></code></p>
+                    <code class="docutils literal notranslate"><span class="pre">http_version</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>506: <code
@@ -4603,7 +4625,8 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                 <li>
                   <p>509: <code
                       class="docutils literal notranslate"><span class="pre">bandwidth_limit_exceeded</span></code>,
-                    <code class="docutils literal notranslate"><span class="pre">bandwidth</span></code></p>
+                    <code class="docutils literal notranslate"><span class="pre">bandwidth</span></code>
+                  </p>
                 </li>
                 <li>
                   <p>510: <code class="docutils literal notranslate"><span class="pre">not_extended</span></code></p>
@@ -4612,7 +4635,8 @@ The READTHEDOCS_DATA global variable will be removed in the future.
                   <p>511: <code
                       class="docutils literal notranslate"><span class="pre">network_authentication_required</span></code>,
                     <code class="docutils literal notranslate"><span class="pre">network_auth</span></code>, <code
-                      class="docutils literal notranslate"><span class="pre">network_authentication</span></code></p>
+                      class="docutils literal notranslate"><span class="pre">network_authentication</span></code>
+                  </p>
                 </li>
               </ul>
             </section>
@@ -4815,7 +4839,7 @@ The READTHEDOCS_DATA global variable will be removed in the future.
       </div>
     </div>
     <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-      
+
     </div>
     <div class="clearer"></div>
   </div>

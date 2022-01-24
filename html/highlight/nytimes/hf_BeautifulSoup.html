@@ -238,8 +238,8 @@ with one of these commands:</p>
 <td><p>Advantages</p></td>
 <td><p>Disadvantages</p></td>
 </tr>
-<tr class="row-even"><td><p>Python’s html.parser</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">BeautifulSoup(markup,</span> <span class="pre">"html.parser")</span></code></p></td>
+<tr class="row-even"><td><p><mark style="background-color: yellow; color: black;">Python’s html.parser</mark></p></td>
+<td><p><mark style="background-color: yellow; color: black;"></mark><code class="docutils literal notranslate"><span class="pre">BeautifulSoup(markup,</span> <span class="pre">"html.parser")</span></code></mark></p></td>
 <td><ul class="simple">
 <li><p>Batteries included</p></li>
 <li><p>Decent speed</p></li>
@@ -331,9 +331,9 @@ use an XML parser. (See <a class="reference internal" href="#id17">Parsing XML</
 <div class="section" id="kinds-of-objects">
 <h1>Kinds of objects<a class="headerlink" href="#kinds-of-objects" title="Permalink to this headline">¶</a></h1>
 <p>Beautiful Soup transforms a complex HTML document into a complex tree
-of Python objects. But you’ll only ever have to deal with about four
+of Python objects. <mark style="background-color: yellow; color: black;">But you’ll only ever have to deal with about four
 <cite>kinds</cite> of objects: <code class="docutils literal notranslate"><span class="pre">Tag</span></code>, <code class="docutils literal notranslate"><span class="pre">NavigableString</span></code>, <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">Comment</span></code>.</p>
+and <code class="docutils literal notranslate"><span class="pre">Comment</span></code>.</mark></p>
 <div class="section" id="tag">
 <span id="id5"></span><h2><code class="docutils literal notranslate"><span class="pre">Tag</span></code><a class="headerlink" href="#tag" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">Tag</span></code> object corresponds to an XML or HTML tag in the original document:</p>
@@ -1424,10 +1424,10 @@ method like <code class="docutils literal notranslate"><span class="pre">find_pa
 <div class="section" id="calling-a-tag-is-like-calling-find-all">
 <h2>Calling a tag is like calling <code class="docutils literal notranslate"><span class="pre">find_all()</span></code><a class="headerlink" href="#calling-a-tag-is-like-calling-find-all" title="Permalink to this headline">¶</a></h2>
 <p>Because <code class="docutils literal notranslate"><span class="pre">find_all()</span></code> is the most popular method in the Beautiful
-Soup search API, you can use a shortcut for it. If you treat the
+Soup search API, you can use a shortcut for it. <mark style="background-color: yellow; color: black;">If you treat the
 <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> object or a <code class="docutils literal notranslate"><span class="pre">Tag</span></code> object as though it were a
 function, then it’s the same as calling <code class="docutils literal notranslate"><span class="pre">find_all()</span></code> on that
-object. These two lines of code are equivalent:</p>
+object.</mark> These two lines of code are equivalent:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span>
 <span class="n">soup</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span>
 </pre></div>
@@ -1862,8 +1862,8 @@ constructor:</p>
 </pre></div>
 </div>
 <p><cite>(This is a new feature in Beautiful Soup 4.4.0.)</cite></p>
-<p>What if you need to create a whole new tag?  The best solution is to
-call the factory method <code class="docutils literal notranslate"><span class="pre">BeautifulSoup.new_tag()</span></code>:</p>
+<p>What if you need to create a whole new tag?  <mark style="background-color: yellow; color: black;">The best solution is to
+call the factory method <code class="docutils literal notranslate"><span class="pre">BeautifulSoup.new_tag()</span></code>:</mark></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="s2">"&lt;b&gt;&lt;/b&gt;"</span><span class="p">,</span> <span class="s1">'html.parser'</span><span class="p">)</span>
 <span class="n">original_tag</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">b</span>
 
@@ -2341,11 +2341,11 @@ this is when you’re iterating over a mixed list.</em></p>
 </div>
 <div class="section" id="specifying-the-parser-to-use">
 <h1>Specifying the parser to use<a class="headerlink" href="#specifying-the-parser-to-use" title="Permalink to this headline">¶</a></h1>
-<p>If you just need to parse some HTML, you can dump the markup into the
+<p><mark style="background-color: yellow; color: black;">If you just need to parse some HTML, you can dump the markup into the
 <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> constructor, and it’ll probably be fine. Beautiful
 Soup will pick a parser for you and parse the data. But there are a
 few additional arguments you can pass in to the constructor to change
-which parser is used.</p>
+which parser is used.</mark></p>
 <p>The first argument to the <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> constructor is a string or
 an open filehandle–the markup you want parsed. The second argument is
 <cite>how</cite> you’d like the markup parsed.</p>
@@ -2659,9 +2659,9 @@ marks simultaneously:</p>
 <p><code class="docutils literal notranslate"><span class="pre">UnicodeDammit.detwingle()</span></code> only knows how to handle Windows-1252
 embedded in UTF-8 (or vice versa, I suppose), but this is the most
 common case.</p>
-<p>Note that you must know to call <code class="docutils literal notranslate"><span class="pre">UnicodeDammit.detwingle()</span></code> on your
+<p><mark style="background-color: yellow; color: black;">Note that you must know to call <code class="docutils literal notranslate"><span class="pre">UnicodeDammit.detwingle()</span></code> on your
 data before passing it into <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> or the <code class="docutils literal notranslate"><span class="pre">UnicodeDammit</span></code>
-constructor. Beautiful Soup assumes that a document has a single
+constructor.</mark> Beautiful Soup assumes that a document has a single
 encoding, whatever it might be. If you pass it a document that
 contains both UTF-8 and Windows-1252, it’s likely to think the whole
 document is Windows-1252, and the document will come out looking like
@@ -3162,9 +3162,9 @@ package name from <code class="docutils literal notranslate"><span class="pre">B
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>If you get the <code class="docutils literal notranslate"><span class="pre">ImportError</span></code> “No module named BeautifulSoup”, your
+<li><p><mark style="background-color: yellow; color: black;">If you get the <code class="docutils literal notranslate"><span class="pre">ImportError</span></code> “No module named BeautifulSoup”, your
 problem is that you’re trying to run Beautiful Soup 3 code, but you
-only have Beautiful Soup 4 installed.</p></li>
+only have Beautiful Soup 4 installed.</mark></p></li>
 <li><p>If you get the <code class="docutils literal notranslate"><span class="pre">ImportError</span></code> “No module named bs4”, your problem
 is that you’re trying to run Beautiful Soup 4 code, but you only
 have Beautiful Soup 3 installed.</p></li>
