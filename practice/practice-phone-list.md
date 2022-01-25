@@ -69,9 +69,9 @@ ___
 Please **use only** the following resources to find information that might assist you complete this task:
 
 
-* [dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
-* [merge dictionaries](https://stackoverflow.com/questions/38987/how-do-i-merge-two-dictionaries-in-a-single-expression-take-union-of-dictionari)
-* [yet another merge dictionaries](https://stackoverflow.com/questions/65539313/combine-two-dictionaries-with-preference-to-one-of-them)
+* [dictionaries](https://docs.python.org/3/tutorial/datastructures.html#dictionaries){target="_blank"}
+* [merge dictionaries](https://stackoverflow.com/questions/38987/how-do-i-merge-two-dictionaries-in-a-single-expression-take-union-of-dictionari){target="_blank"}
+* [yet another merge dictionaries](https://stackoverflow.com/questions/65539313/combine-two-dictionaries-with-preference-to-one-of-them){target="_blank"}
 
 
 <br>
@@ -108,7 +108,7 @@ Start by saving a copy of the colab to your local drive:
 
 ## Practice 
 
-Head to [pratice-colab](https://colab.research.google.com/drive/18XUYSK1lUynsK1Mn9nj7foxDzw7MKSSO?usp=sharing) and try the phone list task yourself. Use the three resources provided under [Resources](#Resources)
+Head to [pratice-colab](https://colab.research.google.com/drive/18XUYSK1lUynsK1Mn9nj7foxDzw7MKSSO?usp=sharing){target="_blank"} and try the phone list task yourself. Use the three resources provided under [Resources](#Resources)
 
 
 **IMPORTANT:** We are not measuring the quality of your code, just if your solution passes the test cases for each task.
@@ -153,7 +153,7 @@ ___
 ## See the solution for the practice
 
 
-Check the [solution for the practice-task](https://colab.research.google.com/drive/1opTGbTV0NqEA9g-uRISYPQ-yyI6QeeLO?usp=sharing). 
+Check the [solution for the practice-task](https://colab.research.google.com/drive/1opTGbTV0NqEA9g-uRISYPQ-yyI6QeeLO?usp=sharing){target="_blank"}. 
 
 You should submit the code in the Solution block on Qualtrics. For example, for the practice task, you should copy the snippet:
 
