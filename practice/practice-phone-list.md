@@ -155,10 +155,10 @@ ___
 
 Check the [solution for the practice-task](https://colab.research.google.com/drive/1opTGbTV0NqEA9g-uRISYPQ-yyI6QeeLO?usp=sharing). 
 
-You should submit the code in with the Solution on Qualtrics. For example, for the practice task, you should copy the snippet below
+You should submit the code in the Solution block on Qualtrics. For example, for the practice task, you should copy the snippet:
 
 <details>
-    <summary>solution</summary>
+    <summary>CLICK to see solution code snippet</summary>
     class Solution(object):
 
         def merge_dict(self, d1: dict, d2: dict, d3: dict) -> dict:
