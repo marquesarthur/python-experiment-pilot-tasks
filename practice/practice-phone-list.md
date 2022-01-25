@@ -1,3 +1,19 @@
+# Instructions
+
+
+below, you will find an example for a task. each task has a
+
+
+* `task` field, which provides a short description about what you need to do;
+* `examples` showing the input format for each task, expected output for that same input, and potential explanations as of why that is the expected output;
+* `resources` a list of links. Please **USE ONLY** the links provided under resources to search for information that might assist you complete your task;
+* `codelab` a link to a virtual environment where you can write your solution. 
+
+Once you finish a task, copy the code in the solution cell from your virtual environment and submit it on Qualtrics.
+
+
+
+
 # Practice
 
 
@@ -129,3 +145,18 @@ Head to [pratice-colab](https://colab.research.google.com/drive/18XUYSK1lUynsK1M
 
 Check the [solution for the practice-task](https://colab.research.google.com/drive/1opTGbTV0NqEA9g-uRISYPQ-yyI6QeeLO?usp=sharing). 
 
+You should submit the code in with the Solution on Qualtrics. For example, for the practice task, you should copy the snippet below
+
+<details>
+    <summary>solution</summary>
+    class Solution(object):
+
+        def merge_dict(self, d1: dict, d2: dict, d3: dict) -> dict:
+            
+            result = dict()
+            for current in [d1, d2, d3]:
+            result.update(current)
+            print(result) # just for debugging
+
+            return result
+</details>     
