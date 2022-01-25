@@ -14,7 +14,7 @@ Once you finish a task, copy the code in the solution cell from your virtual env
 
 
 
-# Practice
+# Task Title
 
 
 You got hold of a list of contact addresses from different sources. Ideally, you should merge these contacts so it's easy to import them in your phone. 
@@ -113,15 +113,21 @@ Head to [pratice-colab](https://colab.research.google.com/drive/18XUYSK1lUynsK1M
 
 **IMPORTANT:** We are not measuring the quality of your code, just if your solution passes the test cases for each task.
 
+<br>
+
+___
+
+<br>
+
 ## How do I test my solution?
 
 <br>
 
 **Running the code**
 
-1. Each solution has a section labeled: `Use the code below to test your solution.`
+1. Each solution has a section labeled: `"Use the code below to test your solution."`
 
-    * it serves as a `main` function that runs your code with the given arguments
+    * it serves as a `"main"` function that runs your code with the given arguments
 
 
 2. Add print statements as you seem fit and run the code in this cell to see your progress
@@ -131,12 +137,16 @@ Head to [pratice-colab](https://colab.research.google.com/drive/18XUYSK1lUynsK1M
 **Running test cases**
 
 
-1. Each solution has a section labeled: `Use the code below to test your solution.`
+1. Each solution has a section labeled: `"Use the code below to test your solution."`
 
-    * it serves as `unit tests`  that verify your code against the provided examples
+    * it serves as `"unit tests"`  that verify your code against the provided examples
 
 
 2. Add print statements as you seem fit and run the code in both cells on this section to see your progress
+
+<br>
+
+___
 
 <br>
 
