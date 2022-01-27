@@ -73,8 +73,10 @@ Please **use only** the following resources to find information that might assis
 * <a href="https://stackoverflow.com/questions/38987/how-do-i-merge-two-dictionaries-in-a-single-expression-take-union-of-dictionari" target="_blank">merge dictionaries</a>
 * <a href="https://stackoverflow.com/questions/65539313/combine-two-dictionaries-with-preference-to-one-of-them" target="_blank">yet another merge dictionaries</a>
 
-
 <br>
+
+**tip:** `ctrl + left mouse click` opens each link in a new tab
+
 <br>
 
 

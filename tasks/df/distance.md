@@ -100,6 +100,14 @@ Please **use only** the following resources to find information that might assis
 * [Geocoding in Python Using Geopy](https://www.cs.ubc.ca/~msarthur/df_geocoding-in-python-using-geopy.html)
 * [Python Geopy to find geocode of an Address](https://www.cs.ubc.ca/~msarthur/df_python-geopy-to-find-geocode-of-an-address.html)
 
+<br>
+
+**tip:** `ctrl + left mouse click` opens each link in a new tab
+
+<br>
+
+___
+
 
 ## Colab
 

@@ -98,6 +98,13 @@ Please **use only** the following resources to find information that might assis
 * [Difference between "as_index = False", and "reset_index()" in pandas groupby](https://www.cs.ubc.ca/~msarthur/hf_difference-between-as-index-false-and-reset-index-in-pandas-groupby.html)
 * [Pandas read_csv from url](https://www.cs.ubc.ca/~msarthur/hf_pandas-read-csv-from-url.html)
 
+<br>
+
+**tip:** `ctrl + left mouse click` opens each link in a new tab
+
+<br>
+
+___
 
 
 ## Colab

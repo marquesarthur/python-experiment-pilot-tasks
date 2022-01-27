@@ -96,6 +96,13 @@ Please **use only** the following resources to find information that might assis
 * [Beautiful Soup: Build a Web Scraper With Python](https://www.cs.ubc.ca/~msarthur/hf_beautiful-soup-web-scraper-python.html)
 * [Web Scraping with BeautifulSoup](https://www.cs.ubc.ca/~msarthur/hf_python-web-scraping-beautiful-soup.html)
 
+<br>
+
+**tip:** `ctrl + left mouse click` opens each link in a new tab
+
+<br>
+
+___
 
 ## Colab
 
