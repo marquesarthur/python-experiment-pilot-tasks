@@ -29,7 +29,7 @@ ___
 Given a `dict1`, `dict2` and `dict3` representing three contact books
 
 
-you must write an algorithm using the dict module to merge all contact books in a single dictionary
+you must write an algorithm using the dict module to merge them removing duplicates
 
 
 **Constraints**
@@ -46,7 +46,7 @@ you must write an algorithm using the dict module to merge all contact books in 
 ```python
 dic1={1:10, 2:20}
 dic2={3:30, 4:40}
-dic3={5:50,6:60}
+dic3={5:50, 6:60}
 ```
 
 **Output:**
