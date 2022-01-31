@@ -7,14 +7,15 @@ below, you will find an example for a task. each task has a
 * `task` field, which provides a short description about what you need to do;
 * `examples` showing the input format for each task, expected output for that same input, and potential explanations as of why that is the expected output;
 * `resources` a list of links. Please **USE ONLY** the links provided under resources to search for information that might assist you complete your task;
-* `codelab` a link to a virtual environment where you can write your solution. 
+* `colab` a link to a virtual environment where you can write your solution. 
 
 Once you finish a task, copy the code in the solution cell from your virtual environment and submit it on Qualtrics.
 
+<br>
+<br>
 
 
-
-# Task Title
+# Task header & blurb
 
 
 You got hold of a list of contact addresses from different sources. Ideally, you should merge these contacts so it's easy to import them in your phone. 
@@ -59,8 +60,6 @@ expected = {1: 10, 2: 20, 3: 30, 4: 40, 5: 50, 6: 60}
 The final output has the results from all dictionaries together. 
 
 
-
-
 ___
 
 
@@ -82,6 +81,17 @@ Please **use only** the following resources to find information that might assis
 
 # Colab
 
+Head to <a href="https://colab.research.google.com/drive/18XUYSK1lUynsK1Mn9nj7foxDzw7MKSSO?usp=sharing" target="_blank">pratice-colab</a> and try the phone list task yourself. 
+
+
+**IMPORTANT:** We are not measuring the quality of your code, just if your solution passes the test cases of each task.
+
+<br>
+
+
+___
+
+## Usage Instructions 
 
 Each task has a link to an online environment where you can do the task:
 
@@ -108,14 +118,8 @@ Start by saving a copy of the colab to your local drive:
     * `ctrl + enter` or `cmd + enter` also runs the content of a cell
 
 
-## Practice 
-
-Head to <a href="https://colab.research.google.com/drive/18XUYSK1lUynsK1Mn9nj7foxDzw7MKSSO?usp=sharing" target="_blank">pratice-colab</a> and try the phone list task yourself. Use the three resources provided under [Resources](#Resources)
 
 
-**IMPORTANT:** We are not measuring the quality of your code, just if your solution passes the test cases for each task.
-
-<br>
 
 ___
 
@@ -160,15 +164,15 @@ Check the <a href="https://colab.research.google.com/drive/1opTGbTV0NqEA9g-uRISY
 You should submit the code in the Solution block on Qualtrics. For example, for the practice task, you should copy the snippet:
 
 <details>
-    <summary>CLICK to see solution code snippet</summary>
+    <summary>CLICK TO SEE THE SOLUTION</summary>
     class Solution(object):
 
         def merge_dict(self, d1: dict, d2: dict, d3: dict) -> dict:
             
             result = dict()
             for current in [d1, d2, d3]:
-            result.update(current)
-            print(result) # just for debugging
+                result.update(current)
+                print(result) # just for debugging
 
             return result
 </details>     
